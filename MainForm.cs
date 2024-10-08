@@ -22,5 +22,17 @@ namespace HRD
             ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
             showAllEmployeeForm.Show();
         }
+
+        private void PostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllPostForm showAllPostForm = new ShowAllPostForm();
+            showAllPostForm.Show();
+        }
+
+        private void QualificationКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllQualificationForm showAllQualificationForm = new ShowAllQualificationForm();
+            showAllQualificationForm.Show();
+        }
     }
 }

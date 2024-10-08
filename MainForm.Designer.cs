@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QualificationКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,22 +39,22 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникиToolStripMenuItem});
+            this.GuideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // справочникиToolStripMenuItem
+            // GuideToolStripMenuItem
             // 
-            this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GuideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EmployeeToolStripMenuItem,
             this.PostToolStripMenuItem,
             this.QualificationКвалификацииToolStripMenuItem});
-            this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
-            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.справочникиToolStripMenuItem.Text = "Справочники";
+            this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
+            this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.GuideToolStripMenuItem.Text = "Справочники";
             // 
             // EmployeeToolStripMenuItem
             // 
@@ -68,12 +68,14 @@
             this.PostToolStripMenuItem.Name = "PostToolStripMenuItem";
             this.PostToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.PostToolStripMenuItem.Text = "Должности";
+            this.PostToolStripMenuItem.Click += new System.EventHandler(this.PostToolStripMenuItem_Click);
             // 
             // QualificationКвалификацииToolStripMenuItem
             // 
             this.QualificationКвалификацииToolStripMenuItem.Name = "QualificationКвалификацииToolStripMenuItem";
             this.QualificationКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.QualificationКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
+            this.QualificationКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.QualificationКвалификацииToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -94,7 +96,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QualificationКвалификацииToolStripMenuItem;

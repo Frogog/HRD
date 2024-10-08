@@ -16,7 +16,7 @@ namespace HRD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShowAllEmployeeForm());
+            Application.Run(new MainForm());
         }
     }
 }
