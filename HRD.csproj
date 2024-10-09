@@ -72,11 +72,23 @@
     <Compile Include="ShowAllPostForm.Designer.cs">
       <DependentUpon>ShowAllPostForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowAllProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowAllProjectForm.Designer.cs">
+      <DependentUpon>ShowAllProjectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowAllQualificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowAllQualificationForm.Designer.cs">
       <DependentUpon>ShowAllQualificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAllSkillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowAllSkillForm.Designer.cs">
+      <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
@@ -99,8 +111,14 @@
     <EmbeddedResource Include="ShowAllPostForm.resx">
       <DependentUpon>ShowAllPostForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowAllProjectForm.resx">
+      <DependentUpon>ShowAllProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowAllQualificationForm.resx">
       <DependentUpon>ShowAllQualificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowAllSkillForm.resx">
+      <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

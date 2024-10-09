@@ -33,6 +33,8 @@
             this.EmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QualificationКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SkillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,9 @@
             this.GuideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EmployeeToolStripMenuItem,
             this.PostToolStripMenuItem,
-            this.QualificationКвалификацииToolStripMenuItem});
+            this.QualificationКвалификацииToolStripMenuItem,
+            this.ProjectToolStripMenuItem,
+            this.SkillToolStripMenuItem});
             this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
             this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.GuideToolStripMenuItem.Text = "Справочники";
@@ -77,6 +81,20 @@
             this.QualificationКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
             this.QualificationКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.QualificationКвалификацииToolStripMenuItem_Click);
             // 
+            // ProjectToolStripMenuItem
+            // 
+            this.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem";
+            this.ProjectToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.ProjectToolStripMenuItem.Text = "Проекты";
+            this.ProjectToolStripMenuItem.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
+            // 
+            // SkillToolStripMenuItem
+            // 
+            this.SkillToolStripMenuItem.Name = "SkillToolStripMenuItem";
+            this.SkillToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.SkillToolStripMenuItem.Text = "Навыки";
+            this.SkillToolStripMenuItem.Click += new System.EventHandler(this.SkillToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,7 +103,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Главная форма";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -100,5 +118,7 @@
         private System.Windows.Forms.ToolStripMenuItem EmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QualificationКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SkillToolStripMenuItem;
     }
 }

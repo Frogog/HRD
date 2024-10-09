@@ -34,5 +34,17 @@ namespace HRD
             ShowAllQualificationForm showAllQualificationForm = new ShowAllQualificationForm();
             showAllQualificationForm.Show();
         }
+
+        private void ProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllProjectForm showAllProjectForm = new ShowAllProjectForm();
+            showAllProjectForm.Show();
+        }
+
+        private void SkillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllSkillForm showAllSkillForm = new ShowAllSkillForm();
+            showAllSkillForm.Show();
+        }
     }
 }
