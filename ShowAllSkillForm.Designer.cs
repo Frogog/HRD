@@ -47,7 +47,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(110, 57);
+            this.confirmB.Location = new System.Drawing.Point(257, 60);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 34;
@@ -57,7 +57,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(216, 57);
+            this.canselB.Location = new System.Drawing.Point(363, 60);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 33;
@@ -73,7 +73,7 @@
             this.showPanel.Location = new System.Drawing.Point(11, 11);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
-            this.showPanel.Size = new System.Drawing.Size(311, 406);
+            this.showPanel.Size = new System.Drawing.Size(460, 406);
             this.showPanel.TabIndex = 28;
             // 
             // dataGridView1
@@ -89,7 +89,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(307, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(456, 387);
             this.dataGridView1.TabIndex = 0;
             // 
             // mainLable
@@ -109,14 +109,14 @@
             this.panelAdd.Location = new System.Drawing.Point(11, 11);
             this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(311, 43);
+            this.panelAdd.Size = new System.Drawing.Size(460, 43);
             this.panelAdd.TabIndex = 29;
             this.panelAdd.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 1);
+            this.label13.Location = new System.Drawing.Point(4, 4);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 13);
@@ -125,15 +125,15 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 17);
+            this.textBox10.Location = new System.Drawing.Point(7, 20);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(298, 20);
+            this.textBox10.Size = new System.Drawing.Size(445, 20);
             this.textBox10.TabIndex = 16;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(327, 115);
+            this.deleteB.Location = new System.Drawing.Point(476, 118);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 32;
@@ -143,7 +143,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(327, 57);
+            this.changeB.Location = new System.Drawing.Point(476, 60);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 31;
@@ -152,7 +152,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(327, 28);
+            this.addB.Location = new System.Drawing.Point(476, 31);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 30;
@@ -170,10 +170,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 430);
+            this.ClientSize = new System.Drawing.Size(583, 430);
             this.Controls.Add(this.confirmB);
-            this.Controls.Add(this.showPanel);
             this.Controls.Add(this.canselB);
+            this.Controls.Add(this.showPanel);
             this.Controls.Add(this.panelAdd);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.changeB);

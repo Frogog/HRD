@@ -38,12 +38,5 @@ namespace HRD
             confirmB.Visible = false;
             canselB.Visible = false;
         }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-            }
-        }
     }
 }

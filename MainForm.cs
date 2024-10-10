@@ -17,28 +17,34 @@ namespace HRD
             InitializeComponent();
         }
 
-        private void EmployeeToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllEmployeeForm>();
-
-        private void PostToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllPostForm>();
-
-        private void QualificationКвалификацииToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllQualificationForm>();
-
-        private void ProjectToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllProjectForm>();
-
-        private void SkillToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllSkillForm>();
-
-        private void button1_Click(object sender, EventArgs e)
+        private void EmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
-            MessageBox.Show(Application.OpenForms.Count.ToString());
+            ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
+            showAllEmployeeForm.Show();
         }
 
-        private void openFormMenu<T>() where T:Form, new() {
-            if (Application.OpenForms.OfType<T>().FirstOrDefault() == null)
-            {
-                T form = new T();
-                form.Show();
-            }
+        private void PostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllPostForm showAllPostForm = new ShowAllPostForm();
+            showAllPostForm.Show();
+        }
+
+        private void QualificationКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllQualificationForm showAllQualificationForm = new ShowAllQualificationForm();
+            showAllQualificationForm.Show();
+        }
+
+        private void ProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllProjectForm showAllProjectForm = new ShowAllProjectForm();
+            showAllProjectForm.Show();
+        }
+
+        private void SkillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllSkillForm showAllSkillForm = new ShowAllSkillForm();
+            showAllSkillForm.Show();
         }
     }
 }
