@@ -87,12 +87,21 @@
             this.deleteB = new System.Windows.Forms.Button();
             this.canselB = new System.Windows.Forms.Button();
             this.confirmB = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.deleteSkillB = new System.Windows.Forms.Button();
+            this.addSkillB = new System.Windows.Forms.Button();
+            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkPostB = new System.Windows.Forms.Button();
+            this.checkQualificationB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
             this.panelAdd.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -291,12 +300,18 @@
             this.panelAdd.Location = new System.Drawing.Point(11, 11);
             this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(718, 413);
+            this.panelAdd.Size = new System.Drawing.Size(718, 576);
             this.panelAdd.TabIndex = 14;
             this.panelAdd.Visible = false;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.checkQualificationB);
+            this.groupBox4.Controls.Add(this.checkPostB);
+            this.groupBox4.Controls.Add(this.deleteSkillB);
+            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.addSkillB);
+            this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.label1);
@@ -305,18 +320,18 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(712, 77);
+            this.groupBox4.Size = new System.Drawing.Size(712, 241);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Должностные обязанности";
+            this.groupBox4.Text = "Положение в компании";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(458, 37);
+            this.comboBox1.Location = new System.Drawing.Point(423, 37);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(239, 21);
+            this.comboBox1.Size = new System.Drawing.Size(251, 21);
             this.comboBox1.TabIndex = 13;
             // 
             // comboBox2
@@ -325,13 +340,13 @@
             this.comboBox2.Location = new System.Drawing.Point(9, 37);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(445, 21);
+            this.comboBox2.Size = new System.Drawing.Size(379, 21);
             this.comboBox2.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(455, 22);
+            this.label1.Location = new System.Drawing.Point(420, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
@@ -431,7 +446,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(588, 92);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(96, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(90, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // label13
@@ -569,7 +584,7 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.textBox3);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(2, 329);
+            this.groupBox5.Location = new System.Drawing.Point(2, 493);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -662,7 +677,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(629, 429);
+            this.canselB.Location = new System.Drawing.Point(625, 592);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 19;
@@ -673,7 +688,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(523, 429);
+            this.confirmB.Location = new System.Drawing.Point(519, 592);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 20;
@@ -681,11 +696,84 @@
             this.confirmB.UseVisualStyleBackColor = true;
             this.confirmB.Visible = false;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 75);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 13);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Навыки";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SkillName,
+            this.SkillLevel});
+            this.dataGridView2.Location = new System.Drawing.Point(9, 91);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(566, 145);
+            this.dataGridView2.TabIndex = 16;
+            // 
+            // deleteSkillB
+            // 
+            this.deleteSkillB.Location = new System.Drawing.Point(581, 120);
+            this.deleteSkillB.Name = "deleteSkillB";
+            this.deleteSkillB.Size = new System.Drawing.Size(100, 23);
+            this.deleteSkillB.TabIndex = 22;
+            this.deleteSkillB.Text = "-";
+            this.deleteSkillB.UseVisualStyleBackColor = true;
+            // 
+            // addSkillB
+            // 
+            this.addSkillB.Location = new System.Drawing.Point(581, 91);
+            this.addSkillB.Name = "addSkillB";
+            this.addSkillB.Size = new System.Drawing.Size(100, 23);
+            this.addSkillB.TabIndex = 21;
+            this.addSkillB.Text = "+";
+            this.addSkillB.UseVisualStyleBackColor = true;
+            this.addSkillB.Click += new System.EventHandler(this.addSkillB_Click);
+            // 
+            // SkillName
+            // 
+            this.SkillName.HeaderText = "Наименование";
+            this.SkillName.Name = "SkillName";
+            this.SkillName.Width = 320;
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.HeaderText = "Уровень владения";
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.Width = 200;
+            // 
+            // checkPostB
+            // 
+            this.checkPostB.Location = new System.Drawing.Point(393, 35);
+            this.checkPostB.Name = "checkPostB";
+            this.checkPostB.Size = new System.Drawing.Size(25, 23);
+            this.checkPostB.TabIndex = 23;
+            this.checkPostB.Text = "...";
+            this.checkPostB.UseVisualStyleBackColor = true;
+            this.checkPostB.Click += new System.EventHandler(this.checkPostB_Click);
+            // 
+            // checkQualificationB
+            // 
+            this.checkQualificationB.Location = new System.Drawing.Point(679, 35);
+            this.checkQualificationB.Name = "checkQualificationB";
+            this.checkQualificationB.Size = new System.Drawing.Size(25, 23);
+            this.checkQualificationB.TabIndex = 24;
+            this.checkQualificationB.Text = "...";
+            this.checkQualificationB.UseVisualStyleBackColor = true;
+            this.checkQualificationB.Click += new System.EventHandler(this.checkQualificationB_Click);
+            // 
             // ShowAllEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 459);
+            this.ClientSize = new System.Drawing.Size(845, 627);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.panelAdd);
@@ -708,6 +796,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -773,6 +862,14 @@
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button canselB;
         private System.Windows.Forms.Button confirmB;
+        private System.Windows.Forms.Button deleteSkillB;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillLevel;
+        private System.Windows.Forms.Button addSkillB;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button checkPostB;
+        private System.Windows.Forms.Button checkQualificationB;
     }
 }
 
