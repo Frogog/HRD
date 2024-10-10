@@ -54,5 +54,32 @@ namespace HRD
             confirmB.Visible = false;
             canselB.Visible = false;
         }
+
+        private void addSkillB_Click(object sender, EventArgs e)
+        {
+            AddSkillForm addSkillForm = new AddSkillForm();
+            addSkillForm.ShowDialog();
+        }
+
+        private void checkPostB_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllPostForm>().FirstOrDefault() == null)
+            {
+                ShowAllPostForm showAllPostForm = new ShowAllPostForm();
+                showAllPostForm.Tag = "checkPost";
+                showAllPostForm.ShowDialog();
+            }
+        }
+
+        private void checkQualificationB_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllQualificationForm>().FirstOrDefault() == null)
+            {
+                ShowAllQualificationForm showAllQualificationForm = new ShowAllQualificationForm();
+                showAllQualificationForm.Tag = "checkPostQualification";
+                showAllQualificationForm.ShowDialog();
+            }
+           
+        }
     }
 }

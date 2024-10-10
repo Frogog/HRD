@@ -38,5 +38,11 @@ namespace HRD
             confirmB.Visible = false;
             canselB.Visible = false;
         }
+
+        private void addTeamB_Click(object sender, EventArgs e)
+        {
+            AddTeamForm addTeamForm = new AddTeamForm();
+            addTeamForm.ShowDialog();
+        }
     }
 }
