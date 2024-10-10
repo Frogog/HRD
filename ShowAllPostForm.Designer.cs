@@ -68,7 +68,7 @@
             this.PostToolStripMenuItem,
             this.QualificationКвалификацииToolStripMenuItem});
             this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
-            this.GuideToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.GuideToolStripMenuItem.Text = "Справочники";
             // 
             // EmployeeToolStripMenuItem
@@ -192,6 +192,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(456, 387);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Post
             // 
@@ -213,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 490);
+            this.ClientSize = new System.Drawing.Size(585, 440);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.showPanel);
@@ -223,7 +224,7 @@
             this.Controls.Add(this.addB);
             this.Controls.Add(this.menuStrip1);
             this.Name = "ShowAllPostForm";
-            this.Text = "ShowAllPostForm";
+            this.Text = "Должности";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelAdd.ResumeLayout(false);

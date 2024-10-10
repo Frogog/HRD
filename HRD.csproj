@@ -52,6 +52,18 @@
     <Compile Include="AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSkillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSkillForm.Designer.cs">
+      <DependentUpon>AddSkillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTeamForm.Designer.cs">
+      <DependentUpon>AddTeamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
     </Compile>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSkillForm.resx">
+      <DependentUpon>AddSkillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTeamForm.resx">
+      <DependentUpon>AddTeamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
