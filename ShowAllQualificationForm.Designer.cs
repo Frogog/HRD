@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
@@ -43,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -65,23 +65,9 @@
             this.dataGridView1.Size = new System.Drawing.Size(453, 383);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Post
-            // 
-            this.Post.HeaderText = "Уровень";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 350;
-            // 
-            // koef
-            // 
-            this.koef.HeaderText = "Коэффициент";
-            this.koef.Name = "koef";
-            this.koef.ReadOnly = true;
-            this.koef.Width = 50;
-            // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(478, 112);
+            this.deleteB.Location = new System.Drawing.Point(476, 112);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 33;
@@ -90,7 +76,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(478, 54);
+            this.changeB.Location = new System.Drawing.Point(476, 54);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 32;
@@ -99,7 +85,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(478, 25);
+            this.addB.Location = new System.Drawing.Point(476, 25);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 31;
@@ -110,7 +96,7 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(16, 25);
+            this.showPanel.Location = new System.Drawing.Point(14, 25);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(457, 387);
@@ -119,7 +105,7 @@
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(13, 9);
+            this.mainLable.Location = new System.Drawing.Point(11, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
             this.mainLable.Size = new System.Drawing.Size(188, 13);
@@ -138,7 +124,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(372, 174);
+            this.canselB.Location = new System.Drawing.Point(370, 174);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 34;
@@ -157,7 +143,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(266, 174);
+            this.confirmB.Location = new System.Drawing.Point(264, 174);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 35;
@@ -189,18 +175,34 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(16, 25);
+            this.groupBox1.Location = new System.Drawing.Point(14, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(456, 143);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
+            this.groupBox1.Visible = false;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Наименование";
+            this.Post.MinimumWidth = 6;
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 300;
+            // 
+            // koef
+            // 
+            this.koef.HeaderText = "Коэффициент";
+            this.koef.MinimumWidth = 6;
+            this.koef.Name = "koef";
+            this.koef.ReadOnly = true;
             // 
             // ShowAllQualificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 430);
+            this.ClientSize = new System.Drawing.Size(585, 442);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.deleteB);
@@ -209,9 +211,11 @@
             this.Controls.Add(this.addB);
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.confirmB);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowAllQualificationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Уровни квалификации";
+            this.Load += new System.EventHandler(this.ShowAllQualificationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

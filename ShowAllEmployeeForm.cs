@@ -17,6 +17,12 @@ namespace HRD
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
+            MessageBox.Show(Application.OpenForms.Count.ToString());
+        }
+
         private void addB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = false;
@@ -24,14 +30,8 @@ namespace HRD
             addB.Enabled = false;
             changeB.Enabled = false;
             deleteB.Enabled = false;
-            /*AddEmployeeForm addEmployeeForm = new AddEmployeeForm();
-            addEmployeeForm.ShowDialog();*/
         }
 
-        private void сотрудникToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void addB_Click_1(object sender, EventArgs e)
         {
@@ -57,8 +57,8 @@ namespace HRD
 
         private void addSkillB_Click(object sender, EventArgs e)
         {
-            AddSkillForm addSkillForm = new AddSkillForm();
-            addSkillForm.ShowDialog();
+            ShowAllSkillForm showAllSkillForm = new ShowAllSkillForm();
+            showAllSkillForm.ShowDialog();
         }
 
         private void checkPostB_Click(object sender, EventArgs e)
@@ -80,6 +80,10 @@ namespace HRD
                 showAllQualificationForm.ShowDialog();
             }
            
+        }
+
+        private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

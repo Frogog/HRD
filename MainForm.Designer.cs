@@ -35,9 +35,25 @@
             this.QualificationКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SkillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PasspotSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PassportNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Who = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.When = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telergam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Residence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Registration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Wages = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainLable = new System.Windows.Forms.Label();
             this.panelAdd = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -81,23 +97,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PasspotSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PassportNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Who = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.When = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telergam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Residence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Registration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Wages = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -111,7 +111,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GuideToolStripMenuItem});
+            this.GuideToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1437, 24);
@@ -165,16 +166,6 @@
             this.SkillToolStripMenuItem.Text = "Навыки";
             this.SkillToolStripMenuItem.Click += new System.EventHandler(this.SkillToolStripMenuItem_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(223, -2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Проверка";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
@@ -217,6 +208,141 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1411, 395);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Фамилия";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "Имя";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // Patronymic
+            // 
+            this.Patronymic.HeaderText = "Отчество";
+            this.Patronymic.MinimumWidth = 6;
+            this.Patronymic.Name = "Patronymic";
+            this.Patronymic.ReadOnly = true;
+            // 
+            // PasspotSeries
+            // 
+            this.PasspotSeries.HeaderText = "Серия паспорта";
+            this.PasspotSeries.MinimumWidth = 6;
+            this.PasspotSeries.Name = "PasspotSeries";
+            this.PasspotSeries.ReadOnly = true;
+            this.PasspotSeries.Width = 75;
+            // 
+            // PassportNumber
+            // 
+            this.PassportNumber.HeaderText = "Номер паспорта";
+            this.PassportNumber.MinimumWidth = 6;
+            this.PassportNumber.Name = "PassportNumber";
+            this.PassportNumber.ReadOnly = true;
+            this.PassportNumber.Width = 75;
+            // 
+            // Who
+            // 
+            this.Who.HeaderText = "Кем выдан";
+            this.Who.MinimumWidth = 6;
+            this.Who.Name = "Who";
+            this.Who.ReadOnly = true;
+            this.Who.Width = 200;
+            // 
+            // When
+            // 
+            this.When.HeaderText = "Когда выдан";
+            this.When.MinimumWidth = 6;
+            this.When.Name = "When";
+            this.When.ReadOnly = true;
+            this.When.Width = 75;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Должность";
+            this.Post.MinimumWidth = 6;
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 125;
+            // 
+            // Qualification
+            // 
+            this.Qualification.HeaderText = "Уровень";
+            this.Qualification.MinimumWidth = 6;
+            this.Qualification.Name = "Qualification";
+            this.Qualification.ReadOnly = true;
+            this.Qualification.Width = 125;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.HeaderText = "Телефон";
+            this.PhoneNumber.MinimumWidth = 6;
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Telergam
+            // 
+            this.Telergam.HeaderText = "Телеграм";
+            this.Telergam.MinimumWidth = 6;
+            this.Telergam.Name = "Telergam";
+            this.Telergam.ReadOnly = true;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.HeaderText = "Дата рождения";
+            this.BirthDate.MinimumWidth = 6;
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            this.BirthDate.Visible = false;
+            this.BirthDate.Width = 75;
+            // 
+            // Residence
+            // 
+            this.Residence.HeaderText = "Место проживания";
+            this.Residence.MinimumWidth = 6;
+            this.Residence.Name = "Residence";
+            this.Residence.ReadOnly = true;
+            this.Residence.Visible = false;
+            this.Residence.Width = 125;
+            // 
+            // Registration
+            // 
+            this.Registration.HeaderText = "Место регистрации";
+            this.Registration.MinimumWidth = 6;
+            this.Registration.Name = "Registration";
+            this.Registration.ReadOnly = true;
+            this.Registration.Visible = false;
+            this.Registration.Width = 125;
+            // 
+            // Wages
+            // 
+            this.Wages.HeaderText = "Заработная плата";
+            this.Wages.MinimumWidth = 6;
+            this.Wages.Name = "Wages";
+            this.Wages.ReadOnly = true;
+            this.Wages.Visible = false;
+            this.Wages.Width = 75;
+            // 
+            // Salary
+            // 
+            this.Salary.HeaderText = "Оклад";
+            this.Salary.MinimumWidth = 6;
+            this.Salary.Name = "Salary";
+            this.Salary.ReadOnly = true;
+            this.Salary.Visible = false;
+            this.Salary.Width = 75;
             // 
             // mainLable
             // 
@@ -653,140 +779,12 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Номер телефона";
             // 
-            // LastName
+            // reportToolStripMenuItem
             // 
-            this.LastName.HeaderText = "Фамилия";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "Имя";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // Patronymic
-            // 
-            this.Patronymic.HeaderText = "Отчество";
-            this.Patronymic.MinimumWidth = 6;
-            this.Patronymic.Name = "Patronymic";
-            this.Patronymic.ReadOnly = true;
-            // 
-            // PasspotSeries
-            // 
-            this.PasspotSeries.HeaderText = "Серия паспорта";
-            this.PasspotSeries.MinimumWidth = 6;
-            this.PasspotSeries.Name = "PasspotSeries";
-            this.PasspotSeries.ReadOnly = true;
-            this.PasspotSeries.Width = 75;
-            // 
-            // PassportNumber
-            // 
-            this.PassportNumber.HeaderText = "Номер паспорта";
-            this.PassportNumber.MinimumWidth = 6;
-            this.PassportNumber.Name = "PassportNumber";
-            this.PassportNumber.ReadOnly = true;
-            this.PassportNumber.Width = 75;
-            // 
-            // Who
-            // 
-            this.Who.HeaderText = "Кем выдан";
-            this.Who.MinimumWidth = 6;
-            this.Who.Name = "Who";
-            this.Who.ReadOnly = true;
-            this.Who.Width = 200;
-            // 
-            // When
-            // 
-            this.When.HeaderText = "Когда выдан";
-            this.When.MinimumWidth = 6;
-            this.When.Name = "When";
-            this.When.ReadOnly = true;
-            this.When.Width = 75;
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Должность";
-            this.Post.MinimumWidth = 6;
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 125;
-            // 
-            // Qualification
-            // 
-            this.Qualification.HeaderText = "Уровень";
-            this.Qualification.MinimumWidth = 6;
-            this.Qualification.Name = "Qualification";
-            this.Qualification.ReadOnly = true;
-            this.Qualification.Width = 125;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.HeaderText = "Телефон";
-            this.PhoneNumber.MinimumWidth = 6;
-            this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Telergam
-            // 
-            this.Telergam.HeaderText = "Телеграм";
-            this.Telergam.MinimumWidth = 6;
-            this.Telergam.Name = "Telergam";
-            this.Telergam.ReadOnly = true;
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.HeaderText = "Дата рождения";
-            this.BirthDate.MinimumWidth = 6;
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
-            this.BirthDate.Visible = false;
-            this.BirthDate.Width = 75;
-            // 
-            // Residence
-            // 
-            this.Residence.HeaderText = "Место проживания";
-            this.Residence.MinimumWidth = 6;
-            this.Residence.Name = "Residence";
-            this.Residence.ReadOnly = true;
-            this.Residence.Visible = false;
-            this.Residence.Width = 125;
-            // 
-            // Registration
-            // 
-            this.Registration.HeaderText = "Место регистрации";
-            this.Registration.MinimumWidth = 6;
-            this.Registration.Name = "Registration";
-            this.Registration.ReadOnly = true;
-            this.Registration.Visible = false;
-            this.Registration.Width = 125;
-            // 
-            // Wages
-            // 
-            this.Wages.HeaderText = "Заработная плата";
-            this.Wages.MinimumWidth = 6;
-            this.Wages.Name = "Wages";
-            this.Wages.ReadOnly = true;
-            this.Wages.Visible = false;
-            this.Wages.Width = 75;
-            // 
-            // Salary
-            // 
-            this.Salary.HeaderText = "Оклад";
-            this.Salary.MinimumWidth = 6;
-            this.Salary.Name = "Salary";
-            this.Salary.ReadOnly = true;
-            this.Salary.Visible = false;
-            this.Salary.Width = 75;
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.reportToolStripMenuItem.Text = "Отчет";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -794,8 +792,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 452);
             this.Controls.Add(this.showPanel);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -827,7 +825,6 @@
         private System.Windows.Forms.ToolStripMenuItem QualificationКвалификацииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SkillToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel showPanel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
@@ -890,5 +887,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }
 }

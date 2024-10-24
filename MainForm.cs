@@ -40,5 +40,10 @@ namespace HRD
                 form.Show();
             }
         }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

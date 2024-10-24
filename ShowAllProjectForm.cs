@@ -17,6 +17,12 @@ namespace HRD
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
+            MessageBox.Show(Application.OpenForms.Count.ToString());
+        }
+
         private void addB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = false;
@@ -43,6 +49,18 @@ namespace HRD
         {
             AddTeamForm addTeamForm = new AddTeamForm();
             addTeamForm.ShowDialog();
+        }
+
+        private void showResponsable_Click(object sender, EventArgs e)
+        {
+            ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
+            showAllEmployeeForm.Tag = "showEmployee";
+            showAllEmployeeForm.ShowDialog();
+        }
+
+        private void ShowAllProjectForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

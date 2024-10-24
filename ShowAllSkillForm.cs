@@ -17,6 +17,11 @@ namespace HRD
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
+            MessageBox.Show(Application.OpenForms.Count.ToString());
+        }
         private void addB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = false;
@@ -42,6 +47,31 @@ namespace HRD
             deleteB.Enabled = true;
             confirmB.Visible = false;
             canselB.Visible = false;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((e.RowIndex >= 0)&&(e.ColumnIndex>=0))
+            {
+                // Получаем строку, по которой был двойной клик
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                // Получаем данные из строки
+                string value = row.Cells[0].Value.ToString(); // Получаем значение из первой ячейки
+                                                              // ... 
+                AddSkillForm addSkillForm = new AddSkillForm();
+                addSkillForm.ShowDialog();
+                // Выполните нужные действия с полученными данными
+                // ...
+            }
+        }
+
+        private void ShowAllSkillForm_Load(object sender, EventArgs e)
+        {
+            if (this.Tag != null)
+            {
+            }
+            dataGridView1.Rows.Add("Владение английским языком");
         }
     }
 }

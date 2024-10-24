@@ -277,7 +277,7 @@
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(13, 9);
+            this.mainLable.Location = new System.Drawing.Point(11, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
             this.mainLable.Size = new System.Drawing.Size(134, 13);
@@ -287,7 +287,7 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(14, 29);
+            this.showPanel.Location = new System.Drawing.Point(12, 29);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(718, 639);
@@ -299,7 +299,7 @@
             this.panelAdd.Controls.Add(this.groupBox4);
             this.panelAdd.Controls.Add(this.groupBox5);
             this.panelAdd.Controls.Add(this.groupBox6);
-            this.panelAdd.Location = new System.Drawing.Point(14, 29);
+            this.panelAdd.Location = new System.Drawing.Point(12, 29);
             this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Size = new System.Drawing.Size(718, 639);
@@ -454,6 +454,7 @@
             this.SkillLevel});
             this.dataGridView2.Location = new System.Drawing.Point(9, 91);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(566, 145);
             this.dataGridView2.TabIndex = 16;
@@ -461,12 +462,14 @@
             // SkillName
             // 
             this.SkillName.HeaderText = "Наименование";
+            this.SkillName.MinimumWidth = 6;
             this.SkillName.Name = "SkillName";
             this.SkillName.Width = 320;
             // 
             // SkillLevel
             // 
             this.SkillLevel.HeaderText = "Уровень владения";
+            this.SkillLevel.MinimumWidth = 6;
             this.SkillLevel.Name = "SkillLevel";
             this.SkillLevel.Width = 200;
             // 
@@ -686,7 +689,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(64, 20);
             this.textBox9.TabIndex = 5;
-            this.textBox9.Text = "123456789";
             // 
             // textBox4
             // 
@@ -703,7 +705,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(48, 20);
             this.textBox8.TabIndex = 3;
-            this.textBox8.Text = "4561237";
             // 
             // label8
             // 
@@ -735,7 +736,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(737, 29);
+            this.addB.Location = new System.Drawing.Point(736, 29);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 15;
@@ -745,7 +746,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(737, 58);
+            this.changeB.Location = new System.Drawing.Point(736, 58);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 16;
@@ -754,7 +755,7 @@
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(737, 116);
+            this.deleteB.Location = new System.Drawing.Point(736, 116);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 18;
@@ -763,7 +764,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(632, 673);
+            this.canselB.Location = new System.Drawing.Point(630, 673);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 19;
@@ -774,7 +775,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(526, 673);
+            this.confirmB.Location = new System.Drawing.Point(524, 673);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 20;
@@ -786,7 +787,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 706);
+            this.ClientSize = new System.Drawing.Size(845, 723);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.canselB);
@@ -795,11 +796,13 @@
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
             this.Controls.Add(this.showPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ShowAllEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
+            this.Load += new System.EventHandler(this.ShowAllEmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
             this.panelAdd.ResumeLayout(false);

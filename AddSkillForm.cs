@@ -26,5 +26,12 @@ namespace HRD
         {
             this.Close();
         }
+        public event EventHandler<FormClosedEventArgs> FormClosedWithValue;
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            FormClosedWithValue?.Invoke(this, e);
+        }
     }
 }

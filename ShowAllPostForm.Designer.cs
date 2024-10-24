@@ -40,9 +40,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.showPanel = new System.Windows.Forms.Panel();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.showPanel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
@@ -50,7 +50,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(264, 178);
+            this.confirmB.Location = new System.Drawing.Point(262, 178);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 27;
@@ -60,7 +60,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(370, 178);
+            this.canselB.Location = new System.Drawing.Point(368, 178);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 26;
@@ -89,7 +89,7 @@
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(476, 116);
+            this.deleteB.Location = new System.Drawing.Point(474, 116);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 25;
@@ -98,7 +98,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(476, 58);
+            this.changeB.Location = new System.Drawing.Point(474, 58);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 24;
@@ -107,7 +107,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(476, 29);
+            this.addB.Location = new System.Drawing.Point(474, 29);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 23;
@@ -118,7 +118,7 @@
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(13, 9);
+            this.mainLable.Location = new System.Drawing.Point(11, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
             this.mainLable.Size = new System.Drawing.Size(131, 13);
@@ -149,12 +149,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(14, 29);
+            this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(456, 143);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
+            this.groupBox1.Visible = false;
             // 
             // dataGridView1
             // 
@@ -174,34 +175,36 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // Post
-            // 
-            this.Post.HeaderText = "Должность";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 325;
-            // 
-            // payment
-            // 
-            this.payment.HeaderText = "Зарплата";
-            this.payment.Name = "payment";
-            this.payment.ReadOnly = true;
-            this.payment.Width = 75;
-            // 
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(14, 29);
+            this.showPanel.Location = new System.Drawing.Point(12, 29);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(457, 400);
             this.showPanel.TabIndex = 21;
             // 
+            // Post
+            // 
+            this.Post.HeaderText = "Наименование";
+            this.Post.MinimumWidth = 6;
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 275;
+            // 
+            // payment
+            // 
+            this.payment.HeaderText = "Зарплата";
+            this.payment.MinimumWidth = 6;
+            this.payment.Name = "payment";
+            this.payment.ReadOnly = true;
+            this.payment.Width = 125;
+            // 
             // ShowAllPostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 448);
+            this.ClientSize = new System.Drawing.Size(582, 461);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.mainLable);
@@ -210,6 +213,7 @@
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowAllPostForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Должности";
@@ -236,8 +240,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel showPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
         private System.Windows.Forms.DataGridViewTextBoxColumn payment;
-        private System.Windows.Forms.Panel showPanel;
     }
 }

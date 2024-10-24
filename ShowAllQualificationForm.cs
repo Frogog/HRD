@@ -17,6 +17,11 @@ namespace HRD
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
+            MessageBox.Show(Application.OpenForms.Count.ToString());
+        }
         private void addB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = false;
@@ -42,6 +47,13 @@ namespace HRD
         private void GuideToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ShowAllQualificationForm_Load(object sender, EventArgs e)
+        {
+            if (this.Tag != null)
+            {
+            }
         }
     }
 }

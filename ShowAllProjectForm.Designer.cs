@@ -32,6 +32,11 @@
             this.addTeamB = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
@@ -56,15 +61,10 @@
             this.showPanel = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.showResponsable = new System.Windows.Forms.Button();
             this.NameProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,8 +123,49 @@
             this.dataGridView2.Location = new System.Drawing.Point(6, 85);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(933, 224);
             this.dataGridView2.TabIndex = 14;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Фамилия";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 150;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "Имя";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 150;
+            // 
+            // Patronymic
+            // 
+            this.Patronymic.HeaderText = "Отчество";
+            this.Patronymic.MinimumWidth = 6;
+            this.Patronymic.Name = "Patronymic";
+            this.Patronymic.ReadOnly = true;
+            this.Patronymic.Width = 150;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Должность";
+            this.Post.MinimumWidth = 6;
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 250;
+            // 
+            // Qualification
+            // 
+            this.Qualification.HeaderText = "Уровень";
+            this.Qualification.MinimumWidth = 6;
+            this.Qualification.Name = "Qualification";
+            this.Qualification.ReadOnly = true;
+            this.Qualification.Width = 150;
             // 
             // comboBox1
             // 
@@ -161,7 +202,7 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(442, 213);
+            this.dateTimePicker3.Location = new System.Drawing.Point(831, 213);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(139, 20);
             this.dateTimePicker3.TabIndex = 9;
@@ -169,15 +210,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(439, 196);
+            this.label4.Location = new System.Drawing.Point(828, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
+            this.label4.Size = new System.Drawing.Size(130, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "П.  дата завершения";
+            this.label4.Text = "План.  дата завершения";
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(297, 213);
+            this.dateTimePicker4.Location = new System.Drawing.Point(686, 213);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(139, 20);
             this.dateTimePicker4.TabIndex = 7;
@@ -185,11 +226,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 196);
+            this.label5.Location = new System.Drawing.Point(683, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 6;
-            this.label5.Text = "П. дата начала";
+            this.label5.Text = "План. дата начала";
             // 
             // dateTimePicker2
             // 
@@ -203,9 +244,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(149, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.Size = new System.Drawing.Size(129, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Ф. дата завершения";
+            this.label3.Text = "Факт. дата завершения";
             // 
             // dateTimePicker1
             // 
@@ -219,9 +260,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 196);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(102, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ф. дата начала";
+            this.label2.Text = "Факт. дата начала";
             // 
             // textBox1
             // 
@@ -241,7 +282,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(898, 622);
+            this.canselB.Location = new System.Drawing.Point(896, 622);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 26;
@@ -252,7 +293,7 @@
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(1004, 115);
+            this.deleteB.Location = new System.Drawing.Point(1002, 115);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 25;
@@ -261,7 +302,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(1004, 57);
+            this.changeB.Location = new System.Drawing.Point(1002, 57);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 24;
@@ -270,7 +311,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(1004, 28);
+            this.addB.Location = new System.Drawing.Point(1002, 28);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 23;
@@ -280,7 +321,7 @@
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(792, 622);
+            this.confirmB.Location = new System.Drawing.Point(790, 622);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 27;
@@ -314,7 +355,7 @@
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(13, 9);
+            this.mainLable.Location = new System.Drawing.Point(11, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
             this.mainLable.Size = new System.Drawing.Size(117, 13);
@@ -324,7 +365,7 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(16, 28);
+            this.showPanel.Location = new System.Drawing.Point(14, 28);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(982, 591);
@@ -361,15 +402,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(16, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 591);
-            this.panel1.TabIndex = 32;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -379,9 +411,19 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "Описание";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(14, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(982, 591);
+            this.panel1.TabIndex = 32;
+            this.panel1.Visible = false;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.showResponsable);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.addTeamB);
             this.groupBox2.Controls.Add(this.label8);
@@ -395,53 +437,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Формирование команды";
             // 
-            // button1
+            // showResponsable
             // 
-            this.button1.Location = new System.Drawing.Point(317, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 23);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Фамилия";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 150;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "Имя";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 150;
-            // 
-            // Patronymic
-            // 
-            this.Patronymic.HeaderText = "Отчество";
-            this.Patronymic.Name = "Patronymic";
-            this.Patronymic.ReadOnly = true;
-            this.Patronymic.Width = 150;
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Должность";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 250;
-            // 
-            // Qualification
-            // 
-            this.Qualification.HeaderText = "Уровень";
-            this.Qualification.Name = "Qualification";
-            this.Qualification.ReadOnly = true;
-            this.Qualification.Width = 150;
+            this.showResponsable.Location = new System.Drawing.Point(317, 33);
+            this.showResponsable.Name = "showResponsable";
+            this.showResponsable.Size = new System.Drawing.Size(25, 23);
+            this.showResponsable.TabIndex = 33;
+            this.showResponsable.Text = "...";
+            this.showResponsable.UseVisualStyleBackColor = true;
+            this.showResponsable.Click += new System.EventHandler(this.showResponsable_Click);
             // 
             // NameProject
             // 
             this.NameProject.HeaderText = "Наименование";
+            this.NameProject.MinimumWidth = 6;
             this.NameProject.Name = "NameProject";
             this.NameProject.ReadOnly = true;
             this.NameProject.Width = 200;
@@ -449,6 +458,7 @@
             // Description
             // 
             this.Description.HeaderText = "Описание";
+            this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             this.Description.Width = 200;
@@ -456,41 +466,47 @@
             // CreateDate
             // 
             this.CreateDate.HeaderText = "Дата создания";
+            this.CreateDate.MinimumWidth = 6;
             this.CreateDate.Name = "CreateDate";
             this.CreateDate.ReadOnly = true;
             this.CreateDate.Width = 75;
             // 
             // FactStartDate
             // 
-            this.FactStartDate.HeaderText = "Ф. дата начала";
+            this.FactStartDate.HeaderText = "Факт. дата начала";
+            this.FactStartDate.MinimumWidth = 6;
             this.FactStartDate.Name = "FactStartDate";
             this.FactStartDate.ReadOnly = true;
-            this.FactStartDate.Width = 75;
+            this.FactStartDate.Width = 90;
             // 
             // FactEndDate
             // 
-            this.FactEndDate.HeaderText = "Ф. дата завершения";
+            this.FactEndDate.HeaderText = "Факт. дата завершения";
+            this.FactEndDate.MinimumWidth = 6;
             this.FactEndDate.Name = "FactEndDate";
             this.FactEndDate.ReadOnly = true;
-            this.FactEndDate.Width = 75;
+            this.FactEndDate.Width = 90;
             // 
             // PlanStartDate
             // 
-            this.PlanStartDate.HeaderText = "П. дата начала";
+            this.PlanStartDate.HeaderText = "План. дата начала";
+            this.PlanStartDate.MinimumWidth = 6;
             this.PlanStartDate.Name = "PlanStartDate";
             this.PlanStartDate.ReadOnly = true;
-            this.PlanStartDate.Width = 75;
+            this.PlanStartDate.Width = 90;
             // 
             // PlanDateEnd
             // 
-            this.PlanDateEnd.HeaderText = "П. дата завершения";
+            this.PlanDateEnd.HeaderText = "План. дата завершения";
+            this.PlanDateEnd.MinimumWidth = 6;
             this.PlanDateEnd.Name = "PlanDateEnd";
             this.PlanDateEnd.ReadOnly = true;
-            this.PlanDateEnd.Width = 75;
+            this.PlanDateEnd.Width = 90;
             // 
             // Responsable
             // 
             this.Responsable.HeaderText = "Ответственный";
+            this.Responsable.MinimumWidth = 6;
             this.Responsable.Name = "Responsable";
             this.Responsable.ReadOnly = true;
             this.Responsable.Width = 205;
@@ -499,7 +515,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 662);
+            this.ClientSize = new System.Drawing.Size(1111, 652);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.canselB);
@@ -508,8 +524,10 @@
             this.Controls.Add(this.addB);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.showPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShowAllProjectForm";
             this.Text = "Проекты";
+            this.Load += new System.EventHandler(this.ShowAllProjectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
@@ -555,7 +573,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button showResponsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
