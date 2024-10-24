@@ -32,22 +32,22 @@
             this.canselB = new System.Windows.Forms.Button();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainLable = new System.Windows.Forms.Label();
-            this.panelAdd = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelAdd.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(110, 57);
+            this.confirmB.Location = new System.Drawing.Point(245, 115);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 34;
@@ -57,7 +57,7 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(216, 57);
+            this.canselB.Location = new System.Drawing.Point(351, 115);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 33;
@@ -69,11 +69,10 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Controls.Add(this.mainLable);
-            this.showPanel.Location = new System.Drawing.Point(11, 11);
+            this.showPanel.Location = new System.Drawing.Point(16, 28);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
-            this.showPanel.Size = new System.Drawing.Size(311, 406);
+            this.showPanel.Size = new System.Drawing.Size(435, 391);
             this.showPanel.TabIndex = 28;
             // 
             // dataGridView1
@@ -83,57 +82,52 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Post});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(307, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(431, 387);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Наименование";
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
             // 
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(2, 2);
+            this.mainLable.Location = new System.Drawing.Point(13, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
             this.mainLable.Size = new System.Drawing.Size(114, 13);
             this.mainLable.TabIndex = 3;
             this.mainLable.Text = "Справочник навыков";
             // 
-            // panelAdd
-            // 
-            this.panelAdd.Controls.Add(this.label13);
-            this.panelAdd.Controls.Add(this.textBox10);
-            this.panelAdd.Location = new System.Drawing.Point(11, 11);
-            this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(311, 43);
-            this.panelAdd.TabIndex = 29;
-            this.panelAdd.Visible = false;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 1);
+            this.label13.Location = new System.Drawing.Point(4, 20);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 17;
-            this.label13.Text = "Навык";
+            this.label13.Text = "Наименование";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 17);
+            this.textBox10.Location = new System.Drawing.Point(7, 35);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(298, 20);
+            this.textBox10.Size = new System.Drawing.Size(423, 20);
             this.textBox10.TabIndex = 16;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(327, 115);
+            this.deleteB.Location = new System.Drawing.Point(457, 115);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 32;
@@ -143,7 +137,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(327, 57);
+            this.changeB.Location = new System.Drawing.Point(457, 57);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 31;
@@ -152,7 +146,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(327, 28);
+            this.addB.Location = new System.Drawing.Point(457, 28);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 30;
@@ -160,32 +154,39 @@
             this.addB.UseVisualStyleBackColor = true;
             this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
-            // Post
+            // groupBox1
             // 
-            this.Post.HeaderText = "Наименование";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Location = new System.Drawing.Point(16, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(435, 81);
+            this.groupBox1.TabIndex = 35;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Общие данные";
             // 
             // ShowAllSkillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 430);
+            this.ClientSize = new System.Drawing.Size(564, 432);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.confirmB);
+            this.Controls.Add(this.mainLable);
             this.Controls.Add(this.showPanel);
             this.Controls.Add(this.canselB);
-            this.Controls.Add(this.panelAdd);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
             this.Name = "ShowAllSkillForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Навыки";
             this.showPanel.ResumeLayout(false);
-            this.showPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panelAdd.ResumeLayout(false);
-            this.panelAdd.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -197,11 +198,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
         private System.Windows.Forms.Label mainLable;
-        private System.Windows.Forms.Panel panelAdd;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button changeB;
         private System.Windows.Forms.Button addB;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

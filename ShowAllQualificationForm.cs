@@ -20,7 +20,7 @@ namespace HRD
         private void addB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = false;
-            panelAdd.Visible = true;
+            groupBox1.Visible = true;
             addB.Enabled = false;
             changeB.Enabled = false;
             deleteB.Enabled = false;
@@ -31,7 +31,7 @@ namespace HRD
         private void canselB_Click(object sender, EventArgs e)
         {
             showPanel.Visible = true;
-            panelAdd.Visible = false;
+            groupBox1.Visible = false;
             addB.Enabled = true;
             changeB.Enabled = true;
             deleteB.Enabled = true;

@@ -40,8 +40,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showPanel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -154,7 +154,7 @@
             this.groupBox1.Size = new System.Drawing.Size(456, 143);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Информация";
+            this.groupBox1.Text = "Общие данные";
             // 
             // dataGridView1
             // 
@@ -174,19 +174,19 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // payment
-            // 
-            this.payment.HeaderText = "Зарплата";
-            this.payment.Name = "payment";
-            this.payment.ReadOnly = true;
-            this.payment.Width = 75;
-            // 
             // Post
             // 
             this.Post.HeaderText = "Должность";
             this.Post.Name = "Post";
             this.Post.ReadOnly = true;
             this.Post.Width = 325;
+            // 
+            // payment
+            // 
+            this.payment.HeaderText = "Зарплата";
+            this.payment.Name = "payment";
+            this.payment.ReadOnly = true;
+            this.payment.Width = 75;
             // 
             // showPanel
             // 

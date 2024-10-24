@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
@@ -39,16 +40,12 @@
             this.canselB = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.confirmB = new System.Windows.Forms.Button();
-            this.panelAdd = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.GuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.QualificationКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
-            this.panelAdd.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -57,14 +54,15 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Post});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 16);
+            this.Post,
+            this.koef});
+            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(217, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 383);
             this.dataGridView1.TabIndex = 0;
             // 
             // Post
@@ -72,10 +70,18 @@
             this.Post.HeaderText = "Уровень";
             this.Post.Name = "Post";
             this.Post.ReadOnly = true;
+            this.Post.Width = 350;
+            // 
+            // koef
+            // 
+            this.koef.HeaderText = "Коэффициент";
+            this.koef.Name = "koef";
+            this.koef.ReadOnly = true;
+            this.koef.Width = 50;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(239, 129);
+            this.deleteB.Location = new System.Drawing.Point(478, 112);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(100, 23);
             this.deleteB.TabIndex = 33;
@@ -84,7 +90,7 @@
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(239, 71);
+            this.changeB.Location = new System.Drawing.Point(478, 54);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(100, 23);
             this.changeB.TabIndex = 32;
@@ -93,7 +99,7 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(239, 42);
+            this.addB.Location = new System.Drawing.Point(478, 25);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(100, 23);
             this.addB.TabIndex = 31;
@@ -104,36 +110,35 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Controls.Add(this.mainLable);
-            this.showPanel.Location = new System.Drawing.Point(13, 26);
+            this.showPanel.Location = new System.Drawing.Point(16, 25);
             this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
-            this.showPanel.Size = new System.Drawing.Size(221, 387);
+            this.showPanel.Size = new System.Drawing.Size(457, 387);
             this.showPanel.TabIndex = 29;
             // 
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(2, 2);
+            this.mainLable.Location = new System.Drawing.Point(13, 9);
             this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainLable.Name = "mainLable";
-            this.mainLable.Size = new System.Drawing.Size(111, 13);
+            this.mainLable.Size = new System.Drawing.Size(188, 13);
             this.mainLable.TabIndex = 3;
-            this.mainLable.Text = "Справочник уровней";
+            this.mainLable.Text = "Справочник уровней квалификации";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 4);
+            this.label13.Location = new System.Drawing.Point(4, 20);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 13);
+            this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 17;
-            this.label13.Text = "Уровень";
+            this.label13.Text = "Наименование";
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(126, 75);
+            this.canselB.Location = new System.Drawing.Point(372, 174);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(100, 23);
             this.canselB.TabIndex = 34;
@@ -144,15 +149,15 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 20);
+            this.textBox10.Location = new System.Drawing.Point(7, 35);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(206, 20);
+            this.textBox10.Size = new System.Drawing.Size(444, 20);
             this.textBox10.TabIndex = 16;
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(20, 75);
+            this.confirmB.Location = new System.Drawing.Point(266, 174);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(100, 23);
             this.confirmB.TabIndex = 35;
@@ -160,77 +165,57 @@
             this.confirmB.UseVisualStyleBackColor = true;
             this.confirmB.Visible = false;
             // 
-            // panelAdd
+            // label1
             // 
-            this.panelAdd.Controls.Add(this.label13);
-            this.panelAdd.Controls.Add(this.textBox10);
-            this.panelAdd.Location = new System.Drawing.Point(13, 26);
-            this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.panelAdd.Name = "panelAdd";
-            this.panelAdd.Size = new System.Drawing.Size(221, 43);
-            this.panelAdd.TabIndex = 30;
-            this.panelAdd.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Коэффициент";
             // 
-            // menuStrip1
+            // textBox1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GuideToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(348, 24);
-            this.menuStrip1.TabIndex = 36;
-            this.menuStrip1.Text = "menuStrip1";
+            this.textBox1.Location = new System.Drawing.Point(7, 82);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 36;
             // 
-            // GuideToolStripMenuItem
+            // groupBox1
             // 
-            this.GuideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmployeeToolStripMenuItem,
-            this.PostToolStripMenuItem,
-            this.QualificationКвалификацииToolStripMenuItem});
-            this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
-            this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.GuideToolStripMenuItem.Text = "Справочники";
-            // 
-            // EmployeeToolStripMenuItem
-            // 
-            this.EmployeeToolStripMenuItem.Name = "EmployeeToolStripMenuItem";
-            this.EmployeeToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.EmployeeToolStripMenuItem.Text = "Сотрудники";
-            // 
-            // PostToolStripMenuItem
-            // 
-            this.PostToolStripMenuItem.Name = "PostToolStripMenuItem";
-            this.PostToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.PostToolStripMenuItem.Text = "Должности";
-            // 
-            // QualificationКвалификацииToolStripMenuItem
-            // 
-            this.QualificationКвалификацииToolStripMenuItem.Name = "QualificationКвалификацииToolStripMenuItem";
-            this.QualificationКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.QualificationКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
+            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Location = new System.Drawing.Point(16, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(456, 143);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Общие данные";
             // 
             // ShowAllQualificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 422);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(585, 430);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.mainLable);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.changeB);
-            this.Controls.Add(this.addB);
             this.Controls.Add(this.showPanel);
+            this.Controls.Add(this.addB);
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.confirmB);
-            this.Controls.Add(this.panelAdd);
             this.Name = "ShowAllQualificationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Уровни квалификации";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
-            this.showPanel.PerformLayout();
-            this.panelAdd.ResumeLayout(false);
-            this.panelAdd.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,12 +232,10 @@
         private System.Windows.Forms.Button canselB;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button confirmB;
-        private System.Windows.Forms.Panel panelAdd;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem GuideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EmployeeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PostToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem QualificationКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
+        private System.Windows.Forms.DataGridViewTextBoxColumn koef;
     }
 }
