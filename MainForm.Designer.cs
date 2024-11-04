@@ -98,6 +98,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -123,9 +124,10 @@
             // 
             this.GuideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EmployeeToolStripMenuItem,
+            this.ProjectToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.PostToolStripMenuItem,
             this.QualificationКвалификацииToolStripMenuItem,
-            this.ProjectToolStripMenuItem,
             this.SkillToolStripMenuItem});
             this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
             this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
@@ -786,6 +788,11 @@
             this.reportToolStripMenuItem.Text = "Отчет";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(196, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -888,5 +895,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,6 +64,21 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(453, 383);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Наименование";
+            this.Post.MinimumWidth = 6;
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            this.Post.Width = 300;
+            // 
+            // koef
+            // 
+            this.koef.HeaderText = "Коэффициент";
+            this.koef.MinimumWidth = 6;
+            this.koef.Name = "koef";
+            this.koef.ReadOnly = true;
             // 
             // deleteB
             // 
@@ -183,26 +198,11 @@
             this.groupBox1.Text = "Общие данные";
             this.groupBox1.Visible = false;
             // 
-            // Post
-            // 
-            this.Post.HeaderText = "Наименование";
-            this.Post.MinimumWidth = 6;
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 300;
-            // 
-            // koef
-            // 
-            this.koef.HeaderText = "Коэффициент";
-            this.koef.MinimumWidth = 6;
-            this.koef.Name = "koef";
-            this.koef.ReadOnly = true;
-            // 
             // ShowAllQualificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 442);
+            this.ClientSize = new System.Drawing.Size(585, 431);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.deleteB);

@@ -204,7 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 461);
+            this.ClientSize = new System.Drawing.Size(582, 442);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.mainLable);
