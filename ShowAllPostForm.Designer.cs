@@ -40,9 +40,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.showPanel = new System.Windows.Forms.Panel();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.showPanel = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
@@ -175,15 +175,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // showPanel
-            // 
-            this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(12, 29);
-            this.showPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.showPanel.Name = "showPanel";
-            this.showPanel.Size = new System.Drawing.Size(457, 400);
-            this.showPanel.TabIndex = 21;
-            // 
             // Post
             // 
             this.Post.HeaderText = "Наименование";
@@ -199,6 +190,15 @@
             this.payment.Name = "payment";
             this.payment.ReadOnly = true;
             this.payment.Width = 125;
+            // 
+            // showPanel
+            // 
+            this.showPanel.Controls.Add(this.dataGridView1);
+            this.showPanel.Location = new System.Drawing.Point(12, 29);
+            this.showPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.showPanel.Name = "showPanel";
+            this.showPanel.Size = new System.Drawing.Size(457, 400);
+            this.showPanel.TabIndex = 21;
             // 
             // ShowAllPostForm
             // 

@@ -21,12 +21,11 @@ namespace HRD
 
         private void PostToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllPostForm>();
 
-        private void QualificationКвалификацииToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllQualificationForm>();
-
         private void ProjectToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllProjectForm>();
+        private void QualificationToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllQualificationForm>();
 
         private void SkillToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllSkillForm>();
-
+        private void ReportWorkloadToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ReportWorkLoad>();
         private void button1_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
@@ -42,6 +41,11 @@ namespace HRD
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

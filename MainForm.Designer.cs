@@ -31,10 +31,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.GuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.QualificationКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.PostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QualificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SkillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReportWorkloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReportOverdueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExpirienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,8 +102,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -127,7 +130,7 @@
             this.ProjectToolStripMenuItem,
             this.toolStripMenuItem2,
             this.PostToolStripMenuItem,
-            this.QualificationКвалификацииToolStripMenuItem,
+            this.QualificationToolStripMenuItem,
             this.SkillToolStripMenuItem});
             this.GuideToolStripMenuItem.Name = "GuideToolStripMenuItem";
             this.GuideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
@@ -140,20 +143,6 @@
             this.EmployeeToolStripMenuItem.Text = "Сотрудники";
             this.EmployeeToolStripMenuItem.Click += new System.EventHandler(this.EmployeeToolStripMenuItem_Click);
             // 
-            // PostToolStripMenuItem
-            // 
-            this.PostToolStripMenuItem.Name = "PostToolStripMenuItem";
-            this.PostToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.PostToolStripMenuItem.Text = "Должности";
-            this.PostToolStripMenuItem.Click += new System.EventHandler(this.PostToolStripMenuItem_Click);
-            // 
-            // QualificationКвалификацииToolStripMenuItem
-            // 
-            this.QualificationКвалификацииToolStripMenuItem.Name = "QualificationКвалификацииToolStripMenuItem";
-            this.QualificationКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.QualificationКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
-            this.QualificationКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.QualificationКвалификацииToolStripMenuItem_Click);
-            // 
             // ProjectToolStripMenuItem
             // 
             this.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem";
@@ -161,12 +150,61 @@
             this.ProjectToolStripMenuItem.Text = "Проекты";
             this.ProjectToolStripMenuItem.Click += new System.EventHandler(this.ProjectToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(196, 6);
+            // 
+            // PostToolStripMenuItem
+            // 
+            this.PostToolStripMenuItem.Name = "PostToolStripMenuItem";
+            this.PostToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.PostToolStripMenuItem.Text = "Должности";
+            this.PostToolStripMenuItem.Click += new System.EventHandler(this.PostToolStripMenuItem_Click);
+            // 
+            // QualificationToolStripMenuItem
+            // 
+            this.QualificationToolStripMenuItem.Name = "QualificationToolStripMenuItem";
+            this.QualificationToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.QualificationToolStripMenuItem.Text = "Уровни квалификации";
+            this.QualificationToolStripMenuItem.Click += new System.EventHandler(this.QualificationToolStripMenuItem_Click);
+            // 
             // SkillToolStripMenuItem
             // 
             this.SkillToolStripMenuItem.Name = "SkillToolStripMenuItem";
             this.SkillToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.SkillToolStripMenuItem.Text = "Навыки";
             this.SkillToolStripMenuItem.Click += new System.EventHandler(this.SkillToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ReportWorkloadToolStripMenuItem,
+            this.ReportOverdueToolStripMenuItem,
+            this.ExpirienceToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.reportToolStripMenuItem.Text = "Отчет";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
+            // ReportWorkloadToolStripMenuItem
+            // 
+            this.ReportWorkloadToolStripMenuItem.Name = "ReportWorkloadToolStripMenuItem";
+            this.ReportWorkloadToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.ReportWorkloadToolStripMenuItem.Text = "Отчет о загруженности персонала";
+            this.ReportWorkloadToolStripMenuItem.Click += new System.EventHandler(this.ReportWorkloadToolStripMenuItem_Click);
+            // 
+            // ReportOverdueToolStripMenuItem
+            // 
+            this.ReportOverdueToolStripMenuItem.Name = "ReportOverdueToolStripMenuItem";
+            this.ReportOverdueToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.ReportOverdueToolStripMenuItem.Text = "Отчет о просроченных проектах";
+            // 
+            // ExpirienceToolStripMenuItem
+            // 
+            this.ExpirienceToolStripMenuItem.Name = "ExpirienceToolStripMenuItem";
+            this.ExpirienceToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.ExpirienceToolStripMenuItem.Text = "Отчет об опыте сотрудников";
             // 
             // showPanel
             // 
@@ -781,18 +819,6 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Номер телефона";
             // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.reportToolStripMenuItem.Text = "Отчет";
-            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(196, 6);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -829,7 +855,7 @@
         private System.Windows.Forms.ToolStripMenuItem GuideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PostToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem QualificationКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem QualificationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SkillToolStripMenuItem;
         private System.Windows.Forms.Panel showPanel;
@@ -896,5 +922,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem ReportWorkloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReportOverdueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExpirienceToolStripMenuItem;
     }
 }
