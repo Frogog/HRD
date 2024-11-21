@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Spire.Doc.Documents;
+using Spire.Doc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,52 +9,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Spire.Doc;
-using Spire.Doc.Documents;
-using Spire.Doc.Fields;
 
 namespace HRD
 {
-    public partial class ReportWorkLoad : Form
+    public partial class ReportExperience : Form
     {
-        public ReportWorkLoad()
+        public ReportExperience()
         {
             InitializeComponent();
         }
         String[][] testData = {
-            new String[]{ "Иван Иванов Иванович","Управляющий","Хороший","0"},
-            new String[]{ "Петр Петров Петрович","Работник","Средний","5000"},
-            new String[]{ "Сидор Сидоров Сидорович","Наблюдающий","Плохой","10000"},
+            new String[]{ "Иван Иванов Иванович","Управляющий","Хороший","5"},
+            new String[]{ "Петр Петров Петрович","Работник","Средний","3"},
+            new String[]{ "Сидор Сидоров Сидорович","Наблюдающий","Плохой","0"},
             };
-        private void ReportWorkLoad_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void createB_Click(object sender, EventArgs e)
         {
             Document doc = new Document();
-            doc.LoadFromFile(@"ReportWorkloadExample.docx");
+            doc.LoadFromFile(@"ReportExperienceExample.docx");
             doc.Replace("#DateStart#", dateTimePicker1.Value.ToShortDateString(), true, true);
             doc.Replace("#DateEnd#", dateTimePicker2.Value.ToShortDateString(), true, true);
             doc.Replace("#Post#", "Программист", true, true);
             doc.Replace("#DateToday#", DateTime.Today.ToString("dd.MM.yyyy"), true, true);
-            doc.Replace("#Name#",comboBox1.Text,true,true);
+            doc.Replace("#Name#", comboBox1.Text, true, true);
             Section section = doc.Sections[0];
             Table table = section.Tables[0] as Table;
-            for (int r = 0; r < testData.Length; r++){
+            for (int r = 0; r < testData.Length; r++)
+            {
                 table.AddRow();
-                TableRow DataRow = table.Rows[r+1];
-                for (int c = 0; c < testData[r].Length+1; c++){
+                TableRow DataRow = table.Rows[r + 1];
+                for (int c = 0; c < testData[r].Length + 1; c++)
+                {
                     Paragraph p2 = DataRow.Cells[c].AddParagraph();
                     if (c == 0)
                     {
-                        p2.AppendText((Array.IndexOf(testData, testData[r])+1).ToString());
+                        p2.AppendText((Array.IndexOf(testData, testData[r]) + 1).ToString());
                     }
-                    else p2.AppendText(testData[r][c-1]);
+                    else p2.AppendText(testData[r][c - 1]);
                 }
             }
-            doc.SaveToFile("Try.docx");
+            doc.SaveToFile("TryExperience.docx");
         }
     }
 }

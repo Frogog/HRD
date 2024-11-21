@@ -123,7 +123,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ReportWorkLoad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Отчет о загруженности сотрудников";
+            this.Text = "Формирование отчета";
             this.Load += new System.EventHandler(this.ReportWorkLoad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

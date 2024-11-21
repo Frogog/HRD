@@ -67,6 +67,18 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportExperience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportExperience.Designer.cs">
+      <DependentUpon>ReportExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportOverdue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportOverdue.Designer.cs">
+      <DependentUpon>ReportOverdue.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportWorkLoad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportExperience.resx">
+      <DependentUpon>ReportExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportOverdue.resx">
+      <DependentUpon>ReportOverdue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportWorkLoad.resx">
       <DependentUpon>ReportWorkLoad.cs</DependentUpon>

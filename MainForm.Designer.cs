@@ -39,7 +39,7 @@
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReportWorkloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReportOverdueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExpirienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReportExperienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -181,7 +181,7 @@
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReportWorkloadToolStripMenuItem,
             this.ReportOverdueToolStripMenuItem,
-            this.ExpirienceToolStripMenuItem});
+            this.ReportExperienceToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.reportToolStripMenuItem.Text = "Отчет";
@@ -199,12 +199,14 @@
             this.ReportOverdueToolStripMenuItem.Name = "ReportOverdueToolStripMenuItem";
             this.ReportOverdueToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.ReportOverdueToolStripMenuItem.Text = "Отчет о просроченных проектах";
+            this.ReportOverdueToolStripMenuItem.Click += new System.EventHandler(this.ReportOverdueToolStripMenuItem_Click);
             // 
-            // ExpirienceToolStripMenuItem
+            // ReportExperienceToolStripMenuItem
             // 
-            this.ExpirienceToolStripMenuItem.Name = "ExpirienceToolStripMenuItem";
-            this.ExpirienceToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.ExpirienceToolStripMenuItem.Text = "Отчет об опыте сотрудников";
+            this.ReportExperienceToolStripMenuItem.Name = "ReportExperienceToolStripMenuItem";
+            this.ReportExperienceToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.ReportExperienceToolStripMenuItem.Text = "Отчет об опыте сотрудников";
+            this.ReportExperienceToolStripMenuItem.Click += new System.EventHandler(this.ReportExperienceToolStripMenuItem_Click);
             // 
             // showPanel
             // 
@@ -924,6 +926,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ReportWorkloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReportOverdueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExpirienceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReportExperienceToolStripMenuItem;
     }
 }

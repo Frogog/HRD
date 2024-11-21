@@ -26,6 +26,9 @@ namespace HRD
 
         private void SkillToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ShowAllSkillForm>();
         private void ReportWorkloadToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ReportWorkLoad>();
+        private void ReportOverdueToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ReportOverdue>();
+        private void ReportExperienceToolStripMenuItem_Click(object sender, EventArgs e) => openFormMenu<ReportExperience>();
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
@@ -49,5 +52,6 @@ namespace HRD
         {
 
         }
+
     }
 }
