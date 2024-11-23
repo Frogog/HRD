@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkQualificationB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -43,23 +44,23 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Иван Иванов Иванович"});
-            this.comboBox1.Location = new System.Drawing.Point(15, 56);
+            this.comboBox1.Location = new System.Drawing.Point(15, 100);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(323, 21);
+            this.comboBox1.Size = new System.Drawing.Size(185, 21);
             this.comboBox1.TabIndex = 34;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 40);
+            this.label4.Location = new System.Drawing.Point(12, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 33;
-            this.label4.Text = "Сотрудник";
+            this.label4.Text = "Кто составил";
             // 
             // createB
             // 
-            this.createB.Location = new System.Drawing.Point(238, 158);
+            this.createB.Location = new System.Drawing.Point(259, 160);
             this.createB.Name = "createB";
             this.createB.Size = new System.Drawing.Size(100, 23);
             this.createB.TabIndex = 32;
@@ -70,15 +71,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(178, 107);
+            this.label3.Location = new System.Drawing.Point(206, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.Size = new System.Drawing.Size(10, 13);
             this.label3.TabIndex = 31;
-            this.label3.Text = "до";
+            this.label3.Text = "-";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(201, 104);
+            this.dateTimePicker2.Location = new System.Drawing.Point(222, 41);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(137, 20);
             this.dateTimePicker2.TabIndex = 30;
@@ -86,15 +87,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 107);
+            this.label2.Location = new System.Drawing.Point(12, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 13);
+            this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 29;
-            this.label2.Text = "От";
+            this.label2.Text = "Период";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 104);
+            this.dateTimePicker1.Location = new System.Drawing.Point(63, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(137, 20);
             this.dateTimePicker1.TabIndex = 28;
@@ -104,15 +105,25 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 13);
+            this.label1.Size = new System.Drawing.Size(172, 13);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Формирование отчета об опыте сотрудников";
+            this.label1.Text = "Отчет \"Опытность сотрудников\"";
+            // 
+            // checkQualificationB
+            // 
+            this.checkQualificationB.Location = new System.Drawing.Point(206, 98);
+            this.checkQualificationB.Name = "checkQualificationB";
+            this.checkQualificationB.Size = new System.Drawing.Size(25, 23);
+            this.checkQualificationB.TabIndex = 35;
+            this.checkQualificationB.Text = "...";
+            this.checkQualificationB.UseVisualStyleBackColor = true;
             // 
             // ReportExperience
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 220);
+            this.ClientSize = new System.Drawing.Size(380, 208);
+            this.Controls.Add(this.checkQualificationB);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.createB);
@@ -123,7 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ReportExperience";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Формирование отчета";
+            this.Text = "Отчет \"Опытность сотрудников\"";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +150,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button checkQualificationB;
     }
 }

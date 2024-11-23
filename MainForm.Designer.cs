@@ -190,22 +190,22 @@
             // ReportWorkloadToolStripMenuItem
             // 
             this.ReportWorkloadToolStripMenuItem.Name = "ReportWorkloadToolStripMenuItem";
-            this.ReportWorkloadToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.ReportWorkloadToolStripMenuItem.Text = "Отчет о загруженности персонала";
+            this.ReportWorkloadToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.ReportWorkloadToolStripMenuItem.Text = "Отчет \"Загруженность сотрудников\"";
             this.ReportWorkloadToolStripMenuItem.Click += new System.EventHandler(this.ReportWorkloadToolStripMenuItem_Click);
             // 
             // ReportOverdueToolStripMenuItem
             // 
             this.ReportOverdueToolStripMenuItem.Name = "ReportOverdueToolStripMenuItem";
-            this.ReportOverdueToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.ReportOverdueToolStripMenuItem.Text = "Отчет о просроченных проектах";
+            this.ReportOverdueToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.ReportOverdueToolStripMenuItem.Text = "Отчет \"Просроченные проекты\"";
             this.ReportOverdueToolStripMenuItem.Click += new System.EventHandler(this.ReportOverdueToolStripMenuItem_Click);
             // 
             // ReportExperienceToolStripMenuItem
             // 
             this.ReportExperienceToolStripMenuItem.Name = "ReportExperienceToolStripMenuItem";
-            this.ReportExperienceToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.ReportExperienceToolStripMenuItem.Text = "Отчет об опыте сотрудников";
+            this.ReportExperienceToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.ReportExperienceToolStripMenuItem.Text = "Отчет \"Опытность сотрудников\"";
             this.ReportExperienceToolStripMenuItem.Click += new System.EventHandler(this.ReportExperienceToolStripMenuItem_Click);
             // 
             // showPanel
