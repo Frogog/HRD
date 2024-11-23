@@ -48,6 +48,7 @@ namespace HRD
                 }
             }
             doc.SaveToFile("TryOverdue.docx");
+            this.Close();
         }
     }
 }

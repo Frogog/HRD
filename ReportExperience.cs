@@ -49,6 +49,7 @@ namespace HRD
                 }
             }
             doc.SaveToFile("TryExperience.docx");
+            this.Close();
         }
     }
 }

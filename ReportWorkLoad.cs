@@ -53,6 +53,7 @@ namespace HRD
                 }
             }
             doc.SaveToFile("Try.docx");
+            this.Close();
         }
     }
 }
