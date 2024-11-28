@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace HRD
 {
@@ -48,8 +49,9 @@ namespace HRD
                     else p2.AppendText(testData[r][c - 1]);
                 }
             }
-            doc.SaveToFile("TryExperience.docx");
+            doc.SaveToFile("ReportExperience.docx");
             this.Close();
+            Process.Start(@"ReportExperience.docx");
         }
 
         private void ReportExperience_Load(object sender, EventArgs e)

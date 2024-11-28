@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace HRD
 {
@@ -47,8 +48,9 @@ namespace HRD
                     else p2.AppendText(testData[r][c - 1]);
                 }
             }
-            doc.SaveToFile("TryOverdue.docx");
+            doc.SaveToFile("ReportOverdue.docx");
             this.Close();
+            Process.Start(@"ReportOverdue.docx");
         }
 
         private void ReportOverdue_Load(object sender, EventArgs e)

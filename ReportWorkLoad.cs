@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using Spire.Doc;
 using Spire.Doc.Documents;
 using Spire.Doc.Fields;
+
 
 namespace HRD
 {
@@ -31,20 +33,20 @@ namespace HRD
 
         private void createB_Click(object sender, EventArgs e)
         {
-            Document doc = new Document();
+            Spire.Doc.Document doc = new Spire.Doc.Document();
             doc.LoadFromFile(@"ReportWorkloadExample.docx");
             doc.Replace("#DateStart#", dateTimePicker1.Value.ToShortDateString(), true, true);
             doc.Replace("#DateEnd#", dateTimePicker2.Value.ToShortDateString(), true, true);
             doc.Replace("#Post#", "Программист", true, true);
             doc.Replace("#DateToday#", DateTime.Today.ToString("dd.MM.yyyy"), true, true);
             doc.Replace("#Name#",comboBox1.Text,true,true);
-            Section section = doc.Sections[0];
-            Table table = section.Tables[0] as Table;
+            Spire.Doc.Section section = doc.Sections[0];
+            Spire.Doc.Table table = section.Tables[0] as Spire.Doc.Table;
             for (int r = 0; r < testData.Length; r++){
                 table.AddRow();
                 TableRow DataRow = table.Rows[r+1];
                 for (int c = 0; c < testData[r].Length+1; c++){
-                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
+                    Spire.Doc.Documents.Paragraph p2 = DataRow.Cells[c].AddParagraph();
                     if (c == 0)
                     {
                         p2.AppendText((Array.IndexOf(testData, testData[r])+1).ToString());
@@ -52,8 +54,9 @@ namespace HRD
                     else p2.AppendText(testData[r][c-1]);
                 }
             }
-            doc.SaveToFile("Try.docx");
+            doc.SaveToFile("ReportWorkload.docx");
             this.Close();
+            Process.Start(@"ReportWorkload.docx");
         }
     }
 }
