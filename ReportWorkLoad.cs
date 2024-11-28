@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Spire.Doc;
 using Spire.Doc.Documents;
 using Spire.Doc.Fields;
+using Microsoft.Office.Interop.Word;
 
 
 namespace HRD
