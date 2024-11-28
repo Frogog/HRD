@@ -51,5 +51,10 @@ namespace HRD
             doc.SaveToFile("TryExperience.docx");
             this.Close();
         }
+
+        private void ReportExperience_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
+        }
     }
 }

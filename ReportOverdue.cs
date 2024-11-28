@@ -50,5 +50,10 @@ namespace HRD
             doc.SaveToFile("TryOverdue.docx");
             this.Close();
         }
+
+        private void ReportOverdue_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
+        }
     }
 }

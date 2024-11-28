@@ -132,6 +132,8 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.createB);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReportWorkLoad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет \"Загруженность сотрудников\"";

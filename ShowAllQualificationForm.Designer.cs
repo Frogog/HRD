@@ -97,6 +97,7 @@
             this.changeB.TabIndex = 32;
             this.changeB.Text = "Редактировать";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // addB
             // 
@@ -165,6 +166,7 @@
             this.confirmB.Text = "ОК";
             this.confirmB.UseVisualStyleBackColor = true;
             this.confirmB.Visible = false;
+            this.confirmB.Click += new System.EventHandler(this.confirmB_Click);
             // 
             // label1
             // 
@@ -212,6 +214,7 @@
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.confirmB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ShowAllQualificationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Уровни квалификации";

@@ -132,9 +132,12 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.createB);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReportOverdue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет \"Просроченные проекты\"";
+            this.Load += new System.EventHandler(this.ReportOverdue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

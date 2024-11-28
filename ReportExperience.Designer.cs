@@ -132,9 +132,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReportExperience";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет \"Опытность сотрудников\"";
+            this.Load += new System.EventHandler(this.ReportExperience_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

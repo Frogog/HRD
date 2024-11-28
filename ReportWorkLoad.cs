@@ -26,7 +26,7 @@ namespace HRD
             };
         private void ReportWorkLoad_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
         }
 
         private void createB_Click(object sender, EventArgs e)
