@@ -57,6 +57,7 @@
             this.confirmB.Text = "ОК";
             this.confirmB.UseVisualStyleBackColor = true;
             this.confirmB.Visible = false;
+            this.confirmB.Click += new System.EventHandler(this.confirmB_Click);
             // 
             // canselB
             // 
@@ -104,6 +105,7 @@
             this.changeB.TabIndex = 24;
             this.changeB.Text = "Редактировать";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // addB
             // 
@@ -214,6 +216,7 @@
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ShowAllPostForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Должности";

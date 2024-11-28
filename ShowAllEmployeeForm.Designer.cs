@@ -135,6 +135,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(714, 635);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -445,6 +446,7 @@
             this.deleteSkillB.TabIndex = 22;
             this.deleteSkillB.Text = "-";
             this.deleteSkillB.UseVisualStyleBackColor = true;
+            this.deleteSkillB.Click += new System.EventHandler(this.deleteSkillB_Click);
             // 
             // dataGridView2
             // 
@@ -495,6 +497,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(423, 37);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -504,6 +507,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(9, 37);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -742,7 +746,7 @@
             this.addB.TabIndex = 15;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
-            this.addB.Click += new System.EventHandler(this.addB_Click_1);
+            this.addB.Click += new System.EventHandler(this.addB_Click);
             // 
             // changeB
             // 
@@ -752,6 +756,7 @@
             this.changeB.TabIndex = 16;
             this.changeB.Text = "Редактировать";
             this.changeB.UseVisualStyleBackColor = true;
+            this.changeB.Click += new System.EventHandler(this.changeB_Click);
             // 
             // deleteB
             // 
@@ -761,6 +766,7 @@
             this.deleteB.TabIndex = 18;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // canselB
             // 
@@ -782,6 +788,7 @@
             this.confirmB.Text = "ОК";
             this.confirmB.UseVisualStyleBackColor = true;
             this.confirmB.Visible = false;
+            this.confirmB.Click += new System.EventHandler(this.confirmB_Click);
             // 
             // ShowAllEmployeeForm
             // 
@@ -799,6 +806,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "ShowAllEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сотрудники";
