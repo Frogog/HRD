@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.GuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,6 +103,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -110,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -216,7 +219,7 @@
             this.showPanel.Controls.Add(this.mainLable);
             this.showPanel.Controls.Add(this.panelAdd);
             this.showPanel.Location = new System.Drawing.Point(11, 26);
-            this.showPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showPanel.Margin = new System.Windows.Forms.Padding(2);
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(1055, 413);
             this.showPanel.TabIndex = 9;
@@ -245,7 +248,7 @@
             this.Wages,
             this.Salary});
             this.dataGridView1.Location = new System.Drawing.Point(2, 18);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -410,7 +413,7 @@
             this.panelAdd.Controls.Add(this.groupBox6);
             this.panelAdd.Controls.Add(this.groupBox5);
             this.panelAdd.Location = new System.Drawing.Point(33, 45);
-            this.panelAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAdd.Margin = new System.Windows.Forms.Padding(2);
             this.panelAdd.Name = "panelAdd";
             this.panelAdd.Size = new System.Drawing.Size(718, 576);
             this.panelAdd.TabIndex = 14;
@@ -429,9 +432,9 @@
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Location = new System.Drawing.Point(2, 248);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(712, 241);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
@@ -514,7 +517,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(423, 37);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(251, 21);
             this.comboBox1.TabIndex = 13;
@@ -523,7 +526,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(9, 37);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(379, 21);
             this.comboBox2.TabIndex = 12;
@@ -571,9 +574,9 @@
             this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.textBox7);
             this.groupBox6.Location = new System.Drawing.Point(4, 3);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox6.Size = new System.Drawing.Size(710, 241);
             this.groupBox6.TabIndex = 13;
             this.groupBox6.TabStop = false;
@@ -592,7 +595,7 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(279, 40);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(162, 20);
             this.textBox11.TabIndex = 19;
@@ -610,7 +613,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(209, 92);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(375, 20);
             this.textBox6.TabIndex = 8;
@@ -629,7 +632,7 @@
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(588, 92);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(90, 20);
             this.dateTimePicker2.TabIndex = 13;
@@ -657,7 +660,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(9, 40);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(162, 20);
             this.textBox10.TabIndex = 16;
@@ -666,7 +669,7 @@
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(445, 40);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
             this.dateTimePicker1.TabIndex = 15;
@@ -694,7 +697,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(109, 92);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(96, 20);
             this.textBox9.TabIndex = 5;
@@ -702,7 +705,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(9, 92);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(96, 20);
             this.textBox8.TabIndex = 3;
@@ -710,7 +713,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(9, 198);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(693, 20);
             this.textBox4.TabIndex = 12;
@@ -728,7 +731,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(9, 146);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(693, 20);
             this.textBox5.TabIndex = 10;
@@ -756,7 +759,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(175, 40);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 0;
@@ -770,9 +773,9 @@
             this.groupBox5.Controls.Add(this.textBox3);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Location = new System.Drawing.Point(2, 493);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(712, 80);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
@@ -781,7 +784,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(325, 37);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(154, 20);
             this.textBox1.TabIndex = 15;
@@ -799,7 +802,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(167, 37);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(154, 20);
             this.textBox2.TabIndex = 13;
@@ -817,7 +820,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(9, 37);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(154, 20);
             this.textBox3.TabIndex = 11;
@@ -858,6 +861,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -939,5 +943,6 @@
         private System.Windows.Forms.ToolStripMenuItem ReportWorkloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReportOverdueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReportExperienceToolStripMenuItem;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
