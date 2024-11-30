@@ -35,7 +35,7 @@ namespace HRD
         }
         private void changeB_Click(object sender, EventArgs e)
         {
-            TurnChangeMode();
+            if (dataGridView1.Rows.Count != 0) TurnChangeMode();
 
         }
         private void deleteB_Click(object sender, EventArgs e)
@@ -81,6 +81,7 @@ namespace HRD
                 string id_po = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "UPDATE Post SET Name ='" + textBox10.Text + "',Pay='"+ textBox1.Text +"' WHERE ID_Po=" + id_po + ";";
                 Sq(sql);
+                dataGridView1.CurrentCell = dataGridView1.Rows[n_po].Cells[1];
                 SelectRow(n_po);
             }
             TurnDefaultMode() ;

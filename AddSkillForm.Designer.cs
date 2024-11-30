@@ -37,24 +37,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(16, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 13);
+            this.label2.Size = new System.Drawing.Size(189, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Уровень владения навыком";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
+            this.textBox1.Location = new System.Drawing.Point(16, 31);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(323, 20);
+            this.textBox1.Size = new System.Drawing.Size(429, 22);
             this.textBox1.TabIndex = 3;
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(129, 51);
+            this.confirmB.Location = new System.Drawing.Point(172, 63);
+            this.confirmB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirmB.Name = "confirmB";
-            this.confirmB.Size = new System.Drawing.Size(100, 23);
+            this.confirmB.Size = new System.Drawing.Size(133, 28);
             this.confirmB.TabIndex = 29;
             this.confirmB.Text = "ОК";
             this.confirmB.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(235, 51);
+            this.canselB.Location = new System.Drawing.Point(313, 63);
+            this.canselB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.canselB.Name = "canselB";
-            this.canselB.Size = new System.Drawing.Size(100, 23);
+            this.canselB.Size = new System.Drawing.Size(133, 28);
             this.canselB.TabIndex = 28;
             this.canselB.Text = "Отмена";
             this.canselB.UseVisualStyleBackColor = true;
@@ -72,18 +76,20 @@
             // 
             // AddSkillForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 92);
+            this.ClientSize = new System.Drawing.Size(464, 113);
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "AddSkillForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Указание уровеня владения навыком";
+            this.Load += new System.EventHandler(this.AddSkillForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

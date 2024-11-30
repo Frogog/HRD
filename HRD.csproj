@@ -126,6 +126,7 @@
     <Compile Include="ShowAllSkillForm.Designer.cs">
       <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skill.cs" />
     <EmbeddedResource Include="AddSkillForm.resx">
       <DependentUpon>AddSkillForm.cs</DependentUpon>
     </EmbeddedResource>

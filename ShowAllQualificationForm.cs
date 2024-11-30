@@ -34,7 +34,7 @@ namespace HRD
         }
         private void changeB_Click(object sender, EventArgs e)
         {
-            TurnChangeMode();
+            if (dataGridView1.Rows.Count != 0) TurnChangeMode();
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
@@ -63,6 +63,7 @@ namespace HRD
                 string id_qual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "UPDATE Qualification SET Name ='" + textBox10.Text + "',Coef='" + textBox1.Text + "' WHERE ID_Qual=" + id_qual + ";";
                 Sq(sql);
+                dataGridView1.CurrentCell = dataGridView1.Rows[n_qual].Cells[1];
                 SelectRow(n_qual);
             }
             TurnDefaultMode();
