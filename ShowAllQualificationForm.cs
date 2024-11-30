@@ -23,7 +23,6 @@ namespace HRD
         private void ShowAllQualificationForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
             if (this.Tag != null)
             {
             }
@@ -74,7 +73,6 @@ namespace HRD
         }
         public void UpdateQualifiactionTable()
         {
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
         }
         public void Sq(string sql)
         {

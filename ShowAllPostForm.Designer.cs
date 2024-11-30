@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.confirmB = new System.Windows.Forms.Button();
             this.canselB = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,23 +41,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.showPanel = new System.Windows.Forms.Panel();
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
-            this.iDPoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // confirmB
             // 
             this.confirmB.Location = new System.Drawing.Point(349, 219);
-            this.confirmB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.confirmB.Margin = new System.Windows.Forms.Padding(4);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(133, 28);
             this.confirmB.TabIndex = 27;
@@ -70,7 +61,7 @@
             // canselB
             // 
             this.canselB.Location = new System.Drawing.Point(491, 219);
-            this.canselB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.canselB.Margin = new System.Windows.Forms.Padding(4);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(133, 28);
             this.canselB.TabIndex = 26;
@@ -99,7 +90,7 @@
             // deleteB
             // 
             this.deleteB.Location = new System.Drawing.Point(632, 143);
-            this.deleteB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteB.Margin = new System.Windows.Forms.Padding(4);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(133, 28);
             this.deleteB.TabIndex = 25;
@@ -110,7 +101,7 @@
             // changeB
             // 
             this.changeB.Location = new System.Drawing.Point(632, 71);
-            this.changeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changeB.Margin = new System.Windows.Forms.Padding(4);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(133, 28);
             this.changeB.TabIndex = 24;
@@ -121,7 +112,7 @@
             // addB
             // 
             this.addB.Location = new System.Drawing.Point(632, 36);
-            this.addB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addB.Margin = new System.Windows.Forms.Padding(4);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(133, 28);
             this.addB.TabIndex = 23;
@@ -162,9 +153,9 @@
             this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(16, 36);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(608, 176);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
@@ -175,13 +166,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDPoDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.payDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.postBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -202,48 +187,6 @@
             this.showPanel.Size = new System.Drawing.Size(609, 492);
             this.showPanel.TabIndex = 21;
             // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // postBindingSource
-            // 
-            this.postBindingSource.DataMember = "Post";
-            this.postBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
-            // postTableAdapter
-            // 
-            this.postTableAdapter.ClearBeforeFill = true;
-            // 
-            // iDPoDataGridViewTextBoxColumn
-            // 
-            this.iDPoDataGridViewTextBoxColumn.DataPropertyName = "ID_Po";
-            this.iDPoDataGridViewTextBoxColumn.HeaderText = "ID_Po";
-            this.iDPoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDPoDataGridViewTextBoxColumn.Name = "iDPoDataGridViewTextBoxColumn";
-            this.iDPoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDPoDataGridViewTextBoxColumn.Visible = false;
-            this.iDPoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // payDataGridViewTextBoxColumn
-            // 
-            this.payDataGridViewTextBoxColumn.DataPropertyName = "Pay";
-            this.payDataGridViewTextBoxColumn.HeaderText = "Pay";
-            this.payDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.payDataGridViewTextBoxColumn.Name = "payDataGridViewTextBoxColumn";
-            this.payDataGridViewTextBoxColumn.ReadOnly = true;
-            this.payDataGridViewTextBoxColumn.Width = 125;
-            // 
             // ShowAllPostForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,7 +201,7 @@
             this.Controls.Add(this.changeB);
             this.Controls.Add(this.addB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ShowAllPostForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -268,8 +211,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,11 +230,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel showPanel;
-        private HRD_DBDataSet hRD_DBDataSet;
-        private System.Windows.Forms.BindingSource postBindingSource;
-        private HRD_DBDataSetTableAdapters.PostTableAdapter postTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDPoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payDataGridViewTextBoxColumn;
     }
 }

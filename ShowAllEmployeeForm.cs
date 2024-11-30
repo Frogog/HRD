@@ -24,13 +24,7 @@ namespace HRD
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
-            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
-            id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             //Сделать запрос к бд на данные 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -177,7 +171,6 @@ namespace HRD
         }
         public void UpdaterRows()
         {
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
             /*dataGridView1.Rows.Clear();
             string sql = "SELECT ID_Emp,Qual_ID,Po_ID,Name,LName,Pat,DBirth,PSeries,PNumber,PWho,PWhen,Reg,Res,Email,Tg,Phone FROM Employee WHERE ID_Emp=" + id_e + ";";
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
