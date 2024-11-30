@@ -71,7 +71,7 @@ namespace HRD
         {
             TurnDefaultMode();
         }
-        public void UpdatePostTable()
+        public void UpdateQualifiactionTable()
         {
             this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
         }
@@ -83,7 +83,7 @@ namespace HRD
             command.CommandText = sql;
             command.ExecuteNonQuery();
             connect.Close();
-            UpdatePostTable();
+            UpdateQualifiactionTable();
         }
         public void SelectRow(int rowIndex)
         {

@@ -104,6 +104,7 @@ namespace HRD
         {
             dataGridView1.ClearSelection();
             dataGridView1.Rows[rowIndex].Selected = true;
+            dataGridView1.Rows[rowIndex].Cells[0].Selected = true;
         }
         private void TurnDefaultMode()
         {
