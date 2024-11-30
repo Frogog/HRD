@@ -32,6 +32,8 @@ namespace HRD
         private void ShowAllSkillForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Skill". При необходимости она может быть перемещена или удалена.
+            this.skillTableAdapter.Fill(this.hRD_DBDataSet.Skill);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Skill". При необходимости она может быть перемещена или удалена.
             //dataGridView1.Rows.Add("Владение английским языком");
         }
         private void addB_Click(object sender, EventArgs e)
@@ -112,6 +114,7 @@ namespace HRD
         }
         public void UpdatePostTable()
         {
+            this.skillTableAdapter.Fill(this.hRD_DBDataSet.Skill);
         }
         public void Sq(string sql)
         {

@@ -24,6 +24,8 @@ namespace HRD
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
             //id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             //Сделать запрос к бд на данные 
         }
