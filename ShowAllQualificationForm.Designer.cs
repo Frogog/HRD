@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.koef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
@@ -43,57 +42,57 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
+            this.qualificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
+            this.iDQualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Post,
-            this.koef});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.iDQualDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.coefDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.qualificationBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(453, 383);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(604, 471);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Наименование";
-            this.Post.MinimumWidth = 6;
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            this.Post.Width = 300;
-            // 
-            // koef
-            // 
-            this.koef.HeaderText = "Коэффициент";
-            this.koef.MinimumWidth = 6;
-            this.koef.Name = "koef";
-            this.koef.ReadOnly = true;
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(476, 112);
+            this.deleteB.Location = new System.Drawing.Point(635, 138);
+            this.deleteB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteB.Name = "deleteB";
-            this.deleteB.Size = new System.Drawing.Size(100, 23);
+            this.deleteB.Size = new System.Drawing.Size(133, 28);
             this.deleteB.TabIndex = 33;
             this.deleteB.Text = "Удалить";
             this.deleteB.UseVisualStyleBackColor = true;
+            this.deleteB.Click += new System.EventHandler(this.deleteB_Click);
             // 
             // changeB
             // 
-            this.changeB.Location = new System.Drawing.Point(476, 54);
+            this.changeB.Location = new System.Drawing.Point(635, 66);
+            this.changeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.changeB.Name = "changeB";
-            this.changeB.Size = new System.Drawing.Size(100, 23);
+            this.changeB.Size = new System.Drawing.Size(133, 28);
             this.changeB.TabIndex = 32;
             this.changeB.Text = "Редактировать";
             this.changeB.UseVisualStyleBackColor = true;
@@ -101,9 +100,10 @@
             // 
             // addB
             // 
-            this.addB.Location = new System.Drawing.Point(476, 25);
+            this.addB.Location = new System.Drawing.Point(635, 31);
+            this.addB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addB.Name = "addB";
-            this.addB.Size = new System.Drawing.Size(100, 23);
+            this.addB.Size = new System.Drawing.Size(133, 28);
             this.addB.TabIndex = 31;
             this.addB.Text = "Добавить";
             this.addB.UseVisualStyleBackColor = true;
@@ -112,37 +112,36 @@
             // showPanel
             // 
             this.showPanel.Controls.Add(this.dataGridView1);
-            this.showPanel.Location = new System.Drawing.Point(14, 25);
-            this.showPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.showPanel.Location = new System.Drawing.Point(19, 31);
+            this.showPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.showPanel.Name = "showPanel";
-            this.showPanel.Size = new System.Drawing.Size(457, 387);
+            this.showPanel.Size = new System.Drawing.Size(609, 476);
             this.showPanel.TabIndex = 29;
             // 
             // mainLable
             // 
             this.mainLable.AutoSize = true;
-            this.mainLable.Location = new System.Drawing.Point(11, 9);
-            this.mainLable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mainLable.Location = new System.Drawing.Point(15, 11);
             this.mainLable.Name = "mainLable";
-            this.mainLable.Size = new System.Drawing.Size(188, 13);
+            this.mainLable.Size = new System.Drawing.Size(246, 16);
             this.mainLable.TabIndex = 3;
             this.mainLable.Text = "Справочник уровней квалификации";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 20);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(5, 25);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 13);
+            this.label13.Size = new System.Drawing.Size(106, 16);
             this.label13.TabIndex = 17;
             this.label13.Text = "Наименование";
             // 
             // canselB
             // 
-            this.canselB.Location = new System.Drawing.Point(370, 174);
+            this.canselB.Location = new System.Drawing.Point(493, 214);
+            this.canselB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.canselB.Name = "canselB";
-            this.canselB.Size = new System.Drawing.Size(100, 23);
+            this.canselB.Size = new System.Drawing.Size(133, 28);
             this.canselB.TabIndex = 34;
             this.canselB.Text = "Отмена";
             this.canselB.UseVisualStyleBackColor = true;
@@ -151,17 +150,18 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 35);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox10.Location = new System.Drawing.Point(9, 43);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(444, 20);
+            this.textBox10.Size = new System.Drawing.Size(591, 22);
             this.textBox10.TabIndex = 16;
             // 
             // confirmB
             // 
-            this.confirmB.Location = new System.Drawing.Point(264, 174);
+            this.confirmB.Location = new System.Drawing.Point(352, 214);
+            this.confirmB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirmB.Name = "confirmB";
-            this.confirmB.Size = new System.Drawing.Size(100, 23);
+            this.confirmB.Size = new System.Drawing.Size(133, 28);
             this.confirmB.TabIndex = 35;
             this.confirmB.Text = "ОК";
             this.confirmB.UseVisualStyleBackColor = true;
@@ -171,19 +171,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 67);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(7, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 37;
             this.label1.Text = "Коэффициент";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 82);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(9, 101);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.Size = new System.Drawing.Size(273, 22);
             this.textBox1.TabIndex = 36;
             // 
             // groupBox1
@@ -192,19 +191,63 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(14, 25);
+            this.groupBox1.Location = new System.Drawing.Point(19, 31);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 143);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(608, 176);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
             this.groupBox1.Visible = false;
             // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // qualificationBindingSource
+            // 
+            this.qualificationBindingSource.DataMember = "Qualification";
+            this.qualificationBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // qualificationTableAdapter
+            // 
+            this.qualificationTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDQualDataGridViewTextBoxColumn
+            // 
+            this.iDQualDataGridViewTextBoxColumn.DataPropertyName = "ID_Qual";
+            this.iDQualDataGridViewTextBoxColumn.HeaderText = "ID_Qual";
+            this.iDQualDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDQualDataGridViewTextBoxColumn.Name = "iDQualDataGridViewTextBoxColumn";
+            this.iDQualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDQualDataGridViewTextBoxColumn.Visible = false;
+            this.iDQualDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coefDataGridViewTextBoxColumn
+            // 
+            this.coefDataGridViewTextBoxColumn.DataPropertyName = "Coef";
+            this.coefDataGridViewTextBoxColumn.HeaderText = "Coef";
+            this.coefDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coefDataGridViewTextBoxColumn.Name = "coefDataGridViewTextBoxColumn";
+            this.coefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coefDataGridViewTextBoxColumn.Width = 125;
+            // 
             // ShowAllQualificationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 431);
+            this.ClientSize = new System.Drawing.Size(780, 530);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.deleteB);
@@ -214,6 +257,7 @@
             this.Controls.Add(this.canselB);
             this.Controls.Add(this.confirmB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ShowAllQualificationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -223,6 +267,8 @@
             this.showPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +288,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
-        private System.Windows.Forms.DataGridViewTextBoxColumn koef;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource qualificationBindingSource;
+        private HRD_DBDataSetTableAdapters.QualificationTableAdapter qualificationTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDQualDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coefDataGridViewTextBoxColumn;
     }
 }

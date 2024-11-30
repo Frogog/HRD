@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,24 @@ namespace HRD
         public ShowAllEmployeeForm()
         {
             InitializeComponent();
+            this.Size = new Size(861, 770);
         }
         private bool addMode = true;
+        private System.Data.SqlClient.SqlConnection connect;
+        String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
+        string id_e = "";
+
+        private void RefreshTable()
+        {
+            
+        }
+        private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //Сделать запрос к бд на данные 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
@@ -82,10 +99,7 @@ namespace HRD
 
         }
 
-        private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
-        {
-            //Сделать запрос к бд на данные 
-        }
+       
 
         private void changeB_Click(object sender, EventArgs e)
         {
@@ -132,11 +146,52 @@ namespace HRD
         private void deleteB_Click(object sender, EventArgs e)
         {
             //Удалить выбранную строку
+            UpdaterRows();
         }
 
         private void deleteSkillB_Click(object sender, EventArgs e)
         {
             //Убрать из списка определнный скилл
+        }
+
+        public void SelectRow()
+        {   
+            if (dataGridView1.RowCount != 0)
+            {
+                id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            }
+        }
+        public void UpdaterRows()
+        {
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            /*dataGridView1.Rows.Clear();
+            string sql = "SELECT ID_Emp,Qual_ID,Po_ID,Name,LName,Pat,DBirth,PSeries,PNumber,PWho,PWhen,Reg,Res,Email,Tg,Phone FROM Employee WHERE ID_Emp=" + id_e + ";";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            while (inv.Read())
+            {
+                dataGridView1.Rows.Add(
+                    inv["ID_Emp"].ToString(), 
+                    inv["Qual_ID"].ToString(), 
+                    inv["Po_ID"].ToString(), 
+                    inv["Name"].ToString());
+                    inv["LName"].ToString();
+                    inv["Pat"].ToString();
+                    inv["DBirth"].ToString();
+                    inv["PSeries"].ToString();
+                    inv["PNumber"].ToString();
+                    inv["PWho"].ToString();
+                    inv["PWhen"].ToString();
+                    inv["Reg"].ToString();
+                    inv["Res"].ToString();
+                    inv["Email"].ToString();
+                    inv["Tg"].ToString();
+                    inv["Phone"].ToString();
+            }
+            connect.Close();*/
         }
     }
 }

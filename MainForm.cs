@@ -45,12 +45,18 @@ namespace HRD
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.EndPayment". При необходимости она может быть перемещена или удалена.Data Source=LAPTOP-3UFK0395\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True
+            this.endPaymentTableAdapter.Fill(this.hRD_DBDataSet.EndPayment);
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void RefreshTable()
+        {
+            this.endPaymentTableAdapter.Fill(this.hRD_DBDataSet.EndPayment);
+        }   
     }
 }
