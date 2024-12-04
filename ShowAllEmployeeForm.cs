@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spire.Doc.Fields;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HRD
 {
     public partial class ShowAllEmployeeForm : Form
     {
+
         public ShowAllEmployeeForm()
         {
             InitializeComponent();
@@ -24,6 +27,10 @@ namespace HRD
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
+            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
             this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
             //id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
@@ -37,37 +44,22 @@ namespace HRD
 
         private void addB_Click(object sender, EventArgs e)
         {
-            showPanel.Visible = false;
-            panelAdd.Visible = true;
-            addB.Enabled = false;
-            changeB.Enabled = false;
-            deleteB.Enabled = false;
-            confirmB.Visible = true;
-            canselB.Visible = true;
-            addMode = true;
+            TurnAddMode();
         }
 
         private void changeB_Click(object sender, EventArgs e)
         {
-            showPanel.Visible = false;
-            panelAdd.Visible = true;
-            addB.Enabled = false;
-            changeB.Enabled = false;
-            deleteB.Enabled = false;
-            confirmB.Visible = true;
-            canselB.Visible = true;
-            addMode = false;
-
-            //Тут запрос к бд на строку нашего юзера.id возьму из таблицы, на которой фокус.
-            //Заполнить все части формы инфой из бд.
-            textBox11.Text = "Иванов";
-            textBox7.Text = "Иван";
-            textBox10.Text = "Иванович";
+            
+            TurnChangeMode();
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
-            //Удалить выбранную строку
-            UpdaterRows();
+            if (dataGridView1.RowCount != 0)
+            {
+                string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                string sql = "DELETE FROM Employee WHERE ID_Emp=" + id_e;
+                Sq(sql);
+            }
         }
         private List<Skill> employeeSkills = new List<Skill>();
         private void addSkillB_Click(object sender, EventArgs e)
@@ -99,7 +91,11 @@ namespace HRD
         }
         private void deleteSkillB_Click(object sender, EventArgs e)
         {
-            //Убрать из списка определнный скилл
+            if (dataGridView2.Rows.Count > 0)
+            {
+                dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
+                employeeSkills.RemoveAt(dataGridView2.CurrentRow.Index);
+            }
         }
         
 
@@ -109,9 +105,14 @@ namespace HRD
             {
                 ShowAllPostForm showAllPostForm = new ShowAllPostForm();
                 showAllPostForm.Tag = "checkPost";
-                showAllPostForm.ShowDialog();
+                DialogResult result = showAllPostForm.ShowDialog();
+                if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
+                {
+                    string post = showAllPostForm.selectedPost;
+                    this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+                    if(post!="") PostCombo.SelectedValue = post;
+                }
             }
-            //Полагаю стоит поставить содержимое поля на выбранный элемент в форме и обновить список в комбобоксе.
         }
 
         private void checkQualificationB_Click(object sender, EventArgs e)
@@ -119,8 +120,14 @@ namespace HRD
             if (Application.OpenForms.OfType<ShowAllQualificationForm>().FirstOrDefault() == null)
             {
                 ShowAllQualificationForm showAllQualificationForm = new ShowAllQualificationForm();
-                showAllQualificationForm.Tag = "checkPostQualification";
-                showAllQualificationForm.ShowDialog();
+                showAllQualificationForm.Tag = "checkQual";
+                DialogResult result = showAllQualificationForm.ShowDialog();
+                if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
+                {
+                    string qual = showAllQualificationForm.selectedQual; 
+                    this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+                    if(qual!="") QualCombo.SelectedValue = qual;
+                }
             }
             //Полагаю стоит поставить содержимое поля на выбранный элемент в форме и обновить список в комбобоксе.
 
@@ -130,77 +137,179 @@ namespace HRD
         {
             if (addMode)
             {
-                //Добавить запись в бд
-                //Почистить все с вводом
+                string sql = "INSERT INTO Employee (Qual_ID, Po_ID, Name, LName, Pat, " +
+               "DBirth, PSeries, PNumber, PWho, PWhen, " +
+               "Reg, Res, Email, Tg, Phone) VALUES('" +
+                    QualCombo.SelectedValue + "','" +
+                    PostCombo.SelectedValue + "','" +
+                    NameTextBox.Text + "','" +
+                    LNameTextBox.Text + "','" +
+                    PatTextBox.Text + "','" +
+                    BirthDate.Value.ToString() + "','" +
+                    PSeriesTextBox.Text + "','" +
+                    PNumberTextBox.Text + "','" +
+                    WhoTextBox.Text + "','" +
+                    WhenDate.Value.ToString() + "','" +
+                    RegTextBox.Text + "','" +
+                    ResTextBox.Text + "','" +
+                    EmailTextBox.Text + "','" +
+                    TgTextBox.Text + "','" +
+                    PhoneTextBox.Text + "')";
+                Sq(sql);
+                string id_e = dataGridView1.Rows[dataGridView1.RowCount-1].Cells[0].Value.ToString();
+                foreach (var skill in employeeSkills)
+                {
+                    sql = "INSERT INTO Employee_Skill (Emp_ID, Skill_ID, Prof) VALUES('" +
+                        id_e + "','" +
+                        skill.skillId + "','" +
+                        skill.skillLevel + "')";
+                    Sq(sql);
+                }
+                SelectRow(dataGridView1.Rows.Count - 1);
             }
             else
             {
-                //Обновить запись в бд по сохраненному id
-
+                int n_e = dataGridView1.CurrentRow.Index;
+                string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                string sql = "UPDATE Employee SET "
+               +"Qual_ID ='" + QualCombo.SelectedValue
+               + "', Po_ID ='" + PostCombo.SelectedValue
+               + "', Name ='" + NameTextBox.Text
+               + "', LName ='" + LNameTextBox.Text
+               + "', Pat ='" + PatTextBox.Text
+               + "', DBirth ='" + BirthDate.Value.ToString()
+               + "', PSeries ='" + PSeriesTextBox.Text
+               + "', PNumber ='" + PNumberTextBox.Text
+               + "', PWho ='" + WhoTextBox.Text
+               + "', PWhen ='" + WhenDate.Value.ToString()
+               + "', Reg ='" + RegTextBox.Text
+               + "', Res ='" + ResTextBox.Text
+               + "', Email ='" + EmailTextBox.Text
+               + "', Tg ='" + TgTextBox.Text
+               + "', Phone ='" + PhoneTextBox.Text
+               + "' WHERE ID_Emp=" + id_e + ";";
+                Sq(sql);
+                SelectRow(n_e);
             }
-            //Обновить таблицу и выделить строку, с которой было взаимодействие.
-            showPanel.Visible = true;
-            panelAdd.Visible = false;
-            addB.Enabled = true;
-            changeB.Enabled = true;
-            deleteB.Enabled = true;
-            confirmB.Visible = false;
-            canselB.Visible = false;
-            addMode = true;
-
+            TurnDefaultMode();
         }
         private void canselB_Click(object sender, EventArgs e)
         {
-            showPanel.Visible = true;
-            panelAdd.Visible = false;
-            addB.Enabled = true;
-            changeB.Enabled = true;
-            deleteB.Enabled = true;
-            confirmB.Visible = false;
-            canselB.Visible = false;
-            addMode = true;
+            TurnDefaultMode();
         }
 
-
-        
-
-        public void SelectRow()
-        {   
-            if (dataGridView1.RowCount != 0)
-            {
-                id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            }
-        }
-        public void UpdaterRows()
+        public void UpdateEmployeeTable()
         {
-            /*dataGridView1.Rows.Clear();
-            string sql = "SELECT ID_Emp,Qual_ID,Po_ID,Name,LName,Pat,DBirth,PSeries,PNumber,PWho,PWhen,Reg,Res,Email,Tg,Phone FROM Employee WHERE ID_Emp=" + id_e + ";";
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+        }
+        public void Sq(string sql)
+        {
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
             connect.Open();
             SqlCommand command = connect.CreateCommand();
             command.CommandText = sql;
-            SqlDataReader inv = command.ExecuteReader();
-            while (inv.Read())
+            command.ExecuteNonQuery();
+            connect.Close();
+            UpdateEmployeeTable();
+        }
+        public void SelectRow(int rowIndex)
+        {
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
+            dataGridView1.ClearSelection();
+            dataGridView1.Rows[rowIndex].Selected = true;
+            dataGridView1.Rows[rowIndex].Cells[0].Selected = true;
+        }
+        private void TurnDefaultMode()
+        {
+            showPanel.Visible = true;
+            panelAdd.Visible = false;
+            addB.Enabled = true;
+            changeB.Enabled = true;
+            deleteB.Enabled = true;
+            confirmB.Visible = false;
+            canselB.Visible = false;
+            addMode = true;
+            TurnClearData();
+        }
+        private void TurnAddMode()
+        {
+            showPanel.Visible = false;
+            panelAdd.Visible = true;
+            addB.Enabled = false;
+            changeB.Enabled = false;
+            deleteB.Enabled = false;
+            confirmB.Visible = true;
+            canselB.Visible = true;
+            addMode = true;
+            TurnClearData();
+        }
+        private void TurnChangeMode()
+        {
+            showPanel.Visible = false;
+            panelAdd.Visible = true;
+            addB.Enabled = false;
+            changeB.Enabled = false;
+            deleteB.Enabled = false;
+            confirmB.Visible = true;
+            canselB.Visible = true;
+            addMode = false;
+            if (dataGridView1.Rows.Count != 0)
             {
-                dataGridView1.Rows.Add(
-                    inv["ID_Emp"].ToString(), 
-                    inv["Qual_ID"].ToString(), 
-                    inv["Po_ID"].ToString(), 
-                    inv["Name"].ToString());
-                    inv["LName"].ToString();
-                    inv["Pat"].ToString();
-                    inv["DBirth"].ToString();
-                    inv["PSeries"].ToString();
-                    inv["PNumber"].ToString();
-                    inv["PWho"].ToString();
-                    inv["PWhen"].ToString();
-                    inv["Reg"].ToString();
-                    inv["Res"].ToString();
-                    inv["Email"].ToString();
-                    inv["Tg"].ToString();
-                    inv["Phone"].ToString();
+                NameTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                LNameTextBox.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                PatTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                PSeriesTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                PNumberTextBox.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                WhoTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                RegTextBox.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                ResTextBox.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
+                PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[10].Value.ToString());
+                EmailTextBox.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+                TgTextBox.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
+                PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
+
             }
-            connect.Close();*/
+        }
+        private void TurnClearData()
+        {
+            NameTextBox.Text = string.Empty;
+            LNameTextBox.Text = string.Empty;
+            PatTextBox.Text = string.Empty;
+            PSeriesTextBox.Text = string.Empty;
+            PNumberTextBox.Text = string.Empty;
+            WhoTextBox.Text = string.Empty;
+            WhoTextBox.Text = string.Empty;
+            RegTextBox.Text = string.Empty;
+            ResTextBox.Text = string.Empty;
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            dataGridView2.Rows.Clear();
+            employeeSkills.Clear();
+            EmailTextBox.Text = "";
+            TgTextBox.Text = "";
+            PhoneTextBox.Text = "";
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (addMode == false)
+            {
+                AddSkillForm addSkillForm = new AddSkillForm(employeeSkills[dataGridView2.CurrentRow.Index].skillLevel);
+                if (addSkillForm.ShowDialog() == DialogResult.OK)
+                {
+                    string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string skillLevel = addSkillForm.SelectedLevel;
+                    employeeSkills[dataGridView2.CurrentRow.Index].skillLevel = skillLevel;
+                    string sql = "UPDATE Employee_Skill SET "
+                   + "Prof ='" + skillLevel
+                   + "' WHERE Emp_ID=" + id_e + ", "
+                   + "Skill_ID =" + employeeSkills[dataGridView2.CurrentRow.Index].skillId + ";";
+                    MessageBox.Show(sql);
+                }
+            }
         }
     }
 }

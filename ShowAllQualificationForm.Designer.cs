@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDQualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qualificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
             this.deleteB = new System.Windows.Forms.Button();
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
@@ -42,17 +47,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.qualificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
-            this.iDQualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -75,6 +75,44 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(604, 471);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // iDQualDataGridViewTextBoxColumn
+            // 
+            this.iDQualDataGridViewTextBoxColumn.DataPropertyName = "ID_Qual";
+            this.iDQualDataGridViewTextBoxColumn.HeaderText = "ID_Qual";
+            this.iDQualDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDQualDataGridViewTextBoxColumn.Name = "iDQualDataGridViewTextBoxColumn";
+            this.iDQualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDQualDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coefDataGridViewTextBoxColumn
+            // 
+            this.coefDataGridViewTextBoxColumn.DataPropertyName = "Coef";
+            this.coefDataGridViewTextBoxColumn.HeaderText = "Coef";
+            this.coefDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coefDataGridViewTextBoxColumn.Name = "coefDataGridViewTextBoxColumn";
+            this.coefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coefDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // qualificationBindingSource
+            // 
+            this.qualificationBindingSource.DataMember = "Qualification";
+            this.qualificationBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // deleteB
             // 
@@ -201,46 +239,9 @@
             this.groupBox1.Text = "Общие данные";
             this.groupBox1.Visible = false;
             // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // qualificationBindingSource
-            // 
-            this.qualificationBindingSource.DataMember = "Qualification";
-            this.qualificationBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
             // qualificationTableAdapter
             // 
             this.qualificationTableAdapter.ClearBeforeFill = true;
-            // 
-            // iDQualDataGridViewTextBoxColumn
-            // 
-            this.iDQualDataGridViewTextBoxColumn.DataPropertyName = "ID_Qual";
-            this.iDQualDataGridViewTextBoxColumn.HeaderText = "ID_Qual";
-            this.iDQualDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDQualDataGridViewTextBoxColumn.Name = "iDQualDataGridViewTextBoxColumn";
-            this.iDQualDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDQualDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // coefDataGridViewTextBoxColumn
-            // 
-            this.coefDataGridViewTextBoxColumn.DataPropertyName = "Coef";
-            this.coefDataGridViewTextBoxColumn.HeaderText = "Coef";
-            this.coefDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coefDataGridViewTextBoxColumn.Name = "coefDataGridViewTextBoxColumn";
-            this.coefDataGridViewTextBoxColumn.ReadOnly = true;
-            this.coefDataGridViewTextBoxColumn.Width = 125;
             // 
             // ShowAllQualificationForm
             // 
@@ -263,11 +264,11 @@
             this.Text = "Уровни квалификации";
             this.Load += new System.EventHandler(this.ShowAllQualificationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
             this.showPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

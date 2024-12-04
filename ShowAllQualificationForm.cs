@@ -17,6 +17,7 @@ namespace HRD
         {
             InitializeComponent();
         }
+        public string selectedQual = "";
         private bool addMode = true;
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
@@ -54,7 +55,6 @@ namespace HRD
                 Sq(sql);
                 if (dataGridView1.RowCount != 0)
                 {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
                     SelectRow(dataGridView1.Rows.Count - 1);
                 }
             }
@@ -69,6 +69,20 @@ namespace HRD
             }
             TurnDefaultMode();
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.Tag != null && this.Tag.ToString() == "checkQual")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    selectedQual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
         private void canselB_Click(object sender, EventArgs e)
         {
             TurnDefaultMode();
@@ -89,6 +103,7 @@ namespace HRD
         }
         public void SelectRow(int rowIndex)
         {
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
             dataGridView1.ClearSelection();
             dataGridView1.Rows[rowIndex].Selected = true;
             dataGridView1.Rows[rowIndex].Cells[0].Selected = true;
@@ -139,6 +154,6 @@ namespace HRD
             textBox10.Text = string.Empty;
         }
 
-       
+        
     }
 }

@@ -39,10 +39,14 @@ namespace HRD
             if (Application.OpenForms.OfType<T>().FirstOrDefault() == null)
             {
                 T form = new T();
+                form.FormClosed += Forms_FormClosed;
                 form.Show();
             }
         }
-
+        private void Forms_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.endPaymentTableAdapter.Fill(this.hRD_DBDataSet.EndPayment);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.EndPayment". При необходимости она может быть перемещена или удалена.

@@ -20,6 +20,7 @@ namespace HRD
         {
             InitializeComponent();
         }
+        public string selectedPost = "";
         private bool addMode = true;
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
@@ -55,9 +56,14 @@ namespace HRD
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Делать возврат если у формы стоит тег checkPost
-            if (e.RowIndex >= 0)
+            if (this.Tag!=null && this.Tag.ToString() == "checkPost")
             {
-                
+                if (e.RowIndex >= 0)
+                {
+                    selectedPost = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
 
@@ -104,6 +110,7 @@ namespace HRD
         public void SelectRow(int rowIndex)
         {
             dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
             dataGridView1.Rows[rowIndex].Selected = true;
             dataGridView1.Rows[rowIndex].Cells[0].Selected = true;
         }

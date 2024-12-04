@@ -12,9 +12,10 @@ namespace HRD
 {
     public partial class AddSkillForm : Form
     {
-        public string SelectedLevel="1";
-        public AddSkillForm()
+        public string SelectedLevel="0";
+        public AddSkillForm(string selectedLevel = "0")
         {
+            this.SelectedLevel = selectedLevel;
             InitializeComponent();
         }
 
@@ -40,7 +41,7 @@ namespace HRD
 
         private void AddSkillForm_Load(object sender, EventArgs e)
         {
-
+            textBox1.Text = SelectedLevel;
         }
     }
 }

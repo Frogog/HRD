@@ -87,8 +87,6 @@ namespace HRD
             {
                 if ((e.RowIndex >= 0) && (e.ColumnIndex >= 0))
                 {
-
-
                     // Получаем строку, по которой был двойной клик
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                     string skillId = row.Cells[0].Value.ToString();
@@ -128,6 +126,7 @@ namespace HRD
         }
         public void SelectRow(int rowIndex)
         {
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
             dataGridView1.ClearSelection();
             dataGridView1.Rows[rowIndex].Selected = true;
             dataGridView1.Rows[rowIndex].Cells[0].Selected = true;
