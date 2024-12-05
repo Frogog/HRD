@@ -56,7 +56,6 @@ namespace HRD
                     + DFStart.Value.ToString() + "','"
                     + DFEnd.Value.ToString() + "');";
                 Sq(sql);
-
             }
             else
             {
@@ -98,11 +97,13 @@ namespace HRD
                 DialogResult result = showAllEmployeeForm.ShowDialog();
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
-                    Employee employee = showAllEmployeeForm.employee;
-                    if (employee != "") PostCombo.SelectedValue = employee;
+                    Employee employee = showAllEmployeeForm.selectedEmployee;
+                    if (employee != null)
+                    {
+                        employeeTeam.Add(employee);
+                        UpdateTeamTable();
+                    }
                 }
-                showAllEmployeeForm.Tag = "checkEmployeeMore";
-                showAllEmployeeForm.ShowDialog();
                 //Проблему с тем как отличить ответственного от обычного члена команды можно решить если создать класс человека и дать ему свойство.
                 //Также можно при создании экземпляра формы дать ему разные конструкторы.
                 //Один будет принимать ответственного, а другой обычного сотрудника. Третий можно оставить пустым. Можно подумать над наследованием.
@@ -118,7 +119,7 @@ namespace HRD
         {
             this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
         }
-        private List<Employee> employeeSkills = new List<Employee>();
+        private List<Employee> employeeTeam = new List<Employee>();
         public void DeleteTeamTable() { 
 
         }
@@ -200,6 +201,14 @@ namespace HRD
             DFStart.Value = DateTime.Now.AddDays(7);
             DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
             dataGridView2.Rows.Clear();
+        }
+        private void UpdateTeamTable()
+        {
+            dataGridView2.Rows.Clear();
+            foreach (var employee in employeeTeam)
+            {
+                dataGridView2.Rows.Add(employee.LName, employee.Name, employee.Pat, employee.PosName, employee.QualName);
+            }
         }
     }
 }

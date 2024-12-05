@@ -1,4 +1,5 @@
 ﻿using Spire.Doc.Fields;
+using Spire.Doc.Fields.Shapes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,15 +71,33 @@ namespace HRD
                 ShowAllSkillForm showAllSkillForm = new ShowAllSkillForm();
                 showAllSkillForm.Tag = "checkSkill";
                 showAllSkillForm.OnSkillSelected += (skill) => {
-
-                    employeeSkills.Add(skill);
-
-                    UpdateSkillTable();
+                    var existingSkill = employeeSkills.FirstOrDefault(x => x.skillId == skill.skillId);
+                    if (existingSkill != null)
+                    {
+                        var index = employeeSkills.IndexOf(existingSkill);
+                        employeeSkills[index] = skill;
+                    }
+                    else
+                    {
+                        employeeSkills.Add(skill);
+                    }
+                };
+                showAllSkillForm.OnSkillUpdated += (skill) =>
+                {
+                    var existingSkill = employeeSkills.FirstOrDefault(x => x.skillId == skill.skillId);
+                    if (existingSkill != null)
+                    {
+                        existingSkill.skillName = skill.skillName;
+                    }
+                };
+                showAllSkillForm.OnSkillDeleted += (skillId) =>
+                {
+                    employeeSkills.RemoveAll(x => x.skillId == skillId);
                 };
                 showAllSkillForm.ShowDialog();
+                //employeeSkills = employeeSkills.Where(existingSkill => !showAllSkillForm.deletedSkills.Contains(existingSkill)).ToList();
+                UpdateSkillTable();
             }
-            //Обновить таблицу со скилами и добавить туда новый. Не забыть подумать над тем как передавать данные между форами.
-            //(при выборе скила можно укзать уровень владения и потом уже оба значения в едином объекте возвращать в эту форму. И добавить в список для таблицы).
         }
         private void UpdateSkillTable()
         {
@@ -94,8 +113,8 @@ namespace HRD
         {
             if (dataGridView2.Rows.Count > 0)
             {
-                dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
                 employeeSkills.RemoveAt(dataGridView2.CurrentRow.Index);
+                dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
             }
         }
         
@@ -296,20 +315,17 @@ namespace HRD
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (addMode == false)
+            AddSkillForm addSkillForm = new AddSkillForm(employeeSkills[dataGridView2.CurrentRow.Index].skillLevel);
+            if (addSkillForm.ShowDialog() == DialogResult.OK)
             {
-                AddSkillForm addSkillForm = new AddSkillForm(employeeSkills[dataGridView2.CurrentRow.Index].skillLevel);
-                if (addSkillForm.ShowDialog() == DialogResult.OK)
-                {
-                    string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    string skillLevel = addSkillForm.SelectedLevel;
-                    employeeSkills[dataGridView2.CurrentRow.Index].skillLevel = skillLevel;
-                    string sql = "UPDATE Employee_Skill SET "
-                   + "Prof ='" + skillLevel
-                   + "' WHERE Emp_ID=" + id_e + ", "
-                   + "Skill_ID =" + employeeSkills[dataGridView2.CurrentRow.Index].skillId + ";";
-                    MessageBox.Show(sql);
-                }
+                string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                string skillLevel = addSkillForm.SelectedLevel;
+                employeeSkills[dataGridView2.CurrentRow.Index].skillLevel = skillLevel;
+                string sql = "UPDATE Employee_Skill SET "
+               + "Prof ='" + skillLevel
+               + "' WHERE Emp_ID=" + id_e + ", "
+               + "Skill_ID =" + employeeSkills[dataGridView2.CurrentRow.Index].skillId + ";";
+                MessageBox.Show(sql);
             }
         }
 
@@ -335,8 +351,12 @@ namespace HRD
                         dataGridView1.CurrentRow.Cells[15].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[5].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[13].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[14].Value.ToString()
+                        dataGridView1.CurrentRow.Cells[14].Value.ToString(),
+                        "Временная должность",
+                        "Временная квала"
                         );
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
         }

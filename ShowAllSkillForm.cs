@@ -19,8 +19,13 @@ namespace HRD
         }
         public delegate void SkillSelectedHandler(Skill skill);
         public event SkillSelectedHandler OnSkillSelected;
+        public delegate void SkillUpdatedHandler(Skill skill);
+        public event SkillUpdatedHandler OnSkillUpdated;
+        public delegate void SkillDeletedHandler(string skillId);
+        public event SkillDeletedHandler OnSkillDeleted;
 
-
+        public List<Skill> updatedSkills = new List<Skill>();
+        public List<Skill> deletedSkills = new List<Skill>();
         private bool addMode = true;
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
@@ -51,6 +56,8 @@ namespace HRD
                 string id_skill = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "DELETE FROM Skill WHERE ID_Skill=" + id_skill;
                 Sq(sql);
+                //deletedSkills.Add(new Skill(id_skill, dataGridView1.CurrentRow.Cells[1].Value.ToString(),"0"));
+                OnSkillDeleted.Invoke(id_skill);
             }
         }
         private void confirmB_Click(object sender, EventArgs e)
@@ -73,6 +80,7 @@ namespace HRD
                 Sq(sql);
                 dataGridView1.CurrentCell = dataGridView1.Rows[n_skill].Cells[1];
                 SelectRow(n_skill);
+                OnSkillUpdated.Invoke(new Skill(id_skill, dataGridView1.CurrentRow.Cells[1].Value.ToString(), ""));
             }
             TurnDefaultMode();
         }

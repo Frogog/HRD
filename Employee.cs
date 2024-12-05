@@ -27,6 +27,8 @@ namespace HRD
         public string Email;
         public string Tg;
         public string Phone;
+        public string PosName;
+        public string QualName;
         public Employee(
             string id_emp,
             string qual_id,
@@ -41,6 +43,8 @@ namespace HRD
             string reg,
             string res,
             string phone,
+            string posName,
+            string qualName,
             string pat = "",
             string email = "",
             string tg = ""
@@ -61,6 +65,8 @@ namespace HRD
             Email = email;
             Tg = tg;
             Phone = phone;
+            PosName = posName;
+            QualName = qualName;
         }
     }
 }
