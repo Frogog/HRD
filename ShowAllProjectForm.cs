@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spire.Doc.Fields.Shapes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace HRD
             InitializeComponent();
         }
         private bool addMode = true;
+        private List<Employee> employeeTeam = new List<Employee>();
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void button1_Click(object sender, EventArgs e)
@@ -72,8 +74,42 @@ namespace HRD
             if (Application.OpenForms.OfType<ShowAllEmployeeForm>().FirstOrDefault() == null)
             {
                 ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
-                showAllEmployeeForm.Tag = "checkEmployee";
-                showAllEmployeeForm.ShowDialog();
+                showAllEmployeeForm.Tag = "checkResponsable";
+                showAllEmployeeForm.OnEmployeeSelected += (employeeSelected) =>
+                {
+                    var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == employeeSelected.ID_Emp);
+                    if (existingEmployee != null)
+                    {
+                        var index = employeeTeam.IndexOf(existingEmployee);
+                        employeeTeam[index] = employeeSelected;
+
+                    }
+                    else
+                    {
+                        employeeTeam.Add(employeeSelected);
+                    }
+                };
+                showAllEmployeeForm.OnEmployeeUpdated += (updatedEmployee) =>
+                {
+                    var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == updatedEmployee.ID_Emp);
+                    if (existingEmployee != null)
+                    {
+                        var index = employeeTeam.IndexOf(existingEmployee);
+                        employeeTeam[index] = updatedEmployee;
+                    }
+                };
+                showAllEmployeeForm.OnEmployeeDeleted += (employeeId) =>
+                {
+                    employeeTeam.RemoveAll(x => x.ID_Emp == employeeId);
+                };
+                DialogResult result = showAllEmployeeForm.ShowDialog();
+                if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
+                {
+                    string responasle = showAllEmployeeForm.selectedResponsable;
+                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                    if (responasle != "") RespCombo.SelectedValue = responasle;
+                }
+                UpdateTeamTable();
             }
         }
 
@@ -94,32 +130,49 @@ namespace HRD
             {
                 ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
                 showAllEmployeeForm.Tag = "checkTeam";
-                DialogResult result = showAllEmployeeForm.ShowDialog();
-                if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
+                showAllEmployeeForm.OnEmployeeSelected += (employeeSelected) =>
                 {
-                    Employee employee = showAllEmployeeForm.selectedEmployee;
-                    if (employee != null)
+                    var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == employeeSelected.ID_Emp);
+                    if (existingEmployee != null)
                     {
-                        employeeTeam.Add(employee);
-                        UpdateTeamTable();
+                        var index = employeeTeam.IndexOf(existingEmployee);
+                        employeeTeam[index] = employeeSelected;
+
                     }
-                }
-                //Проблему с тем как отличить ответственного от обычного члена команды можно решить если создать класс человека и дать ему свойство.
-                //Также можно при создании экземпляра формы дать ему разные конструкторы.
-                //Один будет принимать ответственного, а другой обычного сотрудника. Третий можно оставить пустым. Можно подумать над наследованием.
+                    else
+                    {
+                        employeeTeam.Add(employeeSelected);
+                    }
+                };
+                showAllEmployeeForm.OnEmployeeUpdated += (updatedEmployee) =>
+                {
+                    var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == updatedEmployee.ID_Emp);
+                    if (existingEmployee != null)
+                    {
+                        var index = employeeTeam.IndexOf(existingEmployee);
+                        employeeTeam[index] = updatedEmployee;
+                    }
+                };
+                showAllEmployeeForm.OnEmployeeDeleted += (employeeId) =>
+                {
+                    employeeTeam.RemoveAll(x => x.ID_Emp == employeeId);
+                };
+                showAllEmployeeForm.ShowDialog();
+                UpdateTeamTable();
             }
-            //AddTeamForm addTeamForm = new AddTeamForm();
-            //addTeamForm.ShowDialog();
         }
         private void deleteTeamB_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView2.Rows.Count > 0)
+            {
+                employeeTeam.RemoveAt(dataGridView2.CurrentRow.Index);
+                dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
+            }
         }
         public void UpdateEmployeeTable()
         {
             this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
         }
-        private List<Employee> employeeTeam = new List<Employee>();
         public void DeleteTeamTable() { 
 
         }

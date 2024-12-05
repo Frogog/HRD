@@ -16,14 +16,21 @@ namespace HRD
 {
     public partial class ShowAllEmployeeForm : Form
     {
-
+        public delegate void EmployeeSelectedHandler(Employee employee);
+        public event EmployeeSelectedHandler OnEmployeeSelected;
+        public delegate void EmployeeUpdatedHandler(Employee employee);
+        public event EmployeeUpdatedHandler OnEmployeeUpdated;
+        public delegate void EmployeeDeletedHandler(string employeeId);
+        public event EmployeeDeletedHandler OnEmployeeDeleted;
         public ShowAllEmployeeForm()
         {
             InitializeComponent();
             this.Size = new Size(861, 770);
         }
         private bool addMode = true;
-        public Employee selectedEmployee = null;
+        private List<Skill> employeeSkills = new List<Skill>();
+        public Employee selectedEmployee = null; //Бесполезно. Лучше бурать
+        public string selectedResponsable = "";
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         string id_e = "";
@@ -59,11 +66,12 @@ namespace HRD
             if (dataGridView1.RowCount != 0)
             {
                 string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                OnEmployeeDeleted(id_e);
                 string sql = "DELETE FROM Employee WHERE ID_Emp=" + id_e;
                 Sq(sql);
             }
         }
-        private List<Skill> employeeSkills = new List<Skill>();
+
         private void addSkillB_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() == null)
@@ -192,23 +200,53 @@ namespace HRD
                 int n_e = dataGridView1.CurrentRow.Index;
                 string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "UPDATE Employee SET "
-               +"Qual_ID ='" + QualCombo.SelectedValue
-               + "', Po_ID ='" + PostCombo.SelectedValue
-               + "', Name ='" + NameTextBox.Text
-               + "', LName ='" + LNameTextBox.Text
-               + "', Pat ='" + PatTextBox.Text
-               + "', DBirth ='" + BirthDate.Value.ToString()
-               + "', PSeries ='" + PSeriesTextBox.Text
-               + "', PNumber ='" + PNumberTextBox.Text
-               + "', PWho ='" + WhoTextBox.Text
-               + "', PWhen ='" + WhenDate.Value.ToString()
-               + "', Reg ='" + RegTextBox.Text
-               + "', Res ='" + ResTextBox.Text
-               + "', Email ='" + EmailTextBox.Text
-               + "', Tg ='" + TgTextBox.Text
-               + "', Phone ='" + PhoneTextBox.Text
-               + "' WHERE ID_Emp=" + id_e + ";";
+                +"Qual_ID ='" + QualCombo.SelectedValue
+                + "', Po_ID ='" + PostCombo.SelectedValue
+                + "', Name ='" + NameTextBox.Text
+                + "', LName ='" + LNameTextBox.Text
+                + "', Pat ='" + PatTextBox.Text
+                + "', DBirth ='" + BirthDate.Value.ToString()
+                + "', PSeries ='" + PSeriesTextBox.Text
+                + "', PNumber ='" + PNumberTextBox.Text
+                + "', PWho ='" + WhoTextBox.Text
+                + "', PWhen ='" + WhenDate.Value.ToString()
+                + "', Reg ='" + RegTextBox.Text
+                + "', Res ='" + ResTextBox.Text
+                + "', Email ='" + EmailTextBox.Text
+                + "', Tg ='" + TgTextBox.Text
+                + "', Phone ='" + PhoneTextBox.Text
+                + "' WHERE ID_Emp=" + id_e + ";";
+                if (OnEmployeeUpdated != null)
+                {
+                    OnEmployeeUpdated.Invoke(new Employee(
+                    id_e,
+                    QualCombo.SelectedValue.ToString(),
+                    PostCombo.SelectedValue.ToString(),
+                    NameTextBox.Text,
+                    LNameTextBox.Text,
+                    DateTime.Parse(BirthDate.Value.ToString()),
+                    PSeriesTextBox.Text,
+                    PNumberTextBox.Text,
+                    WhoTextBox.Text,
+                    DateTime.Parse(WhenDate.Value.ToString()),
+                    RegTextBox.Text,
+                    ResTextBox.Text,
+                    PhoneTextBox.Text,
+                    PostCombo.Text,
+                    QualCombo.Text
+                    ));
+                }
                 Sq(sql);
+                sql = "DELETE FROM Employee_Skill WHERE Emp_ID = " + id_e + ";";
+                Sq(sql);
+                foreach (var skill in employeeSkills)
+                {
+                    sql = "INSERT INTO Employee_Skill (Emp_ID, Skill_ID, Prof) VALUES('" +
+                        id_e + "','" +
+                        skill.skillId + "','" +
+                        skill.skillLevel + "')";
+                    Sq(sql);
+                }
                 SelectRow(n_e);
             }
             TurnDefaultMode();
@@ -290,8 +328,23 @@ namespace HRD
                 EmailTextBox.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
                 TgTextBox.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
                 PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
-
             }
+            string sql = "SELECT Skill_ID, Name, Prof FROM Skill INNER JOIN Employee_Skill ON ID_Skill = Skill_ID WHERE Emp_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + ";";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            string[] row = new string[3];
+            while (inv.Read())
+            {
+                employeeSkills.Add(new Skill(inv["Skill_ID"].ToString(), inv["Name"].ToString(), inv["Prof"].ToString()));
+                row[0] = inv["Skill_ID"].ToString();
+                row[1] = inv["Name"].ToString();
+                row[2] = inv["Prof"].ToString();
+                dataGridView2.Rows.Add(row);
+            }
+            connect.Close();
         }
         private void TurnClearData()
         {
@@ -319,13 +372,18 @@ namespace HRD
             if (addSkillForm.ShowDialog() == DialogResult.OK)
             {
                 string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                int n_s = dataGridView2.CurrentRow.Index;
                 string skillLevel = addSkillForm.SelectedLevel;
                 employeeSkills[dataGridView2.CurrentRow.Index].skillLevel = skillLevel;
                 string sql = "UPDATE Employee_Skill SET "
                + "Prof ='" + skillLevel
                + "' WHERE Emp_ID=" + id_e + ", "
                + "Skill_ID =" + employeeSkills[dataGridView2.CurrentRow.Index].skillId + ";";
-                MessageBox.Show(sql);
+                UpdateSkillTable();
+                dataGridView2.CurrentCell = dataGridView2.Rows[n_s].Cells[0];
+                dataGridView2.ClearSelection();
+                dataGridView2.Rows[n_s].Selected = true;
+                dataGridView2.Rows[n_s].Cells[0].Selected = true;
             }
         }
 
@@ -355,6 +413,13 @@ namespace HRD
                         "Временная должность",
                         "Временная квала"
                         );
+                    OnEmployeeSelected.Invoke(selectedEmployee);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                if (this.Tag.ToString()== "checkResponsable")
+                {
+                    selectedResponsable = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

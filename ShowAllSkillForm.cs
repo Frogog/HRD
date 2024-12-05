@@ -24,8 +24,6 @@ namespace HRD
         public delegate void SkillDeletedHandler(string skillId);
         public event SkillDeletedHandler OnSkillDeleted;
 
-        public List<Skill> updatedSkills = new List<Skill>();
-        public List<Skill> deletedSkills = new List<Skill>();
         private bool addMode = true;
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
@@ -56,7 +54,6 @@ namespace HRD
                 string id_skill = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "DELETE FROM Skill WHERE ID_Skill=" + id_skill;
                 Sq(sql);
-                //deletedSkills.Add(new Skill(id_skill, dataGridView1.CurrentRow.Cells[1].Value.ToString(),"0"));
                 OnSkillDeleted.Invoke(id_skill);
             }
         }
