@@ -65,6 +65,7 @@
     <Compile Include="AddTeamForm.Designer.cs">
       <DependentUpon>AddTeamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="HRD_DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -22,6 +22,7 @@ namespace HRD
             this.Size = new Size(861, 770);
         }
         private bool addMode = true;
+        public Employee selectedEmployee = null;
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         string id_e = "";
@@ -308,6 +309,34 @@ namespace HRD
                    + "' WHERE Emp_ID=" + id_e + ", "
                    + "Skill_ID =" + employeeSkills[dataGridView2.CurrentRow.Index].skillId + ";";
                     MessageBox.Show(sql);
+                }
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.Tag != null)
+            {
+                if (this.Tag.ToString() == "checkTeam")
+                {
+                    selectedEmployee = new Employee(
+                        dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[1].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[2].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[3].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[4].Value.ToString(),
+                        DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString()),
+                        dataGridView1.CurrentRow.Cells[7].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[8].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[9].Value.ToString(),
+                        DateTime.Parse(dataGridView1.CurrentRow.Cells[10].Value.ToString()),
+                        dataGridView1.CurrentRow.Cells[11].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[12].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[15].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[5].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[13].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[14].Value.ToString()
+                        );
                 }
             }
         }

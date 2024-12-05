@@ -43,6 +43,22 @@
             this.ReportExperienceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDEmpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qualIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameQualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namePoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
             this.mainLable = new System.Windows.Forms.Label();
             this.panelAdd = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -86,34 +102,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.endPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.endPaymentTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EndPaymentTableAdapter();
-            this.iDEmpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qualIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameQualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coefDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namePoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endPaymentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
             this.panelAdd.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endPaymentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -132,8 +132,8 @@
             // GuideToolStripMenuItem
             // 
             this.GuideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmployeeToolStripMenuItem,
             this.ProjectToolStripMenuItem,
+            this.EmployeeToolStripMenuItem,
             this.toolStripMenuItem2,
             this.PostToolStripMenuItem,
             this.QualificationToolStripMenuItem,
@@ -254,6 +254,138 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1399, 486);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // iDEmpDataGridViewTextBoxColumn
+            // 
+            this.iDEmpDataGridViewTextBoxColumn.DataPropertyName = "ID_Emp";
+            this.iDEmpDataGridViewTextBoxColumn.HeaderText = "ID_Emp";
+            this.iDEmpDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDEmpDataGridViewTextBoxColumn.Name = "iDEmpDataGridViewTextBoxColumn";
+            this.iDEmpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDEmpDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lNameDataGridViewTextBoxColumn
+            // 
+            this.lNameDataGridViewTextBoxColumn.DataPropertyName = "LName";
+            this.lNameDataGridViewTextBoxColumn.HeaderText = "LName";
+            this.lNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
+            this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // patDataGridViewTextBoxColumn
+            // 
+            this.patDataGridViewTextBoxColumn.DataPropertyName = "Pat";
+            this.patDataGridViewTextBoxColumn.HeaderText = "Pat";
+            this.patDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.patDataGridViewTextBoxColumn.Name = "patDataGridViewTextBoxColumn";
+            this.patDataGridViewTextBoxColumn.ReadOnly = true;
+            this.patDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dBirthDataGridViewTextBoxColumn
+            // 
+            this.dBirthDataGridViewTextBoxColumn.DataPropertyName = "DBirth";
+            this.dBirthDataGridViewTextBoxColumn.HeaderText = "DBirth";
+            this.dBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dBirthDataGridViewTextBoxColumn.Name = "dBirthDataGridViewTextBoxColumn";
+            this.dBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dBirthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // qualIDDataGridViewTextBoxColumn
+            // 
+            this.qualIDDataGridViewTextBoxColumn.DataPropertyName = "Qual_ID";
+            this.qualIDDataGridViewTextBoxColumn.HeaderText = "Qual_ID";
+            this.qualIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.qualIDDataGridViewTextBoxColumn.Name = "qualIDDataGridViewTextBoxColumn";
+            this.qualIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qualIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameQualDataGridViewTextBoxColumn
+            // 
+            this.nameQualDataGridViewTextBoxColumn.DataPropertyName = "Name_Qual";
+            this.nameQualDataGridViewTextBoxColumn.HeaderText = "Name_Qual";
+            this.nameQualDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameQualDataGridViewTextBoxColumn.Name = "nameQualDataGridViewTextBoxColumn";
+            this.nameQualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameQualDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coefDataGridViewTextBoxColumn
+            // 
+            this.coefDataGridViewTextBoxColumn.DataPropertyName = "Coef";
+            this.coefDataGridViewTextBoxColumn.HeaderText = "Coef";
+            this.coefDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coefDataGridViewTextBoxColumn.Name = "coefDataGridViewTextBoxColumn";
+            this.coefDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coefDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // poIDDataGridViewTextBoxColumn
+            // 
+            this.poIDDataGridViewTextBoxColumn.DataPropertyName = "Po_ID";
+            this.poIDDataGridViewTextBoxColumn.HeaderText = "Po_ID";
+            this.poIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.poIDDataGridViewTextBoxColumn.Name = "poIDDataGridViewTextBoxColumn";
+            this.poIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.poIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // namePoDataGridViewTextBoxColumn
+            // 
+            this.namePoDataGridViewTextBoxColumn.DataPropertyName = "Name_Po";
+            this.namePoDataGridViewTextBoxColumn.HeaderText = "Name_Po";
+            this.namePoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.namePoDataGridViewTextBoxColumn.Name = "namePoDataGridViewTextBoxColumn";
+            this.namePoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namePoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // payDataGridViewTextBoxColumn
+            // 
+            this.payDataGridViewTextBoxColumn.DataPropertyName = "Pay";
+            this.payDataGridViewTextBoxColumn.HeaderText = "Pay";
+            this.payDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.payDataGridViewTextBoxColumn.Name = "payDataGridViewTextBoxColumn";
+            this.payDataGridViewTextBoxColumn.ReadOnly = true;
+            this.payDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // endPayDataGridViewTextBoxColumn
+            // 
+            this.endPayDataGridViewTextBoxColumn.DataPropertyName = "EndPay";
+            this.endPayDataGridViewTextBoxColumn.HeaderText = "EndPay";
+            this.endPayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.endPayDataGridViewTextBoxColumn.Name = "endPayDataGridViewTextBoxColumn";
+            this.endPayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.endPayDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // endPaymentBindingSource
+            // 
+            this.endPaymentBindingSource.DataMember = "EndPayment";
+            this.endPaymentBindingSource.DataSource = this.bindingSource1;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.hRD_DBDataSet;
+            this.bindingSource1.Position = 0;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mainLable
             // 
@@ -681,141 +813,9 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Номер телефона";
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = this.hRD_DBDataSet;
-            this.bindingSource1.Position = 0;
-            // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // endPaymentBindingSource
-            // 
-            this.endPaymentBindingSource.DataMember = "EndPayment";
-            this.endPaymentBindingSource.DataSource = this.bindingSource1;
-            // 
             // endPaymentTableAdapter
             // 
             this.endPaymentTableAdapter.ClearBeforeFill = true;
-            // 
-            // iDEmpDataGridViewTextBoxColumn
-            // 
-            this.iDEmpDataGridViewTextBoxColumn.DataPropertyName = "ID_Emp";
-            this.iDEmpDataGridViewTextBoxColumn.HeaderText = "ID_Emp";
-            this.iDEmpDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDEmpDataGridViewTextBoxColumn.Name = "iDEmpDataGridViewTextBoxColumn";
-            this.iDEmpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDEmpDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lNameDataGridViewTextBoxColumn
-            // 
-            this.lNameDataGridViewTextBoxColumn.DataPropertyName = "LName";
-            this.lNameDataGridViewTextBoxColumn.HeaderText = "LName";
-            this.lNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
-            this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // patDataGridViewTextBoxColumn
-            // 
-            this.patDataGridViewTextBoxColumn.DataPropertyName = "Pat";
-            this.patDataGridViewTextBoxColumn.HeaderText = "Pat";
-            this.patDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.patDataGridViewTextBoxColumn.Name = "patDataGridViewTextBoxColumn";
-            this.patDataGridViewTextBoxColumn.ReadOnly = true;
-            this.patDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dBirthDataGridViewTextBoxColumn
-            // 
-            this.dBirthDataGridViewTextBoxColumn.DataPropertyName = "DBirth";
-            this.dBirthDataGridViewTextBoxColumn.HeaderText = "DBirth";
-            this.dBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dBirthDataGridViewTextBoxColumn.Name = "dBirthDataGridViewTextBoxColumn";
-            this.dBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dBirthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // qualIDDataGridViewTextBoxColumn
-            // 
-            this.qualIDDataGridViewTextBoxColumn.DataPropertyName = "Qual_ID";
-            this.qualIDDataGridViewTextBoxColumn.HeaderText = "Qual_ID";
-            this.qualIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.qualIDDataGridViewTextBoxColumn.Name = "qualIDDataGridViewTextBoxColumn";
-            this.qualIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.qualIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameQualDataGridViewTextBoxColumn
-            // 
-            this.nameQualDataGridViewTextBoxColumn.DataPropertyName = "Name_Qual";
-            this.nameQualDataGridViewTextBoxColumn.HeaderText = "Name_Qual";
-            this.nameQualDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameQualDataGridViewTextBoxColumn.Name = "nameQualDataGridViewTextBoxColumn";
-            this.nameQualDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameQualDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // coefDataGridViewTextBoxColumn
-            // 
-            this.coefDataGridViewTextBoxColumn.DataPropertyName = "Coef";
-            this.coefDataGridViewTextBoxColumn.HeaderText = "Coef";
-            this.coefDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coefDataGridViewTextBoxColumn.Name = "coefDataGridViewTextBoxColumn";
-            this.coefDataGridViewTextBoxColumn.ReadOnly = true;
-            this.coefDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // poIDDataGridViewTextBoxColumn
-            // 
-            this.poIDDataGridViewTextBoxColumn.DataPropertyName = "Po_ID";
-            this.poIDDataGridViewTextBoxColumn.HeaderText = "Po_ID";
-            this.poIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.poIDDataGridViewTextBoxColumn.Name = "poIDDataGridViewTextBoxColumn";
-            this.poIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.poIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // namePoDataGridViewTextBoxColumn
-            // 
-            this.namePoDataGridViewTextBoxColumn.DataPropertyName = "Name_Po";
-            this.namePoDataGridViewTextBoxColumn.HeaderText = "Name_Po";
-            this.namePoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.namePoDataGridViewTextBoxColumn.Name = "namePoDataGridViewTextBoxColumn";
-            this.namePoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namePoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // payDataGridViewTextBoxColumn
-            // 
-            this.payDataGridViewTextBoxColumn.DataPropertyName = "Pay";
-            this.payDataGridViewTextBoxColumn.HeaderText = "Pay";
-            this.payDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.payDataGridViewTextBoxColumn.Name = "payDataGridViewTextBoxColumn";
-            this.payDataGridViewTextBoxColumn.ReadOnly = true;
-            this.payDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // endPayDataGridViewTextBoxColumn
-            // 
-            this.endPayDataGridViewTextBoxColumn.DataPropertyName = "EndPay";
-            this.endPayDataGridViewTextBoxColumn.HeaderText = "EndPay";
-            this.endPayDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.endPayDataGridViewTextBoxColumn.Name = "endPayDataGridViewTextBoxColumn";
-            this.endPayDataGridViewTextBoxColumn.ReadOnly = true;
-            this.endPayDataGridViewTextBoxColumn.Width = 125;
             // 
             // MainForm
             // 
@@ -837,6 +837,9 @@
             this.showPanel.ResumeLayout(false);
             this.showPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endPaymentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
             this.panelAdd.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -845,9 +848,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.endPaymentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
