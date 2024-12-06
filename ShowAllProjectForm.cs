@@ -91,8 +91,7 @@ namespace HRD
                 + "', PDS ='" + DPStart.Value.ToString()
                 + "', PDE ='" + DPEnd.Value.ToString()
                 + "', FDS ='" + DFStart.Value.ToString()
-                + "', FDE ='" + DFEnd.Value.ToString() +"';";
-                MessageBox.Show(sql);
+                + "', FDE ='" + DFEnd.Value.ToString() +"' WHERE ID_Pr="+id_p+";";
                 Sq(sql);
                 sql = "DELETE FROM Employee_Project WHERE Pr_ID = " + id_p + ";";
                 Sq(sql);
@@ -228,7 +227,7 @@ namespace HRD
         }
         public void SelectRow(int rowIndex)
         {
-            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
+            dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[1];
             dataGridView1.ClearSelection();
             dataGridView1.Rows[rowIndex].Selected = true;
             dataGridView1.Rows[rowIndex].Cells[0].Selected = true;

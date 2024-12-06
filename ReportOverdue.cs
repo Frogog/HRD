@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Diagnostics;
+using System.Data.SqlClient;
+using System.Runtime.Remoting.Contexts;
+using Spire.Doc.Fields;
 
 namespace HRD
 {
@@ -20,6 +23,8 @@ namespace HRD
         {
             InitializeComponent();
         }
+        private System.Data.SqlClient.SqlConnection connect;
+        String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         String[][] testData = {
             new String[]{ "Проект1", "10.10.2020", "10.10.2021"},
             new String[]{ "Проект2","10.12.2020","10.05.2021"},
@@ -27,6 +32,15 @@ namespace HRD
             };
         private void createB_Click(object sender, EventArgs e)
         {
+            if (!ValidateReport()) return;
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "GetEmployeeProjectDataByDateWithLate";
+            command.Parameters.AddWithValue("@startDate", dateTimePicker1.Value.ToString());
+            command.Parameters.AddWithValue("@endDate", dateTimePicker2.Value.ToString());
+            SqlDataReader inv = command.ExecuteReader();
             Document doc = new Document();
             doc.LoadFromFile(@"ReportOverdueExample.docx");
             doc.Replace("#DateStart#", dateTimePicker1.Value.ToShortDateString(), true, true);
@@ -36,19 +50,61 @@ namespace HRD
             doc.Replace("#Name#", comboBox1.Text, true, true);
             Section section = doc.Sections[0];
             Table table = section.Tables[0] as Table;
-            for (int r = 0; r < testData.Length; r++)
+            int i = 0;
+            void AppendFormattedText(Paragraph p, string text)
+            {
+                p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+                TextRange range = p.AppendText(text);
+                range.CharacterFormat.FontName = "Times New Roman";
+                range.CharacterFormat.FontSize = 10;
+            }
+
+            while (inv.Read())
             {
                 table.AddRow();
-                TableRow DataRow = table.Rows[r + 1];
-                for (int c = 0; c < testData[r].Length + 2; c++)
-                {
-                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
-                    if (c == 0) p2.AppendText((Array.IndexOf(testData, testData[r]) + 1).ToString());
-                    else if (c == testData.Length + 1) p2.AppendText((DateTime.ParseExact(testData[r][2], "dd.MM.yyyy", CultureInfo.InvariantCulture) - (DateTime.ParseExact(testData[r][1], "dd.MM.yyyy", CultureInfo.InvariantCulture))).Days.ToString());
-                    else p2.AppendText(testData[r][c - 1]);
-                }
+                TableRow DataRow = table.Rows[i + 1];
+
+                // Номер
+                Paragraph p2 = DataRow.Cells[0].AddParagraph();
+                AppendFormattedText(p2, (i + 1).ToString());
+
+                // ФИО
+                p2 = DataRow.Cells[1].AddParagraph();
+                string lastName = inv["LName"].ToString();
+                string firstName = inv["Name"].ToString();
+                string patronymic = inv["Pat"].ToString();
+
+                string FIO = lastName;
+                if (!string.IsNullOrEmpty(firstName))
+                    FIO += " " + firstName.Substring(0, Math.Min(1, firstName.Length)) + ".";
+                if (!string.IsNullOrEmpty(patronymic))
+                    FIO += " " + patronymic.Substring(0, Math.Min(1, patronymic.Length)) + ".";
+                AppendFormattedText(p2, FIO);
+
+                // Должность
+                p2 = DataRow.Cells[2].AddParagraph();
+                AppendFormattedText(p2, inv["Name_Po"].ToString());
+
+                // Квалификация
+                p2 = DataRow.Cells[3].AddParagraph();
+                AppendFormattedText(p2, inv["Name_Qual"].ToString());
+
+                // Количество опоздавших проектов
+                p2 = DataRow.Cells[4].AddParagraph();
+                AppendFormattedText(p2, inv["Late"].ToString());
+
+                // Количество не опоздавших проектов
+                p2 = DataRow.Cells[5].AddParagraph();
+                AppendFormattedText(p2, inv["NotLate"].ToString());
+
+                // Процент успешных проектов
+                p2 = DataRow.Cells[6].AddParagraph();
+                AppendFormattedText(p2, inv["Rate"].ToString() + "%");
+
+                i++;
             }
             doc.SaveToFile("ReportOverdue.docx");
+            connect.Close();
             this.Close();
             Process.Start(@"ReportOverdue.docx");
         }
@@ -56,6 +112,32 @@ namespace HRD
         private void ReportOverdue_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
+        }
+        private bool ValidateReport()
+        {
+            DateTime currentDate = DateTime.Now.Date;
+            // Дата создания не может быть в будущем
+            if (dateTimePicker1.Value.Date > dateTimePicker2.Value.Date)
+            {
+                ShowError("Дата начала не может быть позже даты окончания!", dateTimePicker1);
+                return false;
+            }
+            if (dateTimePicker1.Value.Date > currentDate)
+            {
+                ShowError("Дата начала не может быть в будущем!", dateTimePicker1);
+                return false;
+            }
+            if (comboBox1.SelectedValue == null)
+            {
+                ShowError("Проверяющий должен быть выбран!", comboBox1);
+                return false;
+            }
+            return true;
+        }
+        private void ShowError(string message, Control control)
+        {
+            MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            control.Focus();
         }
     }
 }

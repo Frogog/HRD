@@ -41,9 +41,10 @@
             // 
             // createB
             // 
-            this.createB.Location = new System.Drawing.Point(259, 160);
+            this.createB.Location = new System.Drawing.Point(345, 197);
+            this.createB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createB.Name = "createB";
-            this.createB.Size = new System.Drawing.Size(100, 23);
+            this.createB.Size = new System.Drawing.Size(133, 28);
             this.createB.TabIndex = 32;
             this.createB.Text = "Сформировать";
             this.createB.UseVisualStyleBackColor = true;
@@ -52,77 +53,86 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 13);
+            this.label1.Size = new System.Drawing.Size(216, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Отчет \"Просроченные проекты\"";
             // 
             // checkQualificationB
             // 
-            this.checkQualificationB.Location = new System.Drawing.Point(206, 98);
+            this.checkQualificationB.Location = new System.Drawing.Point(275, 121);
+            this.checkQualificationB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkQualificationB.Name = "checkQualificationB";
-            this.checkQualificationB.Size = new System.Drawing.Size(25, 23);
+            this.checkQualificationB.Size = new System.Drawing.Size(33, 28);
             this.checkQualificationB.TabIndex = 42;
             this.checkQualificationB.Text = "...";
             this.checkQualificationB.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Иван Иванов Иванович"});
-            this.comboBox1.Location = new System.Drawing.Point(15, 100);
+            this.comboBox1.Location = new System.Drawing.Point(20, 123);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 21);
+            this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 41;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 84);
+            this.label4.Location = new System.Drawing.Point(16, 103);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.Size = new System.Drawing.Size(94, 16);
             this.label4.TabIndex = 40;
             this.label4.Text = "Кто составил";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(206, 44);
+            this.label3.Location = new System.Drawing.Point(275, 54);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 13);
+            this.label3.Size = new System.Drawing.Size(11, 16);
             this.label3.TabIndex = 39;
             this.label3.Text = "-";
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(222, 41);
+            this.dateTimePicker2.Location = new System.Drawing.Point(296, 50);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(181, 22);
             this.dateTimePicker2.TabIndex = 38;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 45);
+            this.label2.Location = new System.Drawing.Point(16, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "Период";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(63, 41);
+            this.dateTimePicker1.Location = new System.Drawing.Point(84, 50);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(181, 22);
             this.dateTimePicker1.TabIndex = 36;
             // 
             // ReportOverdue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 214);
+            this.ClientSize = new System.Drawing.Size(511, 263);
             this.Controls.Add(this.checkQualificationB);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
@@ -133,6 +143,7 @@
             this.Controls.Add(this.createB);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ReportOverdue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
