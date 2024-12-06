@@ -248,6 +248,7 @@ namespace HRD
             panel1.Visible = false;
             addB.Enabled = true;
             changeB.Enabled = true;
+            moreB.Enabled = true;
             deleteB.Enabled = true;
             confirmB.Visible = false;
             canselB.Visible = false;
@@ -264,6 +265,7 @@ namespace HRD
             panel1.Visible = true;
             addB.Enabled = false;
             changeB.Enabled = false;
+            moreB.Enabled = false;
             deleteB.Enabled = false;
             confirmB.Visible = true;
             canselB.Visible = true;
@@ -278,6 +280,7 @@ namespace HRD
                 panel1.Visible = true;
                 addB.Enabled = false;
                 changeB.Enabled = false;
+                moreB.Enabled = false;
                 deleteB.Enabled = false;
                 confirmB.Visible = true;
                 canselB.Visible = true;
@@ -443,6 +446,12 @@ namespace HRD
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             control.Focus();
+        }
+
+        private void moreB_Click(object sender, EventArgs e)
+        {
+            ShowSingleProject showSingleProject = new ShowSingleProject(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            showSingleProject.ShowDialog();
         }
     }
 }

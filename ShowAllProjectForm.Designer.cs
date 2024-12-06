@@ -56,6 +56,14 @@
             this.addB = new System.Windows.Forms.Button();
             this.confirmB = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDPrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainLable = new System.Windows.Forms.Label();
             this.showPanel = new System.Windows.Forms.Panel();
@@ -71,14 +79,7 @@
             this.showResponsable = new System.Windows.Forms.Button();
             this.projectTableAdapter = new HRD.HRD_DBDataSetTableAdapters.ProjectTableAdapter();
             this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
-            this.iDPrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moreB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
@@ -302,7 +303,7 @@
             // 
             // deleteB
             // 
-            this.deleteB.Location = new System.Drawing.Point(1336, 142);
+            this.deleteB.Location = new System.Drawing.Point(1336, 178);
             this.deleteB.Margin = new System.Windows.Forms.Padding(4);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(133, 28);
@@ -370,6 +371,79 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1304, 722);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // iDPrDataGridViewTextBoxColumn
+            // 
+            this.iDPrDataGridViewTextBoxColumn.DataPropertyName = "ID_Pr";
+            this.iDPrDataGridViewTextBoxColumn.HeaderText = "ID_Pr";
+            this.iDPrDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDPrDataGridViewTextBoxColumn.Name = "iDPrDataGridViewTextBoxColumn";
+            this.iDPrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDPrDataGridViewTextBoxColumn.Visible = false;
+            this.iDPrDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // desDataGridViewTextBoxColumn
+            // 
+            this.desDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desDataGridViewTextBoxColumn.DataPropertyName = "Des";
+            this.desDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.desDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.desDataGridViewTextBoxColumn.Name = "desDataGridViewTextBoxColumn";
+            this.desDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cDDataGridViewTextBoxColumn
+            // 
+            this.cDDataGridViewTextBoxColumn.DataPropertyName = "CD";
+            this.cDDataGridViewTextBoxColumn.HeaderText = "Дата создания";
+            this.cDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cDDataGridViewTextBoxColumn.Name = "cDDataGridViewTextBoxColumn";
+            this.cDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // pDSDataGridViewTextBoxColumn
+            // 
+            this.pDSDataGridViewTextBoxColumn.DataPropertyName = "PDS";
+            this.pDSDataGridViewTextBoxColumn.HeaderText = "План. дата начала";
+            this.pDSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.pDSDataGridViewTextBoxColumn.Name = "pDSDataGridViewTextBoxColumn";
+            this.pDSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pDSDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // pDEDataGridViewTextBoxColumn
+            // 
+            this.pDEDataGridViewTextBoxColumn.DataPropertyName = "PDE";
+            this.pDEDataGridViewTextBoxColumn.HeaderText = "План. дата окончания";
+            this.pDEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.pDEDataGridViewTextBoxColumn.Name = "pDEDataGridViewTextBoxColumn";
+            this.pDEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pDEDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // fDSDataGridViewTextBoxColumn
+            // 
+            this.fDSDataGridViewTextBoxColumn.DataPropertyName = "FDS";
+            this.fDSDataGridViewTextBoxColumn.HeaderText = "Факт. дата начала";
+            this.fDSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fDSDataGridViewTextBoxColumn.Name = "fDSDataGridViewTextBoxColumn";
+            this.fDSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fDSDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // fDEDataGridViewTextBoxColumn
+            // 
+            this.fDEDataGridViewTextBoxColumn.DataPropertyName = "FDE";
+            this.fDEDataGridViewTextBoxColumn.HeaderText = "Факт. дата окончания";
+            this.fDEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fDEDataGridViewTextBoxColumn.Name = "fDEDataGridViewTextBoxColumn";
+            this.fDEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fDEDataGridViewTextBoxColumn.Width = 70;
             // 
             // projectBindingSource
             // 
@@ -526,84 +600,23 @@
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // iDPrDataGridViewTextBoxColumn
+            // moreB
             // 
-            this.iDPrDataGridViewTextBoxColumn.DataPropertyName = "ID_Pr";
-            this.iDPrDataGridViewTextBoxColumn.HeaderText = "ID_Pr";
-            this.iDPrDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDPrDataGridViewTextBoxColumn.Name = "iDPrDataGridViewTextBoxColumn";
-            this.iDPrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDPrDataGridViewTextBoxColumn.Visible = false;
-            this.iDPrDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // desDataGridViewTextBoxColumn
-            // 
-            this.desDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desDataGridViewTextBoxColumn.DataPropertyName = "Des";
-            this.desDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.desDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.desDataGridViewTextBoxColumn.Name = "desDataGridViewTextBoxColumn";
-            this.desDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cDDataGridViewTextBoxColumn
-            // 
-            this.cDDataGridViewTextBoxColumn.DataPropertyName = "CD";
-            this.cDDataGridViewTextBoxColumn.HeaderText = "Дата создания";
-            this.cDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cDDataGridViewTextBoxColumn.Name = "cDDataGridViewTextBoxColumn";
-            this.cDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cDDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // pDSDataGridViewTextBoxColumn
-            // 
-            this.pDSDataGridViewTextBoxColumn.DataPropertyName = "PDS";
-            this.pDSDataGridViewTextBoxColumn.HeaderText = "План. дата начала";
-            this.pDSDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.pDSDataGridViewTextBoxColumn.Name = "pDSDataGridViewTextBoxColumn";
-            this.pDSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pDSDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // pDEDataGridViewTextBoxColumn
-            // 
-            this.pDEDataGridViewTextBoxColumn.DataPropertyName = "PDE";
-            this.pDEDataGridViewTextBoxColumn.HeaderText = "План. дата окончания";
-            this.pDEDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.pDEDataGridViewTextBoxColumn.Name = "pDEDataGridViewTextBoxColumn";
-            this.pDEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pDEDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // fDSDataGridViewTextBoxColumn
-            // 
-            this.fDSDataGridViewTextBoxColumn.DataPropertyName = "FDS";
-            this.fDSDataGridViewTextBoxColumn.HeaderText = "Факт. дата начала";
-            this.fDSDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fDSDataGridViewTextBoxColumn.Name = "fDSDataGridViewTextBoxColumn";
-            this.fDSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fDSDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // fDEDataGridViewTextBoxColumn
-            // 
-            this.fDEDataGridViewTextBoxColumn.DataPropertyName = "FDE";
-            this.fDEDataGridViewTextBoxColumn.HeaderText = "Факт. дата окончания";
-            this.fDEDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fDEDataGridViewTextBoxColumn.Name = "fDEDataGridViewTextBoxColumn";
-            this.fDEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fDEDataGridViewTextBoxColumn.Width = 70;
+            this.moreB.Location = new System.Drawing.Point(1336, 106);
+            this.moreB.Margin = new System.Windows.Forms.Padding(4);
+            this.moreB.Name = "moreB";
+            this.moreB.Size = new System.Drawing.Size(133, 28);
+            this.moreB.TabIndex = 33;
+            this.moreB.Text = "Подробнее";
+            this.moreB.UseVisualStyleBackColor = true;
+            this.moreB.Click += new System.EventHandler(this.moreB_Click);
             // 
             // ShowAllProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 802);
+            this.Controls.Add(this.moreB);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.canselB);
@@ -686,5 +699,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pDEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fDSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fDEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button moreB;
     }
 }

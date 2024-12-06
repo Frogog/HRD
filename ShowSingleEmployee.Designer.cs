@@ -39,6 +39,9 @@
             this.LNameTextBox = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.WhenDate = new System.Windows.Forms.Label();
             this.PostCombo = new System.Windows.Forms.Label();
             this.QualCombo = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelAdd.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -119,20 +119,20 @@
             // 
             // PatTextBox
             // 
-            this.PatTextBox.AutoSize = true;
+            this.PatTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PatTextBox.Location = new System.Drawing.Point(633, 43);
             this.PatTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PatTextBox.Name = "PatTextBox";
-            this.PatTextBox.Size = new System.Drawing.Size(0, 16);
+            this.PatTextBox.Size = new System.Drawing.Size(307, 22);
             this.PatTextBox.TabIndex = 19;
             // 
             // NameTextBox
             // 
-            this.NameTextBox.AutoSize = true;
+            this.NameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NameTextBox.Location = new System.Drawing.Point(321, 43);
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(0, 16);
+            this.NameTextBox.Size = new System.Drawing.Size(305, 22);
             this.NameTextBox.TabIndex = 0;
             // 
             // label10
@@ -164,11 +164,11 @@
             // 
             // LNameTextBox
             // 
-            this.LNameTextBox.AutoSize = true;
+            this.LNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LNameTextBox.Location = new System.Drawing.Point(9, 43);
             this.LNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LNameTextBox.Name = "LNameTextBox";
-            this.LNameTextBox.Size = new System.Drawing.Size(0, 16);
+            this.LNameTextBox.Size = new System.Drawing.Size(305, 22);
             this.LNameTextBox.TabIndex = 16;
             // 
             // groupBox4
@@ -203,8 +203,32 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(755, 178);
+            this.dataGridView2.Size = new System.Drawing.Size(928, 178);
             this.dataGridView2.TabIndex = 16;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // SkillName
+            // 
+            this.SkillName.HeaderText = "Наименование";
+            this.SkillName.MinimumWidth = 6;
+            this.SkillName.Name = "SkillName";
+            this.SkillName.ReadOnly = true;
+            this.SkillName.Width = 320;
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.HeaderText = "Уровень владения";
+            this.SkillLevel.MinimumWidth = 6;
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.ReadOnly = true;
+            this.SkillLevel.Width = 200;
             // 
             // label16
             // 
@@ -252,11 +276,11 @@
             // 
             // TgTextBox
             // 
-            this.TgTextBox.AutoSize = true;
+            this.TgTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.TgTextBox.Location = new System.Drawing.Point(433, 46);
             this.TgTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TgTextBox.Name = "TgTextBox";
-            this.TgTextBox.Size = new System.Drawing.Size(0, 16);
+            this.TgTextBox.Size = new System.Drawing.Size(204, 22);
             this.TgTextBox.TabIndex = 15;
             // 
             // label3
@@ -270,11 +294,11 @@
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.AutoSize = true;
+            this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.EmailTextBox.Location = new System.Drawing.Point(223, 46);
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(0, 16);
+            this.EmailTextBox.Size = new System.Drawing.Size(204, 22);
             this.EmailTextBox.TabIndex = 13;
             // 
             // label4
@@ -288,11 +312,11 @@
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.AutoSize = true;
+            this.PhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PhoneTextBox.Location = new System.Drawing.Point(12, 46);
             this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(0, 16);
+            this.PhoneTextBox.Size = new System.Drawing.Size(204, 22);
             this.PhoneTextBox.TabIndex = 11;
             // 
             // label5
@@ -347,11 +371,11 @@
             // 
             // WhoTextBox
             // 
-            this.WhoTextBox.AutoSize = true;
+            this.WhoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.WhoTextBox.Location = new System.Drawing.Point(169, 43);
             this.WhoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WhoTextBox.Name = "WhoTextBox";
-            this.WhoTextBox.Size = new System.Drawing.Size(0, 16);
+            this.WhoTextBox.Size = new System.Drawing.Size(637, 22);
             this.WhoTextBox.TabIndex = 8;
             // 
             // label7
@@ -374,29 +398,29 @@
             // 
             // PNumberTextBox
             // 
-            this.PNumberTextBox.AutoSize = true;
+            this.PNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PNumberTextBox.Location = new System.Drawing.Point(79, 43);
             this.PNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PNumberTextBox.Name = "PNumberTextBox";
-            this.PNumberTextBox.Size = new System.Drawing.Size(0, 16);
+            this.PNumberTextBox.Size = new System.Drawing.Size(84, 22);
             this.PNumberTextBox.TabIndex = 5;
             // 
             // ResTextBox
             // 
-            this.ResTextBox.AutoSize = true;
+            this.ResTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ResTextBox.Location = new System.Drawing.Point(9, 170);
             this.ResTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ResTextBox.Name = "ResTextBox";
-            this.ResTextBox.Size = new System.Drawing.Size(0, 16);
+            this.ResTextBox.Size = new System.Drawing.Size(931, 22);
             this.ResTextBox.TabIndex = 12;
             // 
             // PSeriesTextBox
             // 
-            this.PSeriesTextBox.AutoSize = true;
+            this.PSeriesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PSeriesTextBox.Location = new System.Drawing.Point(9, 43);
             this.PSeriesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PSeriesTextBox.Name = "PSeriesTextBox";
-            this.PSeriesTextBox.Size = new System.Drawing.Size(0, 16);
+            this.PSeriesTextBox.Size = new System.Drawing.Size(63, 22);
             this.PSeriesTextBox.TabIndex = 3;
             // 
             // label8
@@ -410,11 +434,11 @@
             // 
             // RegTextBox
             // 
-            this.RegTextBox.AutoSize = true;
+            this.RegTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.RegTextBox.Location = new System.Drawing.Point(9, 106);
             this.RegTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegTextBox.Name = "RegTextBox";
-            this.RegTextBox.Size = new System.Drawing.Size(0, 16);
+            this.RegTextBox.Size = new System.Drawing.Size(931, 22);
             this.RegTextBox.TabIndex = 10;
             // 
             // label9
@@ -437,76 +461,52 @@
             // 
             // BirthDate
             // 
-            this.BirthDate.AutoSize = true;
+            this.BirthDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BirthDate.Location = new System.Drawing.Point(11, 102);
+            this.BirthDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BirthDate.Name = "BirthDate";
-            this.BirthDate.Size = new System.Drawing.Size(51, 16);
-            this.BirthDate.TabIndex = 17;
-            this.BirthDate.Text = "label17";
+            this.BirthDate.Size = new System.Drawing.Size(127, 22);
+            this.BirthDate.TabIndex = 20;
             // 
             // WhenDate
             // 
-            this.WhenDate.AutoSize = true;
+            this.WhenDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.WhenDate.Location = new System.Drawing.Point(813, 43);
+            this.WhenDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WhenDate.Name = "WhenDate";
-            this.WhenDate.Size = new System.Drawing.Size(51, 16);
+            this.WhenDate.Size = new System.Drawing.Size(127, 22);
             this.WhenDate.TabIndex = 21;
-            this.WhenDate.Text = "label17";
             // 
             // PostCombo
             // 
-            this.PostCombo.AutoSize = true;
+            this.PostCombo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PostCombo.Location = new System.Drawing.Point(12, 46);
+            this.PostCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PostCombo.Name = "PostCombo";
-            this.PostCombo.Size = new System.Drawing.Size(51, 16);
-            this.PostCombo.TabIndex = 18;
-            this.PostCombo.Text = "label17";
+            this.PostCombo.Size = new System.Drawing.Size(492, 24);
+            this.PostCombo.TabIndex = 22;
             // 
             // QualCombo
             // 
-            this.QualCombo.AutoSize = true;
+            this.QualCombo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.QualCombo.Location = new System.Drawing.Point(564, 46);
+            this.QualCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.QualCombo.Name = "QualCombo";
-            this.QualCombo.Size = new System.Drawing.Size(51, 16);
-            this.QualCombo.TabIndex = 23;
-            this.QualCombo.Text = "label18";
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 125;
-            // 
-            // SkillName
-            // 
-            this.SkillName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SkillName.HeaderText = "Наименование";
-            this.SkillName.MinimumWidth = 6;
-            this.SkillName.Name = "SkillName";
-            this.SkillName.ReadOnly = true;
-            // 
-            // SkillLevel
-            // 
-            this.SkillLevel.HeaderText = "Уровень владения";
-            this.SkillLevel.MinimumWidth = 6;
-            this.SkillLevel.Name = "SkillLevel";
-            this.SkillLevel.ReadOnly = true;
+            this.QualCombo.Size = new System.Drawing.Size(333, 24);
+            this.QualCombo.TabIndex = 22;
             // 
             // ShowSingleEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 849);
+            this.ClientSize = new System.Drawing.Size(990, 842);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.panelAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ShowSingleEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ShowSingleEmployee";
+            this.Text = "Сотрудник";
             this.Load += new System.EventHandler(this.ShowSingleEmployee_Load);
             this.panelAdd.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -536,6 +536,9 @@
         private System.Windows.Forms.Label LNameTextBox;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillLevel;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -560,11 +563,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label mainLable;
         private System.Windows.Forms.Label BirthDate;
-        private System.Windows.Forms.Label WhenDate;
         private System.Windows.Forms.Label QualCombo;
         private System.Windows.Forms.Label PostCombo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SkillName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SkillLevel;
+        private System.Windows.Forms.Label WhenDate;
     }
 }
