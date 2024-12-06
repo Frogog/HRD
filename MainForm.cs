@@ -49,6 +49,8 @@ namespace HRD
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.EndPayment". При необходимости она может быть перемещена или удалена.
+            this.endPaymentTableAdapter.Fill(this.hRD_DBDataSet.EndPayment);
             //TODO
         }
 

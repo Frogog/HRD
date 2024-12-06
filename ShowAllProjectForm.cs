@@ -20,7 +20,7 @@ namespace HRD
             InitializeComponent();
         }
         private bool addMode = true;
-        private List<Employee> employeeTeam = new List<Employee>();
+        private List<EmployeeTeam> employeeTeam = new List<EmployeeTeam>();
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +28,20 @@ namespace HRD
             if (Application.OpenForms.OfType<ShowAllSkillForm>().FirstOrDefault() != null) MessageBox.Show("Есть скиллы");
             MessageBox.Show(Application.OpenForms.Count.ToString());
         }
-
+        private void ShowAllProjectForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
+            this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
+            //TODO
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
+            //TODO
+            DPStart.Value = DateTime.Now.AddDays(7);
+            DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
+            DFStart.Value = DateTime.Now.AddDays(7);
+            DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
+        }
         private void addB_Click(object sender, EventArgs e)
         {
             TurnAddMode();
@@ -50,18 +63,57 @@ namespace HRD
         {
             if (addMode)
             {
-                string sql = "INSERT INTO Project (Name, Des, PDS, PDE, FDS, FDE) VALUES('"
+                string sql = "INSERT INTO Project (Name, CD, Des, PDS, PDE, FDS, FDE) VALUES('"
                     + NameTextBox.Text + "','"
+                    + DCreate.Value.ToString()+ "','"
                     + DescriptionTextBox.Text + "','"
                     + DPStart.Value.ToString() + "','"
                     + DPEnd.Value.ToString() + "','"
                     + DFStart.Value.ToString() + "','"
                     + DFEnd.Value.ToString() + "');";
                 Sq(sql);
+                string id_p = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value.ToString();
+                sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
+                        RespCombo.SelectedValue + "','" +
+                        id_p + "','1')";
+                Sq(sql);
+                foreach (var employee in employeeTeam)
+                {
+                    sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
+                        employee.ID_Emp + "','" +
+                        id_p + "','0')";
+                    Sq(sql);
+                }
+                SelectRow(dataGridView1.Rows.Count - 1);
             }
             else
             {
-                
+                int n_p = dataGridView1.CurrentRow.Index;
+                string id_p = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                string sql = "UPDATE Project SET "
+                + "Name ='" + NameTextBox.Text
+                + "', Des ='" + DescriptionTextBox.Text
+                + "', CD ='" + DCreate.Value.ToString()
+                + "', PDS ='" + DPStart.Value.ToString()
+                + "', PDE ='" + DPEnd.Value.ToString()
+                + "', FDS ='" + DFStart.Value.ToString()
+                + "', FDE ='" + DFEnd.Value.ToString() +"';";
+                MessageBox.Show(sql);
+                Sq(sql);
+                sql = "DELETE FROM Employee_Project WHERE Pr_ID = " + id_p + ";";
+                Sq(sql);
+                sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
+                        RespCombo.SelectedValue + "','" +
+                        id_p + "','1')";
+                Sq(sql);
+                foreach (var employee in employeeTeam)
+                {
+                    sql = "INSERT INTO Employee_Project (Emp_ID,Pr_ID, Resp) VALUES('" +
+                        employee.ID_Emp + "','" +
+                        id_p + "','0')";
+                    Sq(sql);
+                }
+                SelectRow(n_p);
             }
             TurnDefaultMode();
         }
@@ -102,27 +154,22 @@ namespace HRD
                 {
                     employeeTeam.RemoveAll(x => x.ID_Emp == employeeId);
                 };
+                showAllEmployeeForm.OnResponsableSelected += (responsableId) =>
+                {
+                    employeeTeam.RemoveAll(x => x.ID_Emp == responsableId);
+                };
                 DialogResult result = showAllEmployeeForm.ShowDialog();
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
-                    string responasle = showAllEmployeeForm.selectedResponsable;
-                    //TODO
-                    if (responasle != "") RespCombo.SelectedValue = responasle;
+                    string responsable = showAllEmployeeForm.selectedResponsable;
+                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                    if (responsable != "") RespCombo.SelectedValue = responsable;
                 }
                 UpdateTeamTable();
             }
         }
 
-        private void ShowAllProjectForm_Load(object sender, EventArgs e)
-        {
-            //TODO
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
-            //TODO
-            DPStart.Value = DateTime.Now.AddDays(7);
-            DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
-            DFStart.Value = DateTime.Now.AddDays(7);
-            DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
-        }
+        
         private void addTeamB_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ShowAllEmployeeForm>().FirstOrDefault() == null)
@@ -158,6 +205,9 @@ namespace HRD
                 };
                 showAllEmployeeForm.ShowDialog();
                 UpdateTeamTable();
+                var rememberValue = RespCombo.SelectedValue;
+                this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                RespCombo.SelectedValue = rememberValue;
             }
         }
         private void deleteTeamB_Click(object sender, EventArgs e)
@@ -168,9 +218,9 @@ namespace HRD
                 dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
             }
         }
-        public void UpdateEmployeeTable()
+        public void UpdateProjectTable()
         {
-            //TODO
+            this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
         }
         public void DeleteTeamTable() { 
 
@@ -183,7 +233,7 @@ namespace HRD
             command.CommandText = sql;
             command.ExecuteNonQuery();
             connect.Close();
-            UpdateEmployeeTable();
+            UpdateProjectTable();
         }
         public void SelectRow(int rowIndex)
         {
@@ -222,26 +272,61 @@ namespace HRD
         }
         private void TurnChangeMode()
         {
-            showPanel.Visible = false;
-            panel1.Visible = true;
-            addB.Enabled = false;
-            changeB.Enabled = false;
-            deleteB.Enabled = false;
-            confirmB.Visible = true;
-            canselB.Visible = true;
-            label2.Visible = true;
-            label3.Visible = true;
-            DFEnd.Visible = true;
-            DFStart.Visible = true;
-            addMode = false;
             if (dataGridView1.Rows.Count != 0)
             {
+                showPanel.Visible = false;
+                panel1.Visible = true;
+                addB.Enabled = false;
+                changeB.Enabled = false;
+                deleteB.Enabled = false;
+                confirmB.Visible = true;
+                canselB.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                DFEnd.Visible = true;
+                DFStart.Visible = true;
+                addMode = false;
                 NameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 DescriptionTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                DPStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                DPEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-                DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                DCreate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                DPStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                DPEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                string sql = "SELECT Emp_ID FROM Employee_Project WHERE Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + 
+                    "AND Resp = 1;";
+                connect = new System.Data.SqlClient.SqlConnection(connectionString);
+                connect.Open();
+                SqlCommand command = connect.CreateCommand();
+                command.CommandText = sql;
+                string id_e = command.ExecuteScalar().ToString();
+                RespCombo.SelectedValue = id_e;
+                connect.Close();
+                sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0";
+                connect = new System.Data.SqlClient.SqlConnection(connectionString);
+                connect.Open();
+                command = connect.CreateCommand();
+                command.CommandText = sql;
+                SqlDataReader inv = command.ExecuteReader();
+                string[] row = new string[5];
+                while (inv.Read())
+                {
+                    employeeTeam.Add(new EmployeeTeam(
+                        inv["Emp_ID"].ToString(),
+                        inv["LName"].ToString(), 
+                        inv["EmployeeName"].ToString(),
+                        inv["Pat"].ToString(),
+                        inv["PostName"].ToString(),
+                        inv["QualificationName"].ToString()
+                        ));
+                    row[0] = inv["LName"].ToString();
+                    row[1] = inv["EmployeeName"].ToString();
+                    row[2] = inv["Pat"].ToString();
+                    row[3] = inv["PostName"].ToString();
+                    row[4] = inv["QualificationName"].ToString();
+                    dataGridView2.Rows.Add(row);
+                }
+                connect.Close();
             }
         }
         private void TurnClearData()
@@ -253,6 +338,7 @@ namespace HRD
             DFStart.Value = DateTime.Now.AddDays(7);
             DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
             dataGridView2.Rows.Clear();
+            employeeTeam.Clear();
         }
         private void UpdateTeamTable()
         {
@@ -260,6 +346,15 @@ namespace HRD
             foreach (var employee in employeeTeam)
             {
                 dataGridView2.Rows.Add(employee.LName, employee.Name, employee.Pat, employee.PosName, employee.QualName);
+            }
+        }
+
+        private void RespCombo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (RespCombo.SelectedValue != null)
+            {
+                employeeTeam.RemoveAll(x => x.ID_Emp == RespCombo.SelectedValue.ToString());
+                UpdateTeamTable();
             }
         }
     }

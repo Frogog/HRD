@@ -16,9 +16,11 @@ namespace HRD
 {
     public partial class ShowAllEmployeeForm : Form
     {
-        public delegate void EmployeeSelectedHandler(Employee employee);
+        public delegate void EmployeeSelectedHandler(EmployeeTeam employee);
         public event EmployeeSelectedHandler OnEmployeeSelected;
-        public delegate void EmployeeUpdatedHandler(Employee employee);
+        public delegate void ResponsableSelectedHandler(string employee);
+        public event ResponsableSelectedHandler OnResponsableSelected;
+        public delegate void EmployeeUpdatedHandler(EmployeeTeam employee);
         public event EmployeeUpdatedHandler OnEmployeeUpdated;
         public delegate void EmployeeDeletedHandler(string employeeId);
         public event EmployeeDeletedHandler OnEmployeeDeleted;
@@ -36,7 +38,13 @@ namespace HRD
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
-            
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
+            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.ShowAllEmployee". При необходимости она может быть перемещена или удалена.
+            this.showAllEmployeeTableAdapter.Fill(this.hRD_DBDataSet.ShowAllEmployee);
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -130,8 +138,8 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string post = showAllPostForm.selectedPost;
-                    //TODO
-                    if(post!="") PostCombo.SelectedValue = post;
+                    this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+                    if (post!="") PostCombo.SelectedValue = post;
                 }
             }
         }
@@ -146,7 +154,7 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string qual = showAllQualificationForm.selectedQual;
-                    //TODO
+                    this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
                     if (qual!="") QualCombo.SelectedValue = qual;
                 }
             }
@@ -211,20 +219,11 @@ namespace HRD
                 + "' WHERE ID_Emp=" + id_e + ";";
                 if (OnEmployeeUpdated != null)
                 {
-                    OnEmployeeUpdated.Invoke(new Employee(
+                    OnEmployeeUpdated.Invoke(new EmployeeTeam(
                     id_e,
-                    QualCombo.SelectedValue.ToString(),
-                    PostCombo.SelectedValue.ToString(),
-                    NameTextBox.Text,
                     LNameTextBox.Text,
-                    DateTime.Parse(BirthDate.Value.ToString()),
-                    PSeriesTextBox.Text,
-                    PNumberTextBox.Text,
-                    WhoTextBox.Text,
-                    DateTime.Parse(WhenDate.Value.ToString()),
-                    RegTextBox.Text,
-                    ResTextBox.Text,
-                    PhoneTextBox.Text,
+                    NameTextBox.Text,
+                    PatTextBox.Text,
                     PostCombo.Text,
                     QualCombo.Text
                     ));
@@ -251,7 +250,7 @@ namespace HRD
 
         public void UpdateEmployeeTable()
         {
-            //TODO
+            this.showAllEmployeeTableAdapter.Fill(this.hRD_DBDataSet.ShowAllEmployee);
         }
         public void Sq(string sql)
         {
@@ -306,21 +305,21 @@ namespace HRD
             addMode = false;
             if (dataGridView1.Rows.Count != 0)
             {
-                NameTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                LNameTextBox.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                PatTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                PSeriesTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                PNumberTextBox.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                WhoTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                RegTextBox.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                ResTextBox.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
-                PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
-                WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[10].Value.ToString());
-                EmailTextBox.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-                TgTextBox.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
-                PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
+                NameTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                LNameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                PatTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                PSeriesTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                PNumberTextBox.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                WhoTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                RegTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                ResTextBox.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+                BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+                EmailTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
+                TgTextBox.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
+                PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[17].Value.ToString();
             }
             string sql = "SELECT Skill_ID, Name, Prof FROM Skill INNER JOIN Employee_Skill ON ID_Skill = Skill_ID WHERE Emp_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + ";";
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -350,8 +349,8 @@ namespace HRD
             WhoTextBox.Text = string.Empty;
             RegTextBox.Text = string.Empty;
             ResTextBox.Text = string.Empty;
-            //TODO
-            //TODO
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
             dataGridView2.Rows.Clear();
             employeeSkills.Clear();
             EmailTextBox.Text = "";
@@ -388,31 +387,39 @@ namespace HRD
                 {
                     selectedEmployee = new Employee(
                         dataGridView1.CurrentRow.Cells[0].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[13].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[11].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[2].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[1].Value.ToString(),
+                        DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString()),
+                        dataGridView1.CurrentRow.Cells[5].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[6].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[7].Value.ToString(),
+                        DateTime.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString()),
+                        dataGridView1.CurrentRow.Cells[9].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[10].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[17].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[12].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[14].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[3].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[15].Value.ToString(),
+                        dataGridView1.CurrentRow.Cells[16].Value.ToString()
+                        );
+                    OnEmployeeSelected.Invoke(new EmployeeTeam(
+                        dataGridView1.CurrentRow.Cells[0].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[1].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[2].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[3].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[4].Value.ToString(),
-                        DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString()),
-                        dataGridView1.CurrentRow.Cells[7].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[8].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[9].Value.ToString(),
-                        DateTime.Parse(dataGridView1.CurrentRow.Cells[10].Value.ToString()),
-                        dataGridView1.CurrentRow.Cells[11].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[12].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[15].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[5].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[13].Value.ToString(),
-                        dataGridView1.CurrentRow.Cells[14].Value.ToString(),
-                        "Временная должность",
-                        "Временная квала"
-                        );
-                    OnEmployeeSelected.Invoke(selectedEmployee);
+                        dataGridView1.CurrentRow.Cells[14].Value.ToString()
+                        ));
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 if (this.Tag.ToString()== "checkResponsable")
                 {
                     selectedResponsable = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    OnResponsableSelected(selectedResponsable);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

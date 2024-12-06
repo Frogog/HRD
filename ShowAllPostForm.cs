@@ -26,6 +26,8 @@ namespace HRD
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void ShowAllPostForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
             //TODO
 
         }
@@ -94,7 +96,7 @@ namespace HRD
 
         public void UpdatePostTable()
         {
-            //TODO
+            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
         }
         public void Sq(string sql)
         {

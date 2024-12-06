@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.deleteTeamB = new System.Windows.Forms.Button();
             this.addTeamB = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RespCombo = new System.Windows.Forms.ComboBox();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.DCreate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +56,15 @@
             this.addB = new System.Windows.Forms.Button();
             this.confirmB = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDPrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainLable = new System.Windows.Forms.Label();
             this.showPanel = new System.Windows.Forms.Panel();
             this.DescriptionTextBox = new System.Windows.Forms.RichTextBox();
@@ -65,8 +77,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.showResponsable = new System.Windows.Forms.Button();
+            this.projectTableAdapter = new HRD.HRD_DBDataSetTableAdapters.ProjectTableAdapter();
+            this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -166,6 +183,8 @@
             // 
             // RespCombo
             // 
+            this.RespCombo.DataSource = this.employeeBindingSource;
+            this.RespCombo.DisplayMember = "LName";
             this.RespCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RespCombo.FormattingEnabled = true;
             this.RespCombo.Location = new System.Drawing.Point(9, 43);
@@ -173,6 +192,18 @@
             this.RespCombo.Name = "RespCombo";
             this.RespCombo.Size = new System.Drawing.Size(404, 24);
             this.RespCombo.TabIndex = 13;
+            this.RespCombo.ValueMember = "ID_Emp";
+            this.RespCombo.SelectedValueChanged += new System.EventHandler(this.RespCombo_SelectedValueChanged);
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -317,7 +348,18 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDPrDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.desDataGridViewTextBoxColumn,
+            this.cDDataGridViewTextBoxColumn,
+            this.pDSDataGridViewTextBoxColumn,
+            this.pDEDataGridViewTextBoxColumn,
+            this.fDSDataGridViewTextBoxColumn,
+            this.fDEDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.projectBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -326,6 +368,83 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1304, 722);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // iDPrDataGridViewTextBoxColumn
+            // 
+            this.iDPrDataGridViewTextBoxColumn.DataPropertyName = "ID_Pr";
+            this.iDPrDataGridViewTextBoxColumn.HeaderText = "ID_Pr";
+            this.iDPrDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDPrDataGridViewTextBoxColumn.Name = "iDPrDataGridViewTextBoxColumn";
+            this.iDPrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDPrDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // desDataGridViewTextBoxColumn
+            // 
+            this.desDataGridViewTextBoxColumn.DataPropertyName = "Des";
+            this.desDataGridViewTextBoxColumn.HeaderText = "Des";
+            this.desDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.desDataGridViewTextBoxColumn.Name = "desDataGridViewTextBoxColumn";
+            this.desDataGridViewTextBoxColumn.ReadOnly = true;
+            this.desDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cDDataGridViewTextBoxColumn
+            // 
+            this.cDDataGridViewTextBoxColumn.DataPropertyName = "CD";
+            this.cDDataGridViewTextBoxColumn.HeaderText = "CD";
+            this.cDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cDDataGridViewTextBoxColumn.Name = "cDDataGridViewTextBoxColumn";
+            this.cDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // pDSDataGridViewTextBoxColumn
+            // 
+            this.pDSDataGridViewTextBoxColumn.DataPropertyName = "PDS";
+            this.pDSDataGridViewTextBoxColumn.HeaderText = "PDS";
+            this.pDSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.pDSDataGridViewTextBoxColumn.Name = "pDSDataGridViewTextBoxColumn";
+            this.pDSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pDSDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // pDEDataGridViewTextBoxColumn
+            // 
+            this.pDEDataGridViewTextBoxColumn.DataPropertyName = "PDE";
+            this.pDEDataGridViewTextBoxColumn.HeaderText = "PDE";
+            this.pDEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.pDEDataGridViewTextBoxColumn.Name = "pDEDataGridViewTextBoxColumn";
+            this.pDEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pDEDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fDSDataGridViewTextBoxColumn
+            // 
+            this.fDSDataGridViewTextBoxColumn.DataPropertyName = "FDS";
+            this.fDSDataGridViewTextBoxColumn.HeaderText = "FDS";
+            this.fDSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fDSDataGridViewTextBoxColumn.Name = "fDSDataGridViewTextBoxColumn";
+            this.fDSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fDSDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fDEDataGridViewTextBoxColumn
+            // 
+            this.fDEDataGridViewTextBoxColumn.DataPropertyName = "FDE";
+            this.fDEDataGridViewTextBoxColumn.HeaderText = "FDE";
+            this.fDEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fDEDataGridViewTextBoxColumn.Name = "fDEDataGridViewTextBoxColumn";
+            this.fDEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fDEDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataMember = "Project";
+            this.projectBindingSource.DataSource = this.hRD_DBDataSet;
             // 
             // mainLable
             // 
@@ -469,6 +588,14 @@
             this.showResponsable.UseVisualStyleBackColor = true;
             this.showResponsable.Click += new System.EventHandler(this.showResponsable_Click);
             // 
+            // projectTableAdapter
+            // 
+            this.projectTableAdapter.ClearBeforeFill = true;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // ShowAllProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -490,7 +617,10 @@
             this.Text = "Проекты";
             this.Load += new System.EventHandler(this.ShowAllProjectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.showPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -540,5 +670,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker DFStart;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource projectBindingSource;
+        private HRD_DBDataSetTableAdapters.ProjectTableAdapter projectTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDPrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pDSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pDEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fDSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fDEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private HRD_DBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.confirmB = new System.Windows.Forms.Button();
             this.canselB = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -41,9 +42,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.showPanel = new System.Windows.Forms.Panel();
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
+            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
+            this.iDPoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // confirmB
@@ -166,7 +175,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDPoDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.payDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.postBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -186,6 +201,47 @@
             this.showPanel.Name = "showPanel";
             this.showPanel.Size = new System.Drawing.Size(609, 492);
             this.showPanel.TabIndex = 21;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // postBindingSource
+            // 
+            this.postBindingSource.DataMember = "Post";
+            this.postBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // postTableAdapter
+            // 
+            this.postTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDPoDataGridViewTextBoxColumn
+            // 
+            this.iDPoDataGridViewTextBoxColumn.DataPropertyName = "ID_Po";
+            this.iDPoDataGridViewTextBoxColumn.HeaderText = "ID_Po";
+            this.iDPoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDPoDataGridViewTextBoxColumn.Name = "iDPoDataGridViewTextBoxColumn";
+            this.iDPoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDPoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // payDataGridViewTextBoxColumn
+            // 
+            this.payDataGridViewTextBoxColumn.DataPropertyName = "Pay";
+            this.payDataGridViewTextBoxColumn.HeaderText = "Pay";
+            this.payDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.payDataGridViewTextBoxColumn.Name = "payDataGridViewTextBoxColumn";
+            this.payDataGridViewTextBoxColumn.ReadOnly = true;
+            this.payDataGridViewTextBoxColumn.Width = 125;
             // 
             // ShowAllPostForm
             // 
@@ -211,6 +267,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.showPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +288,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel showPanel;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource postBindingSource;
+        private HRD_DBDataSetTableAdapters.PostTableAdapter postTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDPoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payDataGridViewTextBoxColumn;
     }
 }
