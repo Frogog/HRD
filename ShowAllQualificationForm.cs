@@ -41,12 +41,26 @@ namespace HRD
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount != 0)
+            string id_qual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string sql = "SELECT COUNT(*) FROM Employee WHERE Qual_ID = " + id_qual + "; ";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            if (Convert.ToInt32(command.ExecuteScalar().ToString()) == 0)
             {
-                string id_qual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Qualification WHERE ID_Qual=" + id_qual;
-                Sq(sql);
+                if (dataGridView1.RowCount != 0)
+                {
+                    id_qual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    sql = "DELETE FROM Qualification WHERE ID_Qual=" + id_qual;
+                    Sq(sql);
+                }
             }
+            {
+                MessageBox.Show("Этот уровень квалификации связан с записями сотрудников !", "Ошибка",
+                    MessageBoxButtons.OK);
+            }
+
         }
         private void confirmB_Click(object sender, EventArgs e)
         {

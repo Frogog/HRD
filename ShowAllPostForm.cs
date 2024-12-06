@@ -42,11 +42,24 @@ namespace HRD
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount != 0)
+            string id_po = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string sql = "SELECT COUNT(*) FROM Employee WHERE Po_ID = "+ id_po + "; ";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            if (Convert.ToInt32(command.ExecuteScalar().ToString()) == 0)
             {
-                string id_po = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "DELETE FROM Post WHERE ID_Po=" + id_po;
-                Sq(sql);
+                if (dataGridView1.RowCount != 0)
+                {
+                    sql = "DELETE FROM Post WHERE ID_Po=" + id_po;
+                    Sq(sql);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Эта должность связана с записями сотрудников !", "Ошибка",
+                    MessageBoxButtons.OK);
             }
         }
         private void canselB_Click(object sender, EventArgs e)
