@@ -40,7 +40,7 @@ namespace HRD
             {
                 T form = new T();
                 form.FormClosed += Forms_FormClosed;
-                form.Show();
+                form.ShowDialog();
             }
         }
         private void Forms_FormClosed(object sender, FormClosedEventArgs e)

@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.showAllEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
             this.mainLable = new System.Windows.Forms.Label();
             this.showPanel = new System.Windows.Forms.Panel();
             this.panelAdd = new System.Windows.Forms.Panel();
@@ -53,7 +56,9 @@
             this.addSkillB = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.QualCombo = new System.Windows.Forms.ComboBox();
+            this.qualificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PostCombo = new System.Windows.Forms.ComboBox();
+            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -81,9 +86,9 @@
             this.deleteB = new System.Windows.Forms.Button();
             this.canselB = new System.Windows.Forms.Button();
             this.confirmB = new System.Windows.Forms.Button();
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.showAllEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.showAllEmployeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.ShowAllEmployeeTableAdapter();
+            this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
+            this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
             this.iDEmpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,22 +107,18 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
-            this.qualificationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
             this.showPanel.SuspendLayout();
             this.panelAdd.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -146,6 +147,14 @@
             this.tgDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.showAllEmployeeBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -156,6 +165,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(952, 782);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // showAllEmployeeBindingSource
+            // 
+            this.showAllEmployeeBindingSource.DataMember = "ShowAllEmployee";
+            this.showAllEmployeeBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mainLable
             // 
@@ -407,6 +426,11 @@
             this.QualCombo.TabIndex = 13;
             this.QualCombo.ValueMember = "ID_Qual";
             // 
+            // qualificationBindingSource
+            // 
+            this.qualificationBindingSource.DataMember = "Qualification";
+            this.qualificationBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
             // PostCombo
             // 
             this.PostCombo.DataSource = this.postBindingSource;
@@ -419,6 +443,11 @@
             this.PostCombo.Size = new System.Drawing.Size(492, 24);
             this.PostCombo.TabIndex = 12;
             this.PostCombo.ValueMember = "ID_Po";
+            // 
+            // postBindingSource
+            // 
+            this.postBindingSource.DataMember = "Post";
+            this.postBindingSource.DataSource = this.hRD_DBDataSet;
             // 
             // label1
             // 
@@ -496,6 +525,7 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(204, 22);
             this.PhoneTextBox.TabIndex = 11;
+            this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneTextBox_KeyPress);
             // 
             // label5
             // 
@@ -590,6 +620,7 @@
             this.PNumberTextBox.Name = "PNumberTextBox";
             this.PNumberTextBox.Size = new System.Drawing.Size(84, 22);
             this.PNumberTextBox.TabIndex = 5;
+            this.PNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PNumberTextBox_KeyPress);
             // 
             // ResTextBox
             // 
@@ -606,6 +637,7 @@
             this.PSeriesTextBox.Name = "PSeriesTextBox";
             this.PSeriesTextBox.Size = new System.Drawing.Size(63, 22);
             this.PSeriesTextBox.TabIndex = 3;
+            this.PSeriesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PSeriesTextBox_KeyPress);
             // 
             // label8
             // 
@@ -690,19 +722,17 @@
             this.confirmB.Visible = false;
             this.confirmB.Click += new System.EventHandler(this.confirmB_Click);
             // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // showAllEmployeeBindingSource
-            // 
-            this.showAllEmployeeBindingSource.DataMember = "ShowAllEmployee";
-            this.showAllEmployeeBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
             // showAllEmployeeTableAdapter
             // 
             this.showAllEmployeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // postTableAdapter
+            // 
+            this.postTableAdapter.ClearBeforeFill = true;
+            // 
+            // qualificationTableAdapter
+            // 
+            this.qualificationTableAdapter.ClearBeforeFill = true;
             // 
             // iDEmpDataGridViewTextBoxColumn
             // 
@@ -711,12 +741,13 @@
             this.iDEmpDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDEmpDataGridViewTextBoxColumn.Name = "iDEmpDataGridViewTextBoxColumn";
             this.iDEmpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDEmpDataGridViewTextBoxColumn.Visible = false;
             this.iDEmpDataGridViewTextBoxColumn.Width = 125;
             // 
             // lNameDataGridViewTextBoxColumn
             // 
             this.lNameDataGridViewTextBoxColumn.DataPropertyName = "LName";
-            this.lNameDataGridViewTextBoxColumn.HeaderText = "LName";
+            this.lNameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
             this.lNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
             this.lNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -725,7 +756,7 @@
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Имя";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -734,7 +765,7 @@
             // patDataGridViewTextBoxColumn
             // 
             this.patDataGridViewTextBoxColumn.DataPropertyName = "Pat";
-            this.patDataGridViewTextBoxColumn.HeaderText = "Pat";
+            this.patDataGridViewTextBoxColumn.HeaderText = "Отчество";
             this.patDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.patDataGridViewTextBoxColumn.Name = "patDataGridViewTextBoxColumn";
             this.patDataGridViewTextBoxColumn.ReadOnly = true;
@@ -743,34 +774,34 @@
             // dBirthDataGridViewTextBoxColumn
             // 
             this.dBirthDataGridViewTextBoxColumn.DataPropertyName = "DBirth";
-            this.dBirthDataGridViewTextBoxColumn.HeaderText = "DBirth";
+            this.dBirthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
             this.dBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dBirthDataGridViewTextBoxColumn.Name = "dBirthDataGridViewTextBoxColumn";
             this.dBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dBirthDataGridViewTextBoxColumn.Width = 125;
+            this.dBirthDataGridViewTextBoxColumn.Width = 70;
             // 
             // pSeriesDataGridViewTextBoxColumn
             // 
             this.pSeriesDataGridViewTextBoxColumn.DataPropertyName = "PSeries";
-            this.pSeriesDataGridViewTextBoxColumn.HeaderText = "PSeries";
+            this.pSeriesDataGridViewTextBoxColumn.HeaderText = "Серия паспорта";
             this.pSeriesDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pSeriesDataGridViewTextBoxColumn.Name = "pSeriesDataGridViewTextBoxColumn";
             this.pSeriesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pSeriesDataGridViewTextBoxColumn.Width = 125;
+            this.pSeriesDataGridViewTextBoxColumn.Width = 50;
             // 
             // pNumberDataGridViewTextBoxColumn
             // 
             this.pNumberDataGridViewTextBoxColumn.DataPropertyName = "PNumber";
-            this.pNumberDataGridViewTextBoxColumn.HeaderText = "PNumber";
+            this.pNumberDataGridViewTextBoxColumn.HeaderText = "Номер паспорта";
             this.pNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pNumberDataGridViewTextBoxColumn.Name = "pNumberDataGridViewTextBoxColumn";
             this.pNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pNumberDataGridViewTextBoxColumn.Width = 125;
+            this.pNumberDataGridViewTextBoxColumn.Width = 60;
             // 
             // pWhoDataGridViewTextBoxColumn
             // 
             this.pWhoDataGridViewTextBoxColumn.DataPropertyName = "PWho";
-            this.pWhoDataGridViewTextBoxColumn.HeaderText = "PWho";
+            this.pWhoDataGridViewTextBoxColumn.HeaderText = "Кем выдан";
             this.pWhoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pWhoDataGridViewTextBoxColumn.Name = "pWhoDataGridViewTextBoxColumn";
             this.pWhoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -779,16 +810,16 @@
             // pWhenDataGridViewTextBoxColumn
             // 
             this.pWhenDataGridViewTextBoxColumn.DataPropertyName = "PWhen";
-            this.pWhenDataGridViewTextBoxColumn.HeaderText = "PWhen";
+            this.pWhenDataGridViewTextBoxColumn.HeaderText = "Когда выдан";
             this.pWhenDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pWhenDataGridViewTextBoxColumn.Name = "pWhenDataGridViewTextBoxColumn";
             this.pWhenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pWhenDataGridViewTextBoxColumn.Width = 125;
+            this.pWhenDataGridViewTextBoxColumn.Width = 70;
             // 
             // regDataGridViewTextBoxColumn
             // 
             this.regDataGridViewTextBoxColumn.DataPropertyName = "Reg";
-            this.regDataGridViewTextBoxColumn.HeaderText = "Reg";
+            this.regDataGridViewTextBoxColumn.HeaderText = "Место регистрации";
             this.regDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.regDataGridViewTextBoxColumn.Name = "regDataGridViewTextBoxColumn";
             this.regDataGridViewTextBoxColumn.ReadOnly = true;
@@ -797,7 +828,7 @@
             // resDataGridViewTextBoxColumn
             // 
             this.resDataGridViewTextBoxColumn.DataPropertyName = "Res";
-            this.resDataGridViewTextBoxColumn.HeaderText = "Res";
+            this.resDataGridViewTextBoxColumn.HeaderText = "Место фактического проживания";
             this.resDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.resDataGridViewTextBoxColumn.Name = "resDataGridViewTextBoxColumn";
             this.resDataGridViewTextBoxColumn.ReadOnly = true;
@@ -810,12 +841,13 @@
             this.iDPoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDPoDataGridViewTextBoxColumn.Name = "iDPoDataGridViewTextBoxColumn";
             this.iDPoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDPoDataGridViewTextBoxColumn.Visible = false;
             this.iDPoDataGridViewTextBoxColumn.Width = 125;
             // 
             // expr1DataGridViewTextBoxColumn
             // 
             this.expr1DataGridViewTextBoxColumn.DataPropertyName = "Expr1";
-            this.expr1DataGridViewTextBoxColumn.HeaderText = "Expr1";
+            this.expr1DataGridViewTextBoxColumn.HeaderText = "Должность";
             this.expr1DataGridViewTextBoxColumn.MinimumWidth = 6;
             this.expr1DataGridViewTextBoxColumn.Name = "expr1DataGridViewTextBoxColumn";
             this.expr1DataGridViewTextBoxColumn.ReadOnly = true;
@@ -828,12 +860,13 @@
             this.iDQualDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDQualDataGridViewTextBoxColumn.Name = "iDQualDataGridViewTextBoxColumn";
             this.iDQualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDQualDataGridViewTextBoxColumn.Visible = false;
             this.iDQualDataGridViewTextBoxColumn.Width = 125;
             // 
             // expr2DataGridViewTextBoxColumn
             // 
             this.expr2DataGridViewTextBoxColumn.DataPropertyName = "Expr2";
-            this.expr2DataGridViewTextBoxColumn.HeaderText = "Expr2";
+            this.expr2DataGridViewTextBoxColumn.HeaderText = "Квалификация";
             this.expr2DataGridViewTextBoxColumn.MinimumWidth = 6;
             this.expr2DataGridViewTextBoxColumn.Name = "expr2DataGridViewTextBoxColumn";
             this.expr2DataGridViewTextBoxColumn.ReadOnly = true;
@@ -851,7 +884,7 @@
             // tgDataGridViewTextBoxColumn
             // 
             this.tgDataGridViewTextBoxColumn.DataPropertyName = "Tg";
-            this.tgDataGridViewTextBoxColumn.HeaderText = "Tg";
+            this.tgDataGridViewTextBoxColumn.HeaderText = "Телеграм";
             this.tgDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tgDataGridViewTextBoxColumn.Name = "tgDataGridViewTextBoxColumn";
             this.tgDataGridViewTextBoxColumn.ReadOnly = true;
@@ -860,29 +893,11 @@
             // phoneDataGridViewTextBoxColumn
             // 
             this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
             this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // postBindingSource
-            // 
-            this.postBindingSource.DataMember = "Post";
-            this.postBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
-            // postTableAdapter
-            // 
-            this.postTableAdapter.ClearBeforeFill = true;
-            // 
-            // qualificationBindingSource
-            // 
-            this.qualificationBindingSource.DataMember = "Qualification";
-            this.qualificationBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
-            // qualificationTableAdapter
-            // 
-            this.qualificationTableAdapter.ClearBeforeFill = true;
+            this.phoneDataGridViewTextBoxColumn.Width = 80;
             // 
             // ShowAllEmployeeForm
             // 
@@ -906,6 +921,8 @@
             this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.ShowAllEmployeeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
             this.showPanel.ResumeLayout(false);
             this.panelAdd.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -913,14 +930,12 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qualificationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,6 +998,10 @@
         private HRD_DBDataSet hRD_DBDataSet;
         private System.Windows.Forms.BindingSource showAllEmployeeBindingSource;
         private HRD_DBDataSetTableAdapters.ShowAllEmployeeTableAdapter showAllEmployeeTableAdapter;
+        private System.Windows.Forms.BindingSource postBindingSource;
+        private HRD_DBDataSetTableAdapters.PostTableAdapter postTableAdapter;
+        private System.Windows.Forms.BindingSource qualificationBindingSource;
+        private HRD_DBDataSetTableAdapters.QualificationTableAdapter qualificationTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDEmpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -1001,10 +1020,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tgDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource postBindingSource;
-        private HRD_DBDataSetTableAdapters.PostTableAdapter postTableAdapter;
-        private System.Windows.Forms.BindingSource qualificationBindingSource;
-        private HRD_DBDataSetTableAdapters.QualificationTableAdapter qualificationTableAdapter;
     }
 }
 

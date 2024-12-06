@@ -50,9 +50,11 @@ namespace HRD
         }
         private void confirmB_Click(object sender, EventArgs e)
         {
+            if (!ValidateForm()) return;
+
             if (addMode)
             {
-                string sql = "INSERT INTO Qualification VALUES('" + textBox10.Text + "','" + textBox1.Text + "');";
+                string sql = "INSERT INTO Qualification VALUES('" + textBox10.Text + "','" + textBox1.Text.Replace(",", ".") + "');";
                 Sq(sql);
                 if (dataGridView1.RowCount != 0)
                 {
@@ -63,7 +65,7 @@ namespace HRD
             {
                 int n_qual = dataGridView1.CurrentRow.Index;
                 string id_qual = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                string sql = "UPDATE Qualification SET Name ='" + textBox10.Text + "',Coef='" + textBox1.Text + "' WHERE ID_Qual=" + id_qual + ";";
+                string sql = "UPDATE Qualification SET Name ='" + textBox10.Text + "',Coef='" + textBox1.Text.Replace(",", ".") + "' WHERE ID_Qual=" + id_qual + ";";
                 Sq(sql);
                 dataGridView1.CurrentCell = dataGridView1.Rows[n_qual].Cells[1];
                 SelectRow(n_qual);
@@ -154,7 +156,33 @@ namespace HRD
             textBox1.Text = string.Empty;
             textBox10.Text = string.Empty;
         }
+        private bool ValidateForm()
+        {
+            if (string.IsNullOrWhiteSpace(textBox10.Text))
+            {
+                MessageBox.Show("Наименование должно быть заполнено!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox10.Focus();
+                return false;
+            }
 
-        
+            if (!float.TryParse(textBox1.Text, out float pay))
+            {
+                MessageBox.Show("Коэффициент должна быть числом!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Focus();
+                return false;
+            }
+
+            if (pay <= 0)
+            {
+                MessageBox.Show("Коэффициент должен быть положительным числом!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Focus();
+                return false;
+            }
+            return true;
+        }
+
     }
 }

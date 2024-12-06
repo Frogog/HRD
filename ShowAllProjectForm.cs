@@ -21,6 +21,7 @@ namespace HRD
         }
         private bool addMode = true;
         private List<EmployeeTeam> employeeTeam = new List<EmployeeTeam>();
+
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void button1_Click(object sender, EventArgs e)
@@ -34,13 +35,7 @@ namespace HRD
             this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
             this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
-            //TODO
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
-            //TODO
-            DPStart.Value = DateTime.Now.AddDays(7);
-            DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
-            DFStart.Value = DateTime.Now.AddDays(7);
-            DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
         }
         private void addB_Click(object sender, EventArgs e)
         {
@@ -61,6 +56,7 @@ namespace HRD
         }
         private void confirmB_Click(object sender, EventArgs e)
         {
+            if (!ValidateProjectForm()) return;
             if (addMode)
             {
                 string sql = "INSERT INTO Project (Name, CD, Des, PDS, PDE, FDS, FDE) VALUES('"
@@ -68,9 +64,7 @@ namespace HRD
                     + DCreate.Value.ToString()+ "','"
                     + DescriptionTextBox.Text + "','"
                     + DPStart.Value.ToString() + "','"
-                    + DPEnd.Value.ToString() + "','"
-                    + DFStart.Value.ToString() + "','"
-                    + DFEnd.Value.ToString() + "');";
+                    + DPEnd.Value.ToString() + "',NULL,NULL);";
                 Sq(sql);
                 string id_p = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value.ToString();
                 sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
@@ -222,9 +216,6 @@ namespace HRD
         {
             this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
         }
-        public void DeleteTeamTable() { 
-
-        }
         public void Sq(string sql)
         {
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -291,8 +282,16 @@ namespace HRD
                 DCreate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
                 DPStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
                 DPEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
-                DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "") 
+                {
+                    DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+                }
+                else DFStart.Value = DPStart.Value.AddMonths(6);
+                if (dataGridView1.CurrentRow.Cells[7].Value.ToString() != "")
+                {
+                    DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                }
+                else DFEnd.Value = DPEnd.Value.AddMonths(6);
                 string sql = "SELECT Emp_ID FROM Employee_Project WHERE Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + 
                     "AND Resp = 1;";
                 connect = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -356,6 +355,85 @@ namespace HRD
                 employeeTeam.RemoveAll(x => x.ID_Emp == RespCombo.SelectedValue.ToString());
                 UpdateTeamTable();
             }
+        }
+        private bool ValidateProjectForm()
+        {
+            // Проверка обязательных полей
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                ShowError("Название проекта должно быть заполнено!", NameTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(DescriptionTextBox.Text))
+            {
+                ShowError("Описание проекта должно быть заполнено!", DescriptionTextBox);
+                return false;
+            }
+
+            // Проверка корректности дат
+            DateTime currentDate = DateTime.Now.Date;
+
+            // Дата создания не может быть в будущем
+            if (DCreate.Value.Date > currentDate)
+            {
+                ShowError("Дата создания не может быть в будущем!", DCreate);
+                return false;
+            }
+            if (DCreate.Value.Date < currentDate)
+            {
+                ShowError("Дата создания не может быть в прошлом!", DCreate);
+                return false;
+            }
+
+            // Проверка планируемых дат
+            if (DPStart.Value.Date > DPEnd.Value.Date)
+            {
+                ShowError("Планируемая дата начала не может быть позже даты окончания!", DPStart);
+                return false;
+            }
+
+            if (DPStart.Value.Date < DCreate.Value.Date)
+            {
+                ShowError("Планируемая дата начала не может быть раньше даты создания проекта!", DPStart);
+                return false;
+            }
+
+            // Проверка фактических дат
+            if (!addMode) {
+                if (DFStart.Value.Date > DFEnd.Value.Date)
+                {
+                    ShowError("Фактическая дата начала не может быть позже даты окончания!", DFStart);
+                    return false;
+                }
+
+                if (DFStart.Value.Date < DCreate.Value.Date)
+                {
+                    ShowError("Фактическая дата начала не может быть раньше даты создания проекта!", DFStart);
+                    return false;
+                }
+
+                // Дополнительные проверки логики дат
+                if (DFStart.Value.Date < DPStart.Value.Date)
+                {
+                    ShowError("Фактическая дата начала не может быть раньше планируемой!", DFStart);
+                    return false;
+                }
+
+                if (DFEnd.Value.Date < DPStart.Value.Date)
+                {
+                    ShowError("Фактическая дата окончания не может быть раньше планируемой даты начала!", DFEnd);
+                    return false;
+                }
+            }
+            
+
+            return true;
+        }
+        private void ShowError(string message, Control control)
+        {
+            MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            control.Focus();
         }
     }
 }

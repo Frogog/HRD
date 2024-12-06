@@ -1,5 +1,6 @@
 ﻿using Spire.Doc.Fields;
 using Spire.Doc.Fields.Shapes;
+using Spire.Doc.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -164,6 +166,7 @@ namespace HRD
         
         private void confirmB_Click(object sender, EventArgs e)
         {
+            if (!ValidateEmployeeForm()) return;
             if (addMode)
             {
                 string sql = "INSERT INTO Employee (Qual_ID, Po_ID, Name, LName, Pat, " +
@@ -423,6 +426,150 @@ namespace HRD
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                
+            }
+        }
+        private bool ValidateEmployeeForm()
+        {
+            // Проверка обязательных полей
+            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            {
+                ShowError("Имя должно быть заполнено!", NameTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(LNameTextBox.Text))
+            {
+                ShowError("Фамилия должна быть заполнена!", LNameTextBox);
+                return false;
+            }
+
+            // Проверка паспортных данных
+            if (string.IsNullOrWhiteSpace(PSeriesTextBox.Text) || PSeriesTextBox.Text.Length != 4)
+            {
+                ShowError("Серия паспорта должна состоять из 4 цифр!", PSeriesTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(PNumberTextBox.Text) || PNumberTextBox.Text.Length != 6)
+            {
+                ShowError("Номер паспорта должен состоять из 6 цифр!", PNumberTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(WhoTextBox.Text))
+            {
+                ShowError("Поле 'Кем выдан' должно быть заполнено!", WhoTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(RegTextBox.Text))
+            {
+                ShowError("Адрес регистрации должен быть заполнен!", RegTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(ResTextBox.Text))
+            {
+                ShowError("Место фактического проживания должно быть заполнено!", ResTextBox);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(PhoneTextBox.Text))
+            {
+                ShowError("Телефон должен быть заполнен!", PhoneTextBox);
+                return false;
+            }
+
+            // Проверка email если он заполнен
+            if (!string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            {
+                string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+                if (!Regex.IsMatch(EmailTextBox.Text, emailPattern))
+                {
+                    ShowError("Неверный формат email!", EmailTextBox);
+                    return false;
+                }
+            }
+
+            // Проверка телефона
+            string phonePattern = @"^\+7\d{10}$";  // Формат: +79991234567
+            if (!Regex.IsMatch(PhoneTextBox.Text, phonePattern))
+            {
+                ShowError("Телефон должен быть в формате +7___ ___ ____!", PhoneTextBox);
+                return false;
+            }
+
+            // Проверка Telegram если он заполнен
+            if (!string.IsNullOrWhiteSpace(TgTextBox.Text))
+            {
+                string tgPattern = @"^@[a-zA-Z0-9_]{5,32}$";  // Формат: @username
+                if (!Regex.IsMatch(TgTextBox.Text, tgPattern))
+                {
+                    ShowError("Telegram должен быть в формате @Имя_пользователя!", TgTextBox);
+                    return false;
+                }
+            }
+
+            // Проверка дат
+            if (BirthDate.Value >= DateTime.Now)
+            {
+                ShowError("Дата рождения не может быть в будущем!", BirthDate);
+                return false;
+            }
+
+            if (WhenDate.Value >= DateTime.Now)
+            {
+                ShowError("Дата выдачи паспорта не может быть в будущем!", WhenDate);
+                return false;
+            }
+
+            // Проверка выбора из комбобоксов
+            if (QualCombo.SelectedValue == null)
+            {
+                ShowError("Необходимо выбрать квалификацию!", QualCombo);
+                return false;
+            }
+
+            if (PostCombo.SelectedValue == null)
+            {
+                ShowError("Необходимо выбрать должность!", PostCombo);
+                return false;
+            }
+
+
+            return true;
+        }
+        private void ShowError(string message, Control control)
+        {
+            MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            control.Focus();
+        }
+
+        private void PSeriesTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void PNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void PhoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+                return;
             }
         }
     }

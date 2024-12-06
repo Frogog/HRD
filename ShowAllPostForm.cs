@@ -72,6 +72,8 @@ namespace HRD
 
         private void confirmB_Click(object sender, EventArgs e)
         {
+            if (!ValidateForm()) return;
+
             if (addMode)
             {
                 string sql = "INSERT INTO Post VALUES('" + textBox10.Text + "','" + textBox1.Text+"');";
@@ -160,7 +162,33 @@ namespace HRD
             textBox1.Text = string.Empty;
             textBox10.Text = string.Empty;
         }
+        private bool ValidateForm()
+        {
+            if (string.IsNullOrWhiteSpace(textBox10.Text))
+            {
+                MessageBox.Show("Наименование должно быть заполнено!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox10.Focus();
+                return false;
+            }
 
+            if (!float.TryParse(textBox1.Text, out float pay))
+            {
+                MessageBox.Show("Зарплата должна быть числом!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Focus();
+                return false;
+            }
+
+            if (pay <= 0)
+            {
+                MessageBox.Show("Зарплата должна быть положительным числом!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox1.Focus();
+                return false;
+            }
+            return true;
+        }
         
     }
 }

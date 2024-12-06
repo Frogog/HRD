@@ -59,12 +59,6 @@
     <Compile Include="AddSkillForm.Designer.cs">
       <DependentUpon>AddSkillForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTeamForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddTeamForm.Designer.cs">
-      <DependentUpon>AddTeamForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeTeam.cs" />
     <Compile Include="HRD_DBDataSet.Designer.cs">
@@ -131,9 +125,6 @@
     <Compile Include="Skill.cs" />
     <EmbeddedResource Include="AddSkillForm.resx">
       <DependentUpon>AddSkillForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddTeamForm.resx">
-      <DependentUpon>AddTeamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

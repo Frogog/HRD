@@ -33,6 +33,8 @@
             this.canselB = new System.Windows.Forms.Button();
             this.showPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.skillBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
             this.mainLable = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
@@ -40,16 +42,14 @@
             this.changeB = new System.Windows.Forms.Button();
             this.addB = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.skillBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.skillTableAdapter = new HRD.HRD_DBDataSetTableAdapters.SkillTableAdapter();
             this.iDSkillDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // confirmB
@@ -104,6 +104,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(459, 476);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // skillBindingSource
+            // 
+            this.skillBindingSource.DataMember = "Skill";
+            this.skillBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mainLable
             // 
@@ -178,16 +188,6 @@
             this.groupBox1.Text = "Общие данные";
             this.groupBox1.Visible = false;
             // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // skillBindingSource
-            // 
-            this.skillBindingSource.DataMember = "Skill";
-            this.skillBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
             // skillTableAdapter
             // 
             this.skillTableAdapter.ClearBeforeFill = true;
@@ -199,16 +199,17 @@
             this.iDSkillDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDSkillDataGridViewTextBoxColumn.Name = "iDSkillDataGridViewTextBoxColumn";
             this.iDSkillDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDSkillDataGridViewTextBoxColumn.Visible = false;
             this.iDSkillDataGridViewTextBoxColumn.Width = 125;
             // 
             // nameDataGridViewTextBoxColumn
             // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
             // ShowAllSkillForm
             // 
@@ -232,10 +233,10 @@
             this.Load += new System.EventHandler(this.ShowAllSkillForm_Load);
             this.showPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.skillBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skillBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

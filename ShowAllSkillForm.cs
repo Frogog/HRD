@@ -60,6 +60,8 @@ namespace HRD
         }
         private void confirmB_Click(object sender, EventArgs e)
         {
+            if (!ValidateForm()) return;
+
             if (addMode)
             {
                 string sql = "INSERT INTO Skill VALUES('" + textBox10.Text + "');";
@@ -180,6 +182,16 @@ namespace HRD
         {
             textBox10.Text = string.Empty;
         }
-
+        private bool ValidateForm()
+        {
+            if (string.IsNullOrWhiteSpace(textBox10.Text))
+            {
+                MessageBox.Show("Наименование должно быть заполнено!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBox10.Focus();
+                return false;
+            }
+            return true;
+        }
     }
 }
