@@ -300,7 +300,7 @@ namespace HRD
                 string id_e = command.ExecuteScalar().ToString();
                 RespCombo.SelectedValue = id_e;
                 connect.Close();
-                sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0";
+                sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0 AND Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() +"";
                 connect = new System.Data.SqlClient.SqlConnection(connectionString);
                 connect.Open();
                 command = connect.CreateCommand();

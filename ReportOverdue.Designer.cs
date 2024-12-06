@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.createB = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkQualificationB = new System.Windows.Forms.Button();
@@ -37,6 +38,11 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // createB
@@ -56,9 +62,9 @@
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 16);
+            this.label1.Size = new System.Drawing.Size(287, 16);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Отчет \"Просроченные проекты\"";
+            this.label1.Text = "Отчет \"Неудачные проекты ответстенных\"";
             // 
             // checkQualificationB
             // 
@@ -69,18 +75,20 @@
             this.checkQualificationB.TabIndex = 42;
             this.checkQualificationB.Text = "...";
             this.checkQualificationB.UseVisualStyleBackColor = true;
+            this.checkQualificationB.Click += new System.EventHandler(this.checkQualificationB_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.employeeBindingSource;
+            this.comboBox1.DisplayMember = "LName";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Иван Иванов Иванович"});
             this.comboBox1.Location = new System.Drawing.Point(20, 123);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 41;
+            this.comboBox1.ValueMember = "ID_Emp";
             // 
             // label4
             // 
@@ -128,6 +136,20 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(181, 22);
             this.dateTimePicker1.TabIndex = 36;
             // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // ReportOverdue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -147,8 +169,10 @@
             this.MaximizeBox = false;
             this.Name = "ReportOverdue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Отчет \"Просроченные проекты\"";
+            this.Text = "Отчет \"Неудачные проекты ответстенных\"";
             this.Load += new System.EventHandler(this.ReportOverdue_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +188,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private HRD_DBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }

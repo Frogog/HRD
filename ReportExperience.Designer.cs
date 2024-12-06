@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.createB = new System.Windows.Forms.Button();
@@ -37,19 +38,25 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.checkQualificationB = new System.Windows.Forms.Button();
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.employeeBindingSource;
+            this.comboBox1.DisplayMember = "LName";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Иван Иванов Иванович"});
             this.comboBox1.Location = new System.Drawing.Point(20, 123);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 34;
+            this.comboBox1.ValueMember = "ID_Emp";
             // 
             // label4
             // 
@@ -114,9 +121,9 @@
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 16);
+            this.label1.Size = new System.Drawing.Size(233, 16);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Отчет \"Опытность сотрудников\"";
+            this.label1.Text = "Отчет \"Опытность ответственных\"";
             // 
             // checkQualificationB
             // 
@@ -127,6 +134,21 @@
             this.checkQualificationB.TabIndex = 35;
             this.checkQualificationB.Text = "...";
             this.checkQualificationB.UseVisualStyleBackColor = true;
+            this.checkQualificationB.Click += new System.EventHandler(this.checkQualificationB_Click);
+            // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // ReportExperience
             // 
@@ -147,8 +169,10 @@
             this.MaximizeBox = false;
             this.Name = "ReportExperience";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Отчет \"Опытность сотрудников\"";
+            this.Text = "Отчет \"Опытность ответственных\"";
             this.Load += new System.EventHandler(this.ReportExperience_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +189,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button checkQualificationB;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private HRD_DBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }

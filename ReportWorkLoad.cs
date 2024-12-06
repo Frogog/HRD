@@ -26,6 +26,8 @@ namespace HRD
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void ReportWorkLoad_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
             dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
         }
 
@@ -36,7 +38,7 @@ namespace HRD
             connect.Open();
             SqlCommand command = connect.CreateCommand();
             command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "GetEmployeeProjectCountByDateRange";
+            command.CommandText = "Workload";
             command.Parameters.AddWithValue("@startDate", dateTimePicker1.Value.ToString());
             command.Parameters.AddWithValue("@endDate", dateTimePicker2.Value.ToString());
             SqlDataReader inv = command.ExecuteReader();
@@ -44,7 +46,6 @@ namespace HRD
             doc.LoadFromFile(@"ReportWorkloadExample.docx");
             doc.Replace("#DateStart#", dateTimePicker1.Value.ToShortDateString(), true, true);
             doc.Replace("#DateEnd#", dateTimePicker2.Value.ToShortDateString(), true, true);
-            doc.Replace("#Post#", "Программист", true, true);
             doc.Replace("#DateToday#", DateTime.Today.ToString("dd.MM.yyyy"), true, true);
             doc.Replace("#Name#",comboBox1.Text,true,true);
             Spire.Doc.Section section = doc.Sections[0];
@@ -112,9 +113,17 @@ namespace HRD
 
                 i++;
             }
-
-            doc.SaveToFile("ReportWorkload.docx");
             connect.Close();
+
+            string sql = "SELECT Post.Name AS PostName FROM Employee INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Employee.ID_Emp = "+comboBox1.SelectedValue+";";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            command = connect.CreateCommand();
+            command.CommandText = sql;
+            string PostName = command.ExecuteScalar().ToString();
+            doc.Replace("#Post#", PostName, true, true);
+            connect.Close();
+            doc.SaveToFile("ReportWorkload.docx");
             this.Close();
             Process.Start(@"ReportWorkload.docx");
         }
@@ -134,7 +143,7 @@ namespace HRD
             }
             if (comboBox1.SelectedValue == null)
             {
-                ShowError("Проверяющий должен быть выбран!", comboBox1);
+                ShowError("Составляющий должен быть выбран!", comboBox1);
                 return false;
             }
             return true;
@@ -143,6 +152,22 @@ namespace HRD
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             control.Focus();
+        }
+
+        private void checkResponsable_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ShowAllEmployeeForm>().FirstOrDefault() == null)
+            {
+                ShowAllEmployeeForm showAllEmployeeForm = new ShowAllEmployeeForm();
+                showAllEmployeeForm.Tag = "checkReportResponsable";
+                DialogResult result = showAllEmployeeForm.ShowDialog();
+                if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
+                {
+                    string responsable = showAllEmployeeForm.selectedResponsable;
+                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                    if (responsable != "") comboBox1.SelectedValue = responsable;
+                }
+            }
         }
     }
 }

@@ -426,6 +426,12 @@ namespace HRD
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                if (this.Tag.ToString() == "checkReportResponsable")
+                {
+                    selectedResponsable = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
                 
             }
         }

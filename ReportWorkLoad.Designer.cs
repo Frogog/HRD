@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkQualificationB = new System.Windows.Forms.Button();
+            this.checkResponsable = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +38,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.createB = new System.Windows.Forms.Button();
+            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,27 +55,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Отчет \"Загруженность сотрудников\"";
             // 
-            // checkQualificationB
+            // checkResponsable
             // 
-            this.checkQualificationB.Location = new System.Drawing.Point(275, 121);
-            this.checkQualificationB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkQualificationB.Name = "checkQualificationB";
-            this.checkQualificationB.Size = new System.Drawing.Size(33, 28);
-            this.checkQualificationB.TabIndex = 50;
-            this.checkQualificationB.Text = "...";
-            this.checkQualificationB.UseVisualStyleBackColor = true;
+            this.checkResponsable.Location = new System.Drawing.Point(275, 121);
+            this.checkResponsable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkResponsable.Name = "checkResponsable";
+            this.checkResponsable.Size = new System.Drawing.Size(33, 28);
+            this.checkResponsable.TabIndex = 50;
+            this.checkResponsable.Text = "...";
+            this.checkResponsable.UseVisualStyleBackColor = true;
+            this.checkResponsable.Click += new System.EventHandler(this.checkResponsable_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.employeeBindingSource;
+            this.comboBox1.DisplayMember = "LName";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Иван Иванов Иванович"});
             this.comboBox1.Location = new System.Drawing.Point(20, 123);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 49;
+            this.comboBox1.ValueMember = "ID_Emp";
             // 
             // label4
             // 
@@ -128,12 +136,26 @@
             this.createB.UseVisualStyleBackColor = true;
             this.createB.Click += new System.EventHandler(this.createB_Click);
             // 
+            // hRD_DBDataSet
+            // 
+            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
+            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.hRD_DBDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
             // ReportWorkLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 263);
-            this.Controls.Add(this.checkQualificationB);
+            this.Controls.Add(this.checkResponsable);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -149,6 +171,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет \"Загруженность сотрудников\"";
             this.Load += new System.EventHandler(this.ReportWorkLoad_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +181,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button checkQualificationB;
+        private System.Windows.Forms.Button checkResponsable;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -165,5 +189,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button createB;
+        private HRD_DBDataSet hRD_DBDataSet;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private HRD_DBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }
