@@ -23,8 +23,7 @@ namespace HRD
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         private void ShowAllQualificationForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            //TODO
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
             if (this.Tag != null)
             {
@@ -89,7 +88,7 @@ namespace HRD
         }
         public void UpdateQualifiactionTable()
         {
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            //TODO
         }
         public void Sq(string sql)
         {

@@ -36,14 +36,7 @@ namespace HRD
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
-            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
-            //id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //Сделать запрос к бд на данные 
+            
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -137,7 +130,7 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string post = showAllPostForm.selectedPost;
-                    this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+                    //TODO
                     if(post!="") PostCombo.SelectedValue = post;
                 }
             }
@@ -152,9 +145,9 @@ namespace HRD
                 DialogResult result = showAllQualificationForm.ShowDialog();
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
-                    string qual = showAllQualificationForm.selectedQual; 
-                    this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
-                    if(qual!="") QualCombo.SelectedValue = qual;
+                    string qual = showAllQualificationForm.selectedQual;
+                    //TODO
+                    if (qual!="") QualCombo.SelectedValue = qual;
                 }
             }
             //Полагаю стоит поставить содержимое поля на выбранный элемент в форме и обновить список в комбобоксе.
@@ -258,7 +251,7 @@ namespace HRD
 
         public void UpdateEmployeeTable()
         {
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            //TODO
         }
         public void Sq(string sql)
         {
@@ -357,8 +350,8 @@ namespace HRD
             WhoTextBox.Text = string.Empty;
             RegTextBox.Text = string.Empty;
             ResTextBox.Text = string.Empty;
-            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            //TODO
+            //TODO
             dataGridView2.Rows.Clear();
             employeeSkills.Clear();
             EmailTextBox.Text = "";

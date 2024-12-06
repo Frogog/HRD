@@ -106,7 +106,7 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string responasle = showAllEmployeeForm.selectedResponsable;
-                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                    //TODO
                     if (responasle != "") RespCombo.SelectedValue = responasle;
                 }
                 UpdateTeamTable();
@@ -115,10 +115,9 @@ namespace HRD
 
         private void ShowAllProjectForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            //TODO
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
-            this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
+            //TODO
             DPStart.Value = DateTime.Now.AddDays(7);
             DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
             DFStart.Value = DateTime.Now.AddDays(7);
@@ -171,7 +170,7 @@ namespace HRD
         }
         public void UpdateEmployeeTable()
         {
-            this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
+            //TODO
         }
         public void DeleteTeamTable() { 
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.deleteTeamB = new System.Windows.Forms.Button();
             this.addTeamB = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,33 +65,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.showResponsable = new System.Windows.Forms.Button();
-            this.hRD_DBDataSet = new HRD.HRD_DBDataSet();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectTableAdapter = new HRD.HRD_DBDataSetTableAdapters.ProjectTableAdapter();
-            this.iDPrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new HRD.HRD_DBDataSetTableAdapters.EmployeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.showPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteTeamB
             // 
             this.deleteTeamB.Location = new System.Drawing.Point(1260, 140);
-            this.deleteTeamB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteTeamB.Margin = new System.Windows.Forms.Padding(4);
             this.deleteTeamB.Name = "deleteTeamB";
             this.deleteTeamB.Size = new System.Drawing.Size(33, 28);
             this.deleteTeamB.TabIndex = 29;
@@ -103,7 +87,7 @@
             // addTeamB
             // 
             this.addTeamB.Location = new System.Drawing.Point(1260, 105);
-            this.addTeamB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addTeamB.Margin = new System.Windows.Forms.Padding(4);
             this.addTeamB.Name = "addTeamB";
             this.addTeamB.Size = new System.Drawing.Size(33, 28);
             this.addTeamB.TabIndex = 28;
@@ -133,7 +117,7 @@
             this.Post,
             this.Qualification});
             this.dataGridView2.Location = new System.Drawing.Point(8, 105);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
@@ -182,16 +166,13 @@
             // 
             // RespCombo
             // 
-            this.RespCombo.DataSource = this.employeeBindingSource;
-            this.RespCombo.DisplayMember = "LName";
             this.RespCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RespCombo.FormattingEnabled = true;
             this.RespCombo.Location = new System.Drawing.Point(9, 43);
-            this.RespCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RespCombo.Margin = new System.Windows.Forms.Padding(4);
             this.RespCombo.Name = "RespCombo";
             this.RespCombo.Size = new System.Drawing.Size(404, 24);
             this.RespCombo.TabIndex = 13;
-            this.RespCombo.ValueMember = "ID_Emp";
             // 
             // label7
             // 
@@ -206,7 +187,7 @@
             // DCreate
             // 
             this.DCreate.Location = new System.Drawing.Point(381, 43);
-            this.DCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DCreate.Margin = new System.Windows.Forms.Padding(4);
             this.DCreate.Name = "DCreate";
             this.DCreate.Size = new System.Drawing.Size(184, 22);
             this.DCreate.TabIndex = 11;
@@ -224,7 +205,7 @@
             // DPEnd
             // 
             this.DPEnd.Location = new System.Drawing.Point(205, 263);
-            this.DPEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DPEnd.Margin = new System.Windows.Forms.Padding(4);
             this.DPEnd.Name = "DPEnd";
             this.DPEnd.Size = new System.Drawing.Size(184, 22);
             this.DPEnd.TabIndex = 9;
@@ -242,7 +223,7 @@
             // DPStart
             // 
             this.DPStart.Location = new System.Drawing.Point(12, 263);
-            this.DPStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DPStart.Margin = new System.Windows.Forms.Padding(4);
             this.DPStart.Name = "DPStart";
             this.DPStart.Size = new System.Drawing.Size(184, 22);
             this.DPStart.TabIndex = 7;
@@ -260,7 +241,7 @@
             // NameTextBox
             // 
             this.NameTextBox.Location = new System.Drawing.Point(9, 43);
-            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(363, 22);
             this.NameTextBox.TabIndex = 1;
@@ -278,7 +259,7 @@
             // canselB
             // 
             this.canselB.Location = new System.Drawing.Point(1195, 766);
-            this.canselB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.canselB.Margin = new System.Windows.Forms.Padding(4);
             this.canselB.Name = "canselB";
             this.canselB.Size = new System.Drawing.Size(133, 28);
             this.canselB.TabIndex = 26;
@@ -290,7 +271,7 @@
             // deleteB
             // 
             this.deleteB.Location = new System.Drawing.Point(1336, 142);
-            this.deleteB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteB.Margin = new System.Windows.Forms.Padding(4);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(133, 28);
             this.deleteB.TabIndex = 25;
@@ -301,7 +282,7 @@
             // changeB
             // 
             this.changeB.Location = new System.Drawing.Point(1336, 70);
-            this.changeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changeB.Margin = new System.Windows.Forms.Padding(4);
             this.changeB.Name = "changeB";
             this.changeB.Size = new System.Drawing.Size(133, 28);
             this.changeB.TabIndex = 24;
@@ -312,7 +293,7 @@
             // addB
             // 
             this.addB.Location = new System.Drawing.Point(1336, 34);
-            this.addB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addB.Margin = new System.Windows.Forms.Padding(4);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(133, 28);
             this.addB.TabIndex = 23;
@@ -323,7 +304,7 @@
             // confirmB
             // 
             this.confirmB.Location = new System.Drawing.Point(1053, 766);
-            this.confirmB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.confirmB.Margin = new System.Windows.Forms.Padding(4);
             this.confirmB.Name = "confirmB";
             this.confirmB.Size = new System.Drawing.Size(133, 28);
             this.confirmB.TabIndex = 27;
@@ -336,17 +317,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDPrDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.desDataGridViewTextBoxColumn,
-            this.pDSDataGridViewTextBoxColumn,
-            this.pDEDataGridViewTextBoxColumn,
-            this.fDSDataGridViewTextBoxColumn,
-            this.fDEDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.projectBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -377,7 +348,7 @@
             // DescriptionTextBox
             // 
             this.DescriptionTextBox.Location = new System.Drawing.Point(9, 102);
-            this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(1283, 122);
             this.DescriptionTextBox.TabIndex = 30;
@@ -400,9 +371,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.DPStart);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1301, 311);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -411,7 +382,7 @@
             // DFEnd
             // 
             this.DFEnd.Location = new System.Drawing.Point(1108, 263);
-            this.DFEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DFEnd.Margin = new System.Windows.Forms.Padding(4);
             this.DFEnd.Name = "DFEnd";
             this.DFEnd.Size = new System.Drawing.Size(184, 22);
             this.DFEnd.TabIndex = 36;
@@ -452,7 +423,7 @@
             // DFStart
             // 
             this.DFStart.Location = new System.Drawing.Point(915, 263);
-            this.DFStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DFStart.Margin = new System.Windows.Forms.Padding(4);
             this.DFStart.Name = "DFStart";
             this.DFStart.Size = new System.Drawing.Size(184, 22);
             this.DFStart.TabIndex = 34;
@@ -463,7 +434,7 @@
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(19, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1309, 727);
             this.panel1.TabIndex = 32;
@@ -479,9 +450,9 @@
             this.groupBox2.Controls.Add(this.deleteTeamB);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Location = new System.Drawing.Point(4, 322);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1301, 401);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
@@ -490,99 +461,13 @@
             // showResponsable
             // 
             this.showResponsable.Location = new System.Drawing.Point(423, 41);
-            this.showResponsable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showResponsable.Margin = new System.Windows.Forms.Padding(4);
             this.showResponsable.Name = "showResponsable";
             this.showResponsable.Size = new System.Drawing.Size(33, 28);
             this.showResponsable.TabIndex = 33;
             this.showResponsable.Text = "...";
             this.showResponsable.UseVisualStyleBackColor = true;
             this.showResponsable.Click += new System.EventHandler(this.showResponsable_Click);
-            // 
-            // hRD_DBDataSet
-            // 
-            this.hRD_DBDataSet.DataSetName = "HRD_DBDataSet";
-            this.hRD_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataMember = "Project";
-            this.projectBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
-            // projectTableAdapter
-            // 
-            this.projectTableAdapter.ClearBeforeFill = true;
-            // 
-            // iDPrDataGridViewTextBoxColumn
-            // 
-            this.iDPrDataGridViewTextBoxColumn.DataPropertyName = "ID_Pr";
-            this.iDPrDataGridViewTextBoxColumn.HeaderText = "ID_Pr";
-            this.iDPrDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDPrDataGridViewTextBoxColumn.Name = "iDPrDataGridViewTextBoxColumn";
-            this.iDPrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDPrDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // desDataGridViewTextBoxColumn
-            // 
-            this.desDataGridViewTextBoxColumn.DataPropertyName = "Des";
-            this.desDataGridViewTextBoxColumn.HeaderText = "Des";
-            this.desDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.desDataGridViewTextBoxColumn.Name = "desDataGridViewTextBoxColumn";
-            this.desDataGridViewTextBoxColumn.ReadOnly = true;
-            this.desDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // pDSDataGridViewTextBoxColumn
-            // 
-            this.pDSDataGridViewTextBoxColumn.DataPropertyName = "PDS";
-            this.pDSDataGridViewTextBoxColumn.HeaderText = "PDS";
-            this.pDSDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.pDSDataGridViewTextBoxColumn.Name = "pDSDataGridViewTextBoxColumn";
-            this.pDSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pDSDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // pDEDataGridViewTextBoxColumn
-            // 
-            this.pDEDataGridViewTextBoxColumn.DataPropertyName = "PDE";
-            this.pDEDataGridViewTextBoxColumn.HeaderText = "PDE";
-            this.pDEDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.pDEDataGridViewTextBoxColumn.Name = "pDEDataGridViewTextBoxColumn";
-            this.pDEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pDEDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // fDSDataGridViewTextBoxColumn
-            // 
-            this.fDSDataGridViewTextBoxColumn.DataPropertyName = "FDS";
-            this.fDSDataGridViewTextBoxColumn.HeaderText = "FDS";
-            this.fDSDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fDSDataGridViewTextBoxColumn.Name = "fDSDataGridViewTextBoxColumn";
-            this.fDSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fDSDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // fDEDataGridViewTextBoxColumn
-            // 
-            this.fDEDataGridViewTextBoxColumn.DataPropertyName = "FDE";
-            this.fDEDataGridViewTextBoxColumn.HeaderText = "FDE";
-            this.fDEDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fDEDataGridViewTextBoxColumn.Name = "fDEDataGridViewTextBoxColumn";
-            this.fDEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fDEDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.hRD_DBDataSet;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // ShowAllProjectForm
             // 
@@ -598,7 +483,7 @@
             this.Controls.Add(this.confirmB);
             this.Controls.Add(this.showPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ShowAllProjectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -612,9 +497,6 @@
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,17 +540,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker DFStart;
-        private HRD_DBDataSet hRD_DBDataSet;
-        private System.Windows.Forms.BindingSource projectBindingSource;
-        private HRD_DBDataSetTableAdapters.ProjectTableAdapter projectTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDPrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pDSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pDEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fDSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fDEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource employeeBindingSource;
-        private HRD_DBDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
     }
 }
