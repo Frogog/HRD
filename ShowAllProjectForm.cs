@@ -171,16 +171,25 @@ namespace HRD
                 showAllEmployeeForm.Tag = "checkTeam";
                 showAllEmployeeForm.OnEmployeeSelected += (employeeSelected) =>
                 {
-                    var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == employeeSelected.ID_Emp);
-                    if (existingEmployee != null)
+                    if (employeeSelected.ID_Emp != RespCombo.SelectedValue.ToString())
                     {
-                        var index = employeeTeam.IndexOf(existingEmployee);
-                        employeeTeam[index] = employeeSelected;
+                        var existingEmployee = employeeTeam.FirstOrDefault(x => x.ID_Emp == employeeSelected.ID_Emp);
+                        if (existingEmployee != null)
+                        {
+                            var index = employeeTeam.IndexOf(existingEmployee);
+                            employeeTeam[index] = employeeSelected;
 
+                        }
+                        else
+                        {
+                            employeeTeam.Add(employeeSelected);
+                        }
+                        showAllEmployeeForm.DialogResult = DialogResult.OK;
+                        showAllEmployeeForm.Close();
                     }
                     else
                     {
-                        employeeTeam.Add(employeeSelected);
+                        ShowError("Ответственный не может быть в команде!", RespCombo);
                     }
                 };
                 showAllEmployeeForm.OnEmployeeUpdated += (updatedEmployee) =>
@@ -191,6 +200,7 @@ namespace HRD
                         var index = employeeTeam.IndexOf(existingEmployee);
                         employeeTeam[index] = updatedEmployee;
                     }
+                    MessageBox.Show(updatedEmployee.ID_Emp+" "+ RespCombo.SelectedValue.ToString());
                 };
                 showAllEmployeeForm.OnEmployeeDeleted += (employeeId) =>
                 {

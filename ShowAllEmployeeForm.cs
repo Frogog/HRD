@@ -278,6 +278,7 @@ namespace HRD
             panelAdd.Visible = false;
             addB.Enabled = true;
             changeB.Enabled = true;
+            moreB.Enabled = true;
             deleteB.Enabled = true;
             confirmB.Visible = false;
             canselB.Visible = false;
@@ -289,6 +290,7 @@ namespace HRD
             showPanel.Visible = false;
             panelAdd.Visible = true;
             addB.Enabled = false;
+            moreB.Enabled = false;
             changeB.Enabled = false;
             deleteB.Enabled = false;
             confirmB.Visible = true;
@@ -301,6 +303,7 @@ namespace HRD
             showPanel.Visible = false;
             panelAdd.Visible = true;
             addB.Enabled = false;
+            moreB.Enabled = false;
             changeB.Enabled = false;
             deleteB.Enabled = false;
             confirmB.Visible = true;
@@ -416,8 +419,8 @@ namespace HRD
                         dataGridView1.CurrentRow.Cells[12].Value.ToString(),
                         dataGridView1.CurrentRow.Cells[14].Value.ToString()
                         ));
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    //this.DialogResult = DialogResult.OK;
+                    //this.Close();
                 }
                 if (this.Tag.ToString()== "checkResponsable")
                 {
@@ -577,6 +580,12 @@ namespace HRD
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void moreB_Click(object sender, EventArgs e)
+        {
+            ShowSingleEmployee showSingleEmployee = new ShowSingleEmployee(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            showSingleEmployee.ShowDialog();
         }
     }
 }

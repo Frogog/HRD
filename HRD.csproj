@@ -122,6 +122,12 @@
     <Compile Include="ShowAllSkillForm.Designer.cs">
       <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowSingleEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowSingleEmployee.Designer.cs">
+      <DependentUpon>ShowSingleEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Skill.cs" />
     <EmbeddedResource Include="AddSkillForm.resx">
       <DependentUpon>AddSkillForm.cs</DependentUpon>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShowAllSkillForm.resx">
       <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowSingleEmployee.resx">
+      <DependentUpon>ShowSingleEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HRD_DBDataSet.xsc">
       <DependentUpon>HRD_DBDataSet.xsd</DependentUpon>
