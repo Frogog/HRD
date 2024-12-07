@@ -72,6 +72,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Post.cs" />
+    <Compile Include="Qual.cs" />
     <Compile Include="ReportExperience.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +92,7 @@
     <Compile Include="ReportWorkLoad.Designer.cs">
       <DependentUpon>ReportWorkLoad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resp.cs" />
     <Compile Include="ShowAllEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>

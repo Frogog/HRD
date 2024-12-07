@@ -54,7 +54,7 @@ namespace HRD
                 string id_skill = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "DELETE FROM Skill WHERE ID_Skill=" + id_skill;
                 Sq(sql);
-                OnSkillDeleted.Invoke(id_skill);
+                if(OnSkillDeleted!=null) OnSkillDeleted.Invoke(id_skill);
             }
         }
         private void confirmB_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace HRD
                 Sq(sql);
                 dataGridView1.CurrentCell = dataGridView1.Rows[n_skill].Cells[1];
                 SelectRow(n_skill);
-                OnSkillUpdated.Invoke(new Skill(id_skill, dataGridView1.CurrentRow.Cells[1].Value.ToString(), ""));
+                if (OnSkillUpdated != null)  OnSkillUpdated.Invoke(new Skill(id_skill, dataGridView1.CurrentRow.Cells[1].Value.ToString(), ""));
             }
             TurnDefaultMode();
         }

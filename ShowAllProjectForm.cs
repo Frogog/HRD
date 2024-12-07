@@ -21,6 +21,7 @@ namespace HRD
         }
         private bool addMode = true;
         private List<EmployeeTeam> employeeTeam = new List<EmployeeTeam>();
+        private List<Resp> resp = new List<Resp>();
 
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
@@ -32,10 +33,39 @@ namespace HRD
         private void ShowAllProjectForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            //this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            UpdateResp();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
             this.projectTableAdapter.Fill(this.hRD_DBDataSet.Project);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Project". При необходимости она может быть перемещена или удалена.
+        }
+        private void UpdateResp()
+        {
+            resp.Clear();
+            RespCombo.Items.Clear();
+            string sql = "SELECT ID_Emp, LName, Employee.Name, Employee.Pat, Qualification.Name AS QualName, Post.Name AS PostName FROM Employee INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            RespCombo.Items.Add("Не выбрано");
+            resp.Add(new Resp("Не выбрано", "Не выбрано"));
+            while (inv.Read())
+            {
+                string lastName = inv["LName"].ToString();
+                string firstName = inv["Name"].ToString();
+                string patronymic = inv["Pat"].ToString();
+
+                string FIO = lastName;
+                if (!string.IsNullOrEmpty(firstName))
+                    FIO += " " + firstName.Substring(0, Math.Min(1, firstName.Length)) + ".";
+                if (!string.IsNullOrEmpty(patronymic))
+                    FIO +=patronymic.Substring(0, Math.Min(1, patronymic.Length)) + ".";
+                RespCombo.Items.Add(FIO);
+                resp.Add(new Resp(inv["ID_Emp"].ToString(), FIO));
+            }
+            RespCombo.SelectedIndex = 0;
         }
         private void addB_Click(object sender, EventArgs e)
         {
@@ -68,7 +98,7 @@ namespace HRD
                 Sq(sql);
                 string id_p = dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[0].Value.ToString();
                 sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
-                        RespCombo.SelectedValue + "','" +
+                        resp[RespCombo.SelectedIndex].id + "','" +
                         id_p + "','1')";
                 Sq(sql);
                 foreach (var employee in employeeTeam)
@@ -96,7 +126,7 @@ namespace HRD
                 sql = "DELETE FROM Employee_Project WHERE Pr_ID = " + id_p + ";";
                 Sq(sql);
                 sql = "INSERT INTO Employee_Project (Emp_ID, Pr_ID, Resp) VALUES('" +
-                        RespCombo.SelectedValue + "','" +
+                        resp[RespCombo.SelectedIndex].id + "','" +
                         id_p + "','1')";
                 Sq(sql);
                 foreach (var employee in employeeTeam)
@@ -155,8 +185,15 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string responsable = showAllEmployeeForm.selectedResponsable;
-                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
-                    if (responsable != "") RespCombo.SelectedValue = responsable;
+                    UpdateResp();
+                    if (responsable != "")
+                    {
+                        int index = resp.FindIndex(p => p.id == responsable);
+                        if (index != -1)
+                        {
+                            RespCombo.SelectedIndex = index;
+                        }
+                    }
                 }
                 UpdateTeamTable();
             }
@@ -189,7 +226,7 @@ namespace HRD
                     }
                     else
                     {
-                        ShowError("Ответственный не может быть в команде!", RespCombo);
+                        ShowError("Ответственный уже в команде!", RespCombo);
                     }
                 };
                 showAllEmployeeForm.OnEmployeeUpdated += (updatedEmployee) =>
@@ -208,7 +245,8 @@ namespace HRD
                 showAllEmployeeForm.ShowDialog();
                 UpdateTeamTable();
                 var rememberValue = RespCombo.SelectedValue;
-                this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                //this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+                UpdateResp();
                 RespCombo.SelectedValue = rememberValue;
             }
         }
@@ -308,7 +346,11 @@ namespace HRD
             SqlCommand command = connect.CreateCommand();
             command.CommandText = sql;
             string id_e = command.ExecuteScalar().ToString();
-            RespCombo.SelectedValue = id_e;
+            int indexResp = resp.FindIndex(p => p.id == id_e);
+            if (indexResp != -1)
+            {
+                RespCombo.SelectedIndex = indexResp;
+            }
             connect.Close();
             sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0 AND Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "";
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
@@ -345,6 +387,7 @@ namespace HRD
             DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
             DFStart.Value = DateTime.Now.AddDays(7);
             DFEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
+            UpdateResp();
             dataGridView2.Rows.Clear();
             employeeTeam.Clear();
         }
@@ -359,9 +402,9 @@ namespace HRD
 
         private void RespCombo_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (RespCombo.SelectedValue != null)
+            if (RespCombo.Text != "Не выбрано")
             {
-                employeeTeam.RemoveAll(x => x.ID_Emp == RespCombo.SelectedValue.ToString());
+                employeeTeam.RemoveAll(x => x.ID_Emp == resp[RespCombo.SelectedIndex].id);
                 UpdateTeamTable();
             }
         }
@@ -379,7 +422,11 @@ namespace HRD
                 ShowError("Описание проекта должно быть заполнено!", DescriptionTextBox);
                 return false;
             }
-
+            if (RespCombo.Text == "Не выбрано")
+            {
+                ShowError("Необходимо выбрать квалификацию!", RespCombo);
+                return false;
+            }
             // Проверка корректности дат
             DateTime currentDate = DateTime.Now.Date;
 

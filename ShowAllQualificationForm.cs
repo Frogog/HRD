@@ -56,6 +56,7 @@ namespace HRD
                     Sq(sql);
                 }
             }
+            else
             {
                 MessageBox.Show("Этот уровень квалификации связан с записями сотрудников !", "Ошибка",
                     MessageBoxButtons.OK);

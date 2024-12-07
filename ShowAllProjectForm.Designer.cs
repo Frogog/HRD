@@ -185,8 +185,6 @@
             // 
             // RespCombo
             // 
-            this.RespCombo.DataSource = this.employeeBindingSource;
-            this.RespCombo.DisplayMember = "LName";
             this.RespCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RespCombo.FormattingEnabled = true;
             this.RespCombo.Location = new System.Drawing.Point(9, 43);
@@ -194,7 +192,6 @@
             this.RespCombo.Name = "RespCombo";
             this.RespCombo.Size = new System.Drawing.Size(404, 24);
             this.RespCombo.TabIndex = 13;
-            this.RespCombo.ValueMember = "ID_Emp";
             this.RespCombo.SelectedValueChanged += new System.EventHandler(this.RespCombo_SelectedValueChanged);
             // 
             // employeeBindingSource

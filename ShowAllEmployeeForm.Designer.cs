@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDEmpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +68,9 @@
             this.checkPostB = new System.Windows.Forms.Button();
             this.deleteSkillB = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSkillB = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.QualCombo = new System.Windows.Forms.ComboBox();
@@ -105,9 +108,6 @@
             this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
             this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
             this.moreB = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
@@ -148,14 +148,14 @@
             this.tgDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.showAllEmployeeBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -535,6 +535,31 @@
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // SkillName
+            // 
+            this.SkillName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SkillName.HeaderText = "Наименование";
+            this.SkillName.MinimumWidth = 6;
+            this.SkillName.Name = "SkillName";
+            this.SkillName.ReadOnly = true;
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.HeaderText = "Уровень владения";
+            this.SkillLevel.MinimumWidth = 6;
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.ReadOnly = true;
+            this.SkillLevel.Width = 125;
+            // 
             // addSkillB
             // 
             this.addSkillB.Location = new System.Drawing.Point(775, 112);
@@ -557,8 +582,6 @@
             // 
             // QualCombo
             // 
-            this.QualCombo.DataSource = this.qualificationBindingSource;
-            this.QualCombo.DisplayMember = "Name";
             this.QualCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.QualCombo.FormattingEnabled = true;
             this.QualCombo.Location = new System.Drawing.Point(564, 46);
@@ -566,7 +589,6 @@
             this.QualCombo.Name = "QualCombo";
             this.QualCombo.Size = new System.Drawing.Size(333, 24);
             this.QualCombo.TabIndex = 13;
-            this.QualCombo.ValueMember = "ID_Qual";
             // 
             // qualificationBindingSource
             // 
@@ -575,8 +597,6 @@
             // 
             // PostCombo
             // 
-            this.PostCombo.DataSource = this.postBindingSource;
-            this.PostCombo.DisplayMember = "Name";
             this.PostCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PostCombo.FormattingEnabled = true;
             this.PostCombo.Location = new System.Drawing.Point(12, 46);
@@ -584,7 +604,6 @@
             this.PostCombo.Name = "PostCombo";
             this.PostCombo.Size = new System.Drawing.Size(492, 24);
             this.PostCombo.TabIndex = 12;
-            this.PostCombo.ValueMember = "ID_Po";
             // 
             // postBindingSource
             // 
@@ -886,30 +905,6 @@
             this.moreB.Text = "Подробнее";
             this.moreB.UseVisualStyleBackColor = true;
             this.moreB.Click += new System.EventHandler(this.moreB_Click);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 125;
-            // 
-            // SkillName
-            // 
-            this.SkillName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SkillName.HeaderText = "Наименование";
-            this.SkillName.MinimumWidth = 6;
-            this.SkillName.Name = "SkillName";
-            this.SkillName.ReadOnly = true;
-            // 
-            // SkillLevel
-            // 
-            this.SkillLevel.HeaderText = "Уровень владения";
-            this.SkillLevel.MinimumWidth = 6;
-            this.SkillLevel.Name = "SkillLevel";
-            this.SkillLevel.ReadOnly = true;
             // 
             // ShowAllEmployeeForm
             // 

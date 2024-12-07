@@ -35,18 +35,61 @@ namespace HRD
         private List<Skill> employeeSkills = new List<Skill>();
         public Employee selectedEmployee = null; //Бесполезно. Лучше бурать
         public string selectedResponsable = "";
+        private List<Post> employeePosts = new List<Post>();
+        private List<Qual> employeeQuals = new List<Qual>();
+
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
         string id_e = "";
         private void ShowAllEmployeeForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Qualification". При необходимости она может быть перемещена или удалена.
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            //this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            UpdateQuals();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Post". При необходимости она может быть перемещена или удалена.
-            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+            //this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
+            UpdatePosts();
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.ShowAllEmployee". При необходимости она может быть перемещена или удалена.
             this.showAllEmployeeTableAdapter.Fill(this.hRD_DBDataSet.ShowAllEmployee);
 
+        }
+        private void UpdatePosts()
+        {
+            employeePosts.Clear();
+            PostCombo.Items.Clear();
+            string sql = "SELECT ID_Po, Name FROM Post;";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            PostCombo.Items.Add("Не выбрано");
+            employeePosts.Add(new Post("Не выбрано","Не выбрано"));
+            while (inv.Read())
+            {
+                PostCombo.Items.Add(inv["Name"].ToString());
+                employeePosts.Add(new Post(inv["ID_Po"].ToString(), inv["Name"].ToString()));
+            }
+            PostCombo.SelectedIndex = 0;
+        }
+        private void UpdateQuals()
+        {
+            employeeQuals.Clear();
+            QualCombo.Items.Clear();
+            string sql = "SELECT ID_Qual, Name FROM Qualification;";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            QualCombo.Items.Add("Не выбрано");
+            employeeQuals.Add(new Qual("Не выбрано", "Не выбрано"));
+            while (inv.Read())
+            {
+                QualCombo.Items.Add(inv["Name"].ToString());
+                employeeQuals.Add(new Qual(inv["ID_Qual"].ToString(), inv["Name"].ToString()));
+            }
+            QualCombo.SelectedIndex = 0;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -140,8 +183,15 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string post = showAllPostForm.selectedPost;
-                    this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
-                    if (post!="") PostCombo.SelectedValue = post;
+                    UpdatePosts();
+                    if (post != "")
+                    {
+                        int index = employeePosts.FindIndex(p => p.id == post);
+                        if (index != -1)
+                        {
+                            PostCombo.SelectedIndex = index;
+                        }
+                    }
                 }
             }
         }
@@ -156,8 +206,15 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string qual = showAllQualificationForm.selectedQual;
-                    this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
-                    if (qual!="") QualCombo.SelectedValue = qual;
+                    UpdateQuals();
+                    if (qual != "")
+                    {
+                        int index = employeeQuals.FindIndex(p => p.id == qual);
+                        if (index != -1)
+                        {
+                            QualCombo.SelectedIndex = index;
+                        }
+                    }
                 }
             }
             //Полагаю стоит поставить содержимое поля на выбранный элемент в форме и обновить список в комбобоксе.
@@ -172,8 +229,8 @@ namespace HRD
                 string sql = "INSERT INTO Employee (Qual_ID, Po_ID, Name, LName, Pat, " +
                "DBirth, PSeries, PNumber, PWho, PWhen, " +
                "Reg, Res, Email, Tg, Phone) VALUES('" +
-                    QualCombo.SelectedValue + "','" +
-                    PostCombo.SelectedValue + "','" +
+                    employeeQuals[QualCombo.SelectedIndex].id + "','" +
+                    employeePosts[PostCombo.SelectedIndex].id + "','" +
                     NameTextBox.Text + "','" +
                     LNameTextBox.Text + "','" +
                     PatTextBox.Text + "','" +
@@ -204,8 +261,8 @@ namespace HRD
                 int n_e = dataGridView1.CurrentRow.Index;
                 string id_e = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 string sql = "UPDATE Employee SET "
-                +"Qual_ID ='" + QualCombo.SelectedValue
-                + "', Po_ID ='" + PostCombo.SelectedValue
+                +"Qual_ID ='" + employeeQuals[QualCombo.SelectedIndex].id
+                + "', Po_ID ='" + employeePosts[PostCombo.SelectedIndex].id
                 + "', Name ='" + NameTextBox.Text
                 + "', LName ='" + LNameTextBox.Text
                 + "', Pat ='" + PatTextBox.Text
@@ -318,8 +375,16 @@ namespace HRD
             WhoTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             RegTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
             ResTextBox.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-            PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-            QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            int indexPo = employeePosts.FindIndex(p => p.id == dataGridView1.CurrentRow.Cells[11].Value.ToString());
+            if (indexPo != -1)
+            {
+                PostCombo.SelectedIndex = indexPo;
+            }
+            int indexQual = employeeQuals.FindIndex(p => p.id == dataGridView1.CurrentRow.Cells[13].Value.ToString());
+            if (indexQual != -1)
+            {
+                QualCombo.SelectedIndex = indexQual;
+            }
             BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
             WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
             EmailTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
@@ -342,7 +407,6 @@ namespace HRD
                 dataGridView2.Rows.Add(row);
             }
             connect.Close();
-
         }
         private void TurnClearData()
         {
@@ -355,15 +419,14 @@ namespace HRD
             WhoTextBox.Text = string.Empty;
             RegTextBox.Text = string.Empty;
             ResTextBox.Text = string.Empty;
-            this.postTableAdapter.Fill(this.hRD_DBDataSet.Post);
-            this.qualificationTableAdapter.Fill(this.hRD_DBDataSet.Qualification);
+            UpdatePosts();
+            UpdateQuals();
             dataGridView2.Rows.Clear();
             employeeSkills.Clear();
             EmailTextBox.Text = "";
             TgTextBox.Text = "";
             PhoneTextBox.Text = "";
         }
-
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AddSkillForm addSkillForm = new AddSkillForm(employeeSkills[dataGridView2.CurrentRow.Index].skillLevel);
@@ -433,8 +496,7 @@ namespace HRD
                     selectedResponsable = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                }
-                
+                }  
             }
         }
         private bool ValidateEmployeeForm()
@@ -492,7 +554,7 @@ namespace HRD
             // Проверка email если он заполнен
             if (!string.IsNullOrWhiteSpace(EmailTextBox.Text))
             {
-                string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+                string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$";
                 if (!Regex.IsMatch(EmailTextBox.Text, emailPattern))
                 {
                     ShowError("Неверный формат email!", EmailTextBox);
@@ -533,19 +595,17 @@ namespace HRD
             }
 
             // Проверка выбора из комбобоксов
-            if (QualCombo.SelectedValue == null)
+            if (QualCombo.Text == "Не выбрано")
             {
                 ShowError("Необходимо выбрать квалификацию!", QualCombo);
                 return false;
             }
 
-            if (PostCombo.SelectedValue == null)
+            if (PostCombo.Text == "Не выбрано")
             {
                 ShowError("Необходимо выбрать должность!", PostCombo);
                 return false;
             }
-
-
             return true;
         }
         private void ShowError(string message, Control control)

@@ -189,8 +189,8 @@
             this.ReportOverdueToolStripMenuItem,
             this.ReportExperienceToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.reportToolStripMenuItem.Text = "Отчет";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.reportToolStripMenuItem.Text = "Отчеты";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // ReportWorkloadToolStripMenuItem

@@ -34,6 +34,7 @@ namespace HRD
             SqlDataReader inv = command.ExecuteReader();
             while (inv.Read())
             {
+                if (inv["Pat"].ToString() == "") label14.Visible = false;
                 LNameTextBox.Text = inv["LName"].ToString();
                 NameTextBox.Text = inv["Name"].ToString();
                 PatTextBox.Text = inv["Pat"].ToString();
