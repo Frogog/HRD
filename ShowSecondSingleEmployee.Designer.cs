@@ -31,11 +31,17 @@
             this.mainLable = new System.Windows.Forms.Label();
             this.panelAdd = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BirthDate = new System.Windows.Forms.Label();
+            this.PatTextBox = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.Label();
+            this.LNameTextBox = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.PostCombo = new System.Windows.Forms.Label();
+            this.QualCombo = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,31 +50,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.TgTextBox = new System.Windows.Forms.Label();
+            this.EmailTextBox = new System.Windows.Forms.Label();
+            this.PhoneTextBox = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ResTextBox = new System.Windows.Forms.Label();
+            this.RegTextBox = new System.Windows.Forms.Label();
+            this.WhenDate = new System.Windows.Forms.Label();
+            this.WhoTextBox = new System.Windows.Forms.Label();
+            this.PNumberTextBox = new System.Windows.Forms.Label();
+            this.PSeriesTextBox = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.LNameTextBox = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.Label();
-            this.WhenDate = new System.Windows.Forms.Label();
-            this.WhoTextBox = new System.Windows.Forms.Label();
-            this.PNumberTextBox = new System.Windows.Forms.Label();
-            this.PSeriesTextBox = new System.Windows.Forms.Label();
-            this.PatTextBox = new System.Windows.Forms.Label();
-            this.RegTextBox = new System.Windows.Forms.Label();
-            this.QualCombo = new System.Windows.Forms.Label();
-            this.ResTextBox = new System.Windows.Forms.Label();
-            this.PostCombo = new System.Windows.Forms.Label();
-            this.BirthDate = new System.Windows.Forms.Label();
-            this.PhoneTextBox = new System.Windows.Forms.Label();
-            this.EmailTextBox = new System.Windows.Forms.Label();
-            this.TgTextBox = new System.Windows.Forms.Label();
             this.panelAdd.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -117,6 +117,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
             // 
+            // BirthDate
+            // 
+            this.BirthDate.AutoSize = true;
+            this.BirthDate.Location = new System.Drawing.Point(11, 102);
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.Size = new System.Drawing.Size(51, 16);
+            this.BirthDate.TabIndex = 27;
+            this.BirthDate.Text = "label17";
+            // 
+            // PatTextBox
+            // 
+            this.PatTextBox.AutoSize = true;
+            this.PatTextBox.Location = new System.Drawing.Point(633, 43);
+            this.PatTextBox.Name = "PatTextBox";
+            this.PatTextBox.Size = new System.Drawing.Size(63, 16);
+            this.PatTextBox.TabIndex = 26;
+            this.PatTextBox.Text = "--------------";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.AutoSize = true;
+            this.NameTextBox.Location = new System.Drawing.Point(321, 43);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(51, 16);
+            this.NameTextBox.TabIndex = 21;
+            this.NameTextBox.Text = "label17";
+            // 
+            // LNameTextBox
+            // 
+            this.LNameTextBox.AutoSize = true;
+            this.LNameTextBox.Location = new System.Drawing.Point(9, 43);
+            this.LNameTextBox.Name = "LNameTextBox";
+            this.LNameTextBox.Size = new System.Drawing.Size(51, 16);
+            this.LNameTextBox.TabIndex = 19;
+            this.LNameTextBox.Text = "label17";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -161,7 +197,7 @@
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(1, 370);
+            this.groupBox4.Location = new System.Drawing.Point(2, 471);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -169,6 +205,24 @@
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Должностные данные";
+            // 
+            // PostCombo
+            // 
+            this.PostCombo.AutoSize = true;
+            this.PostCombo.Location = new System.Drawing.Point(12, 46);
+            this.PostCombo.Name = "PostCombo";
+            this.PostCombo.Size = new System.Drawing.Size(51, 16);
+            this.PostCombo.TabIndex = 29;
+            this.PostCombo.Text = "label17";
+            // 
+            // QualCombo
+            // 
+            this.QualCombo.AutoSize = true;
+            this.QualCombo.Location = new System.Drawing.Point(564, 46);
+            this.QualCombo.Name = "QualCombo";
+            this.QualCombo.Size = new System.Drawing.Size(51, 16);
+            this.QualCombo.TabIndex = 27;
+            this.QualCombo.Text = "label17";
             // 
             // dataGridView2
             // 
@@ -247,7 +301,7 @@
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(1, 684);
+            this.groupBox5.Location = new System.Drawing.Point(2, 369);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -255,6 +309,33 @@
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Контактные данные";
+            // 
+            // TgTextBox
+            // 
+            this.TgTextBox.AutoSize = true;
+            this.TgTextBox.Location = new System.Drawing.Point(433, 46);
+            this.TgTextBox.Name = "TgTextBox";
+            this.TgTextBox.Size = new System.Drawing.Size(63, 16);
+            this.TgTextBox.TabIndex = 32;
+            this.TgTextBox.Text = "--------------";
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.AutoSize = true;
+            this.EmailTextBox.Location = new System.Drawing.Point(223, 46);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(51, 16);
+            this.EmailTextBox.TabIndex = 31;
+            this.EmailTextBox.Text = "label17";
+            // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.AutoSize = true;
+            this.PhoneTextBox.Location = new System.Drawing.Point(12, 46);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(51, 16);
+            this.PhoneTextBox.TabIndex = 30;
+            this.PhoneTextBox.Text = "label17";
             // 
             // label3
             // 
@@ -305,6 +386,60 @@
             this.groupBox6.TabIndex = 13;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Паспортные данные";
+            // 
+            // ResTextBox
+            // 
+            this.ResTextBox.AutoSize = true;
+            this.ResTextBox.Location = new System.Drawing.Point(9, 170);
+            this.ResTextBox.Name = "ResTextBox";
+            this.ResTextBox.Size = new System.Drawing.Size(51, 16);
+            this.ResTextBox.TabIndex = 28;
+            this.ResTextBox.Text = "label17";
+            // 
+            // RegTextBox
+            // 
+            this.RegTextBox.AutoSize = true;
+            this.RegTextBox.Location = new System.Drawing.Point(9, 106);
+            this.RegTextBox.Name = "RegTextBox";
+            this.RegTextBox.Size = new System.Drawing.Size(51, 16);
+            this.RegTextBox.TabIndex = 26;
+            this.RegTextBox.Text = "label17";
+            // 
+            // WhenDate
+            // 
+            this.WhenDate.AutoSize = true;
+            this.WhenDate.Location = new System.Drawing.Point(813, 43);
+            this.WhenDate.Name = "WhenDate";
+            this.WhenDate.Size = new System.Drawing.Size(51, 16);
+            this.WhenDate.TabIndex = 22;
+            this.WhenDate.Text = "label17";
+            // 
+            // WhoTextBox
+            // 
+            this.WhoTextBox.AutoSize = true;
+            this.WhoTextBox.Location = new System.Drawing.Point(169, 43);
+            this.WhoTextBox.Name = "WhoTextBox";
+            this.WhoTextBox.Size = new System.Drawing.Size(51, 16);
+            this.WhoTextBox.TabIndex = 23;
+            this.WhoTextBox.Text = "label17";
+            // 
+            // PNumberTextBox
+            // 
+            this.PNumberTextBox.AutoSize = true;
+            this.PNumberTextBox.Location = new System.Drawing.Point(79, 43);
+            this.PNumberTextBox.Name = "PNumberTextBox";
+            this.PNumberTextBox.Size = new System.Drawing.Size(51, 16);
+            this.PNumberTextBox.TabIndex = 24;
+            this.PNumberTextBox.Text = "label17";
+            // 
+            // PSeriesTextBox
+            // 
+            this.PSeriesTextBox.AutoSize = true;
+            this.PSeriesTextBox.Location = new System.Drawing.Point(9, 43);
+            this.PSeriesTextBox.Name = "PSeriesTextBox";
+            this.PSeriesTextBox.Size = new System.Drawing.Size(51, 16);
+            this.PSeriesTextBox.TabIndex = 25;
+            this.PSeriesTextBox.Text = "label17";
             // 
             // label15
             // 
@@ -359,140 +494,6 @@
             this.label9.Size = new System.Drawing.Size(138, 16);
             this.label9.TabIndex = 9;
             this.label9.Text = "Место  регистрации";
-            // 
-            // LNameTextBox
-            // 
-            this.LNameTextBox.AutoSize = true;
-            this.LNameTextBox.Location = new System.Drawing.Point(9, 43);
-            this.LNameTextBox.Name = "LNameTextBox";
-            this.LNameTextBox.Size = new System.Drawing.Size(51, 16);
-            this.LNameTextBox.TabIndex = 19;
-            this.LNameTextBox.Text = "label17";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.AutoSize = true;
-            this.NameTextBox.Location = new System.Drawing.Point(321, 43);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(51, 16);
-            this.NameTextBox.TabIndex = 21;
-            this.NameTextBox.Text = "label17";
-            // 
-            // WhenDate
-            // 
-            this.WhenDate.AutoSize = true;
-            this.WhenDate.Location = new System.Drawing.Point(813, 43);
-            this.WhenDate.Name = "WhenDate";
-            this.WhenDate.Size = new System.Drawing.Size(51, 16);
-            this.WhenDate.TabIndex = 22;
-            this.WhenDate.Text = "label17";
-            // 
-            // WhoTextBox
-            // 
-            this.WhoTextBox.AutoSize = true;
-            this.WhoTextBox.Location = new System.Drawing.Point(169, 43);
-            this.WhoTextBox.Name = "WhoTextBox";
-            this.WhoTextBox.Size = new System.Drawing.Size(51, 16);
-            this.WhoTextBox.TabIndex = 23;
-            this.WhoTextBox.Text = "label17";
-            // 
-            // PNumberTextBox
-            // 
-            this.PNumberTextBox.AutoSize = true;
-            this.PNumberTextBox.Location = new System.Drawing.Point(79, 43);
-            this.PNumberTextBox.Name = "PNumberTextBox";
-            this.PNumberTextBox.Size = new System.Drawing.Size(51, 16);
-            this.PNumberTextBox.TabIndex = 24;
-            this.PNumberTextBox.Text = "label17";
-            // 
-            // PSeriesTextBox
-            // 
-            this.PSeriesTextBox.AutoSize = true;
-            this.PSeriesTextBox.Location = new System.Drawing.Point(9, 43);
-            this.PSeriesTextBox.Name = "PSeriesTextBox";
-            this.PSeriesTextBox.Size = new System.Drawing.Size(51, 16);
-            this.PSeriesTextBox.TabIndex = 25;
-            this.PSeriesTextBox.Text = "label17";
-            // 
-            // PatTextBox
-            // 
-            this.PatTextBox.AutoSize = true;
-            this.PatTextBox.Location = new System.Drawing.Point(633, 43);
-            this.PatTextBox.Name = "PatTextBox";
-            this.PatTextBox.Size = new System.Drawing.Size(0, 16);
-            this.PatTextBox.TabIndex = 26;
-            // 
-            // RegTextBox
-            // 
-            this.RegTextBox.AutoSize = true;
-            this.RegTextBox.Location = new System.Drawing.Point(9, 106);
-            this.RegTextBox.Name = "RegTextBox";
-            this.RegTextBox.Size = new System.Drawing.Size(51, 16);
-            this.RegTextBox.TabIndex = 26;
-            this.RegTextBox.Text = "label17";
-            // 
-            // QualCombo
-            // 
-            this.QualCombo.AutoSize = true;
-            this.QualCombo.Location = new System.Drawing.Point(564, 46);
-            this.QualCombo.Name = "QualCombo";
-            this.QualCombo.Size = new System.Drawing.Size(51, 16);
-            this.QualCombo.TabIndex = 27;
-            this.QualCombo.Text = "label17";
-            // 
-            // ResTextBox
-            // 
-            this.ResTextBox.AutoSize = true;
-            this.ResTextBox.Location = new System.Drawing.Point(9, 170);
-            this.ResTextBox.Name = "ResTextBox";
-            this.ResTextBox.Size = new System.Drawing.Size(51, 16);
-            this.ResTextBox.TabIndex = 28;
-            this.ResTextBox.Text = "label17";
-            // 
-            // PostCombo
-            // 
-            this.PostCombo.AutoSize = true;
-            this.PostCombo.Location = new System.Drawing.Point(12, 46);
-            this.PostCombo.Name = "PostCombo";
-            this.PostCombo.Size = new System.Drawing.Size(51, 16);
-            this.PostCombo.TabIndex = 29;
-            this.PostCombo.Text = "label17";
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.AutoSize = true;
-            this.BirthDate.Location = new System.Drawing.Point(11, 102);
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.Size = new System.Drawing.Size(51, 16);
-            this.BirthDate.TabIndex = 27;
-            this.BirthDate.Text = "label17";
-            // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.AutoSize = true;
-            this.PhoneTextBox.Location = new System.Drawing.Point(12, 46);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(51, 16);
-            this.PhoneTextBox.TabIndex = 30;
-            this.PhoneTextBox.Text = "label17";
-            // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.AutoSize = true;
-            this.EmailTextBox.Location = new System.Drawing.Point(223, 46);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(51, 16);
-            this.EmailTextBox.TabIndex = 31;
-            this.EmailTextBox.Text = "label17";
-            // 
-            // TgTextBox
-            // 
-            this.TgTextBox.AutoSize = true;
-            this.TgTextBox.Location = new System.Drawing.Point(433, 46);
-            this.TgTextBox.Name = "TgTextBox";
-            this.TgTextBox.Size = new System.Drawing.Size(51, 16);
-            this.TgTextBox.TabIndex = 32;
-            this.TgTextBox.Text = "label17";
             // 
             // ShowSecondSingleEmployee
             // 

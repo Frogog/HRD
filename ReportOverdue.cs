@@ -25,11 +25,7 @@ namespace HRD
         }
         private System.Data.SqlClient.SqlConnection connect;
         String connectionString = "Data Source=LAPTOP-3UFK0395\\SQLEXPRESS;Initial Catalog=HRD_DB;Integrated Security=True";
-        String[][] testData = {
-            new String[]{ "Проект1", "10.10.2020", "10.10.2021"},
-            new String[]{ "Проект2","10.12.2020","10.05.2021"},
-            new String[]{ "Проект3", "10.03.2021", "10.05.2021" },
-            };
+        private List<Resp> resp = new List<Resp>();
         private void createB_Click(object sender, EventArgs e)
         {
             if (!ValidateReport()) return;
@@ -106,7 +102,7 @@ namespace HRD
             connect.Close();
 
 
-            string sql = "SELECT Post.Name AS PostName FROM Employee INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Employee.ID_Emp = "+comboBox1.SelectedValue+";";
+            string sql = "SELECT Post.Name AS PostName FROM Employee INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Employee.ID_Emp = "+ resp[comboBox1.SelectedIndex].id + ";";
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
             connect.Open();
             command = connect.CreateCommand();
@@ -119,11 +115,39 @@ namespace HRD
             this.Close();
             Process.Start(@"ReportOverdue.docx");
         }
+        private void UpdateResp()
+        {
+            resp.Clear();
+            comboBox1.Items.Clear();
+            string sql = "SELECT ID_Emp, LName, Employee.Name, Employee.Pat, Qualification.Name AS QualName, Post.Name AS PostName FROM Employee INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            comboBox1.Items.Add("Не выбрано");
+            resp.Add(new Resp("Не выбрано", "Не выбрано"));
+            while (inv.Read())
+            {
+                string lastName = inv["LName"].ToString();
+                string firstName = inv["Name"].ToString();
+                string patronymic = inv["Pat"].ToString();
 
+                string FIO = lastName;
+                if (!string.IsNullOrEmpty(firstName))
+                    FIO += " " + firstName.Substring(0, Math.Min(1, firstName.Length)) + ".";
+                if (!string.IsNullOrEmpty(patronymic))
+                    FIO += " " + patronymic.Substring(0, Math.Min(1, patronymic.Length)) + ".";
+                comboBox1.Items.Add(FIO);
+                resp.Add(new Resp(inv["ID_Emp"].ToString(), FIO));
+            }
+            comboBox1.SelectedIndex = 0;
+        }
         private void ReportOverdue_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "hRD_DBDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            //this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
+            UpdateResp();
             dateTimePicker1.Value = DateTime.Now.AddMonths(-1);
         }
         private bool ValidateReport()
@@ -140,7 +164,7 @@ namespace HRD
                 ShowError("Дата начала не может быть в будущем!", dateTimePicker1);
                 return false;
             }
-            if (comboBox1.SelectedValue == null)
+            if (comboBox1.Text == "Не выбрано")
             {
                 ShowError("Составляющий должен быть выбран!", comboBox1);
                 return false;
@@ -163,8 +187,15 @@ namespace HRD
                 if ((result == DialogResult.OK) || (result == DialogResult.Cancel))
                 {
                     string responsable = showAllEmployeeForm.selectedResponsable;
-                    this.employeeTableAdapter.Fill(this.hRD_DBDataSet.Employee);
-                    if (responsable != "") comboBox1.SelectedValue = responsable;
+                    UpdateResp();
+                    if (responsable != "")
+                    {
+                        int index = resp.FindIndex(p => p.id == responsable);
+                        if (index != -1)
+                        {
+                            comboBox1.SelectedIndex = index;
+                        }
+                    }
                 }
             }
         }

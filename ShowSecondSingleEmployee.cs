@@ -34,10 +34,12 @@ namespace HRD
             SqlDataReader inv = command.ExecuteReader();
             while (inv.Read())
             {
-                if (inv["Pat"].ToString() == "") label14.Visible = false;
                 LNameTextBox.Text = inv["LName"].ToString();
                 NameTextBox.Text = inv["Name"].ToString();
-                PatTextBox.Text = inv["Pat"].ToString();
+                if (inv["Pat"].ToString() != "") 
+                {
+                    PatTextBox.Text = inv["Pat"].ToString();
+                } else PatTextBox.Text= "-----------------------------";
                 BirthDate.Text = Convert.ToDateTime(inv["DBirth"]).ToShortDateString();
 
                 // Паспортные данные
@@ -50,8 +52,15 @@ namespace HRD
 
                 // Контактные данные
                 PhoneTextBox.Text = inv["Phone"].ToString();
-                EmailTextBox.Text = inv["Email"].ToString();
-                TgTextBox.Text = inv["Tg"].ToString();
+                if (inv["Email"].ToString() != "")
+                {
+                    EmailTextBox.Text = inv["Email"].ToString();
+                }
+                else EmailTextBox.Text = "--------------";
+                if (inv["Tg"].ToString() != "")
+                {
+                    TgTextBox.Text = inv["Tg"].ToString();
+                } else TgTextBox.Text = "--------------";
 
                 // Должностные данные
                 PostCombo.Text = inv["PostName"].ToString();

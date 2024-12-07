@@ -61,7 +61,7 @@ namespace HRD
                 if (!string.IsNullOrEmpty(firstName))
                     FIO += " " + firstName.Substring(0, Math.Min(1, firstName.Length)) + ".";
                 if (!string.IsNullOrEmpty(patronymic))
-                    FIO +=patronymic.Substring(0, Math.Min(1, patronymic.Length)) + ".";
+                    FIO += " " + patronymic.Substring(0, Math.Min(1, patronymic.Length)) + ".";
                 RespCombo.Items.Add(FIO);
                 resp.Add(new Resp(inv["ID_Emp"].ToString(), FIO));
             }

@@ -38,8 +38,14 @@ namespace HRD
                 DCreate2.Text = Convert.ToDateTime(inv["CD"]).ToShortDateString();
                 DPStart.Text = Convert.ToDateTime(inv["PDS"]).ToShortDateString();
                 DPEnd.Text = Convert.ToDateTime(inv["PDE"]).ToShortDateString();
-                if (inv["FDS"].ToString()!="" )DFStart.Text = Convert.ToDateTime(inv["FDS"]).ToShortDateString();
-                if (inv["FDE"].ToString() != "") DFEnd.Text = Convert.ToDateTime(inv["FDE"]).ToShortDateString();
+                if (inv["FDS"].ToString() != "")
+                {
+                    DFStart.Text = Convert.ToDateTime(inv["FDS"]).ToShortDateString();
+                } else DFStart.Text = "-----------------------------";
+                if (inv["FDE"].ToString() != "")
+                {
+                    DFEnd.Text = Convert.ToDateTime(inv["FDE"]).ToShortDateString();
+                } else DFEnd.Text = "-----------------------------";
 
             }
             sql = "SELECT ID_Emp, LName, Employee.Name as Name, Pat, Post.Name AS PostName, Qualification.Name AS QualName FROM Project INNER JOIN Employee_Project ON Project.ID_Pr = Employee_Project.Pr_ID INNER JOIN Employee ON Employee_Project.Emp_ID = Employee.ID_Emp INNER JOIN Post ON Employee.Po_ID = Post.ID_Po INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual WHERE ID_Pr=" + id_p + "AND Resp=0";

@@ -31,6 +31,7 @@
             this.mainLable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.RespCombo = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -40,6 +41,13 @@
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DPEnd = new System.Windows.Forms.Label();
+            this.DFStart = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.Label();
+            this.DescriptionTextBox = new System.Windows.Forms.Label();
+            this.DFEnd = new System.Windows.Forms.Label();
+            this.DPStart = new System.Windows.Forms.Label();
+            this.DCreate2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,14 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.DCreate2 = new System.Windows.Forms.Label();
-            this.DPStart = new System.Windows.Forms.Label();
-            this.DFEnd = new System.Windows.Forms.Label();
-            this.DescriptionTextBox = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.Label();
-            this.DFStart = new System.Windows.Forms.Label();
-            this.DPEnd = new System.Windows.Forms.Label();
-            this.RespCombo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -77,7 +77,7 @@
             this.panel1.Location = new System.Drawing.Point(22, 42);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1309, 727);
+            this.panel1.Size = new System.Drawing.Size(1309, 621);
             this.panel1.TabIndex = 35;
             // 
             // groupBox2
@@ -86,7 +86,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(4, 322);
+            this.groupBox2.Location = new System.Drawing.Point(4, 217);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -94,6 +94,15 @@
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Формирование команды";
+            // 
+            // RespCombo
+            // 
+            this.RespCombo.AutoSize = true;
+            this.RespCombo.Location = new System.Drawing.Point(9, 43);
+            this.RespCombo.Name = "RespCombo";
+            this.RespCombo.Size = new System.Drawing.Size(51, 16);
+            this.RespCombo.TabIndex = 51;
+            this.RespCombo.Text = "label17";
             // 
             // label7
             // 
@@ -195,15 +204,77 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1301, 311);
+            this.groupBox1.Size = new System.Drawing.Size(1301, 205);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Общие данные";
             // 
+            // DPEnd
+            // 
+            this.DPEnd.AutoSize = true;
+            this.DPEnd.Location = new System.Drawing.Point(204, 101);
+            this.DPEnd.Name = "DPEnd";
+            this.DPEnd.Size = new System.Drawing.Size(51, 16);
+            this.DPEnd.TabIndex = 50;
+            this.DPEnd.Text = "label16";
+            // 
+            // DFStart
+            // 
+            this.DFStart.AutoSize = true;
+            this.DFStart.Location = new System.Drawing.Point(13, 161);
+            this.DFStart.Name = "DFStart";
+            this.DFStart.Size = new System.Drawing.Size(123, 16);
+            this.DFStart.TabIndex = 49;
+            this.DFStart.Text = "-----------------------------";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.AutoSize = true;
+            this.NameTextBox.Location = new System.Drawing.Point(9, 43);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(51, 16);
+            this.NameTextBox.TabIndex = 48;
+            this.NameTextBox.Text = "label14";
+            // 
+            // DescriptionTextBox
+            // 
+            this.DescriptionTextBox.AutoSize = true;
+            this.DescriptionTextBox.Location = new System.Drawing.Point(602, 46);
+            this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.Size = new System.Drawing.Size(51, 16);
+            this.DescriptionTextBox.TabIndex = 47;
+            this.DescriptionTextBox.Text = "label13";
+            // 
+            // DFEnd
+            // 
+            this.DFEnd.AutoSize = true;
+            this.DFEnd.Location = new System.Drawing.Point(205, 161);
+            this.DFEnd.Name = "DFEnd";
+            this.DFEnd.Size = new System.Drawing.Size(0, 16);
+            this.DFEnd.TabIndex = 46;
+            // 
+            // DPStart
+            // 
+            this.DPStart.AutoSize = true;
+            this.DPStart.Location = new System.Drawing.Point(12, 101);
+            this.DPStart.Name = "DPStart";
+            this.DPStart.Size = new System.Drawing.Size(51, 16);
+            this.DPStart.TabIndex = 45;
+            this.DPStart.Text = "label11";
+            // 
+            // DCreate2
+            // 
+            this.DCreate2.AutoSize = true;
+            this.DCreate2.Location = new System.Drawing.Point(381, 43);
+            this.DCreate2.Name = "DCreate2";
+            this.DCreate2.Size = new System.Drawing.Size(51, 16);
+            this.DCreate2.TabIndex = 44;
+            this.DCreate2.Text = "label10";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 82);
+            this.label9.Location = new System.Drawing.Point(599, 25);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 16);
@@ -213,7 +284,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(911, 242);
+            this.label2.Location = new System.Drawing.Point(9, 140);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 16);
@@ -223,7 +294,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1104, 242);
+            this.label3.Location = new System.Drawing.Point(201, 140);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 16);
@@ -253,7 +324,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 242);
+            this.label5.Location = new System.Drawing.Point(8, 80);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 16);
@@ -263,88 +334,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 242);
+            this.label4.Location = new System.Drawing.Point(200, 80);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "План.  дата завершения";
             // 
-            // DCreate2
-            // 
-            this.DCreate2.AutoSize = true;
-            this.DCreate2.Location = new System.Drawing.Point(381, 43);
-            this.DCreate2.Name = "DCreate2";
-            this.DCreate2.Size = new System.Drawing.Size(51, 16);
-            this.DCreate2.TabIndex = 44;
-            this.DCreate2.Text = "label10";
-            // 
-            // DPStart
-            // 
-            this.DPStart.AutoSize = true;
-            this.DPStart.Location = new System.Drawing.Point(12, 263);
-            this.DPStart.Name = "DPStart";
-            this.DPStart.Size = new System.Drawing.Size(51, 16);
-            this.DPStart.TabIndex = 45;
-            this.DPStart.Text = "label11";
-            // 
-            // DFEnd
-            // 
-            this.DFEnd.AutoSize = true;
-            this.DFEnd.Location = new System.Drawing.Point(1108, 263);
-            this.DFEnd.Name = "DFEnd";
-            this.DFEnd.Size = new System.Drawing.Size(0, 16);
-            this.DFEnd.TabIndex = 46;
-            // 
-            // DescriptionTextBox
-            // 
-            this.DescriptionTextBox.AutoSize = true;
-            this.DescriptionTextBox.Location = new System.Drawing.Point(9, 102);
-            this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(51, 16);
-            this.DescriptionTextBox.TabIndex = 47;
-            this.DescriptionTextBox.Text = "label13";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.AutoSize = true;
-            this.NameTextBox.Location = new System.Drawing.Point(9, 43);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(51, 16);
-            this.NameTextBox.TabIndex = 48;
-            this.NameTextBox.Text = "label14";
-            // 
-            // DFStart
-            // 
-            this.DFStart.AutoSize = true;
-            this.DFStart.Location = new System.Drawing.Point(915, 263);
-            this.DFStart.Name = "DFStart";
-            this.DFStart.Size = new System.Drawing.Size(0, 16);
-            this.DFStart.TabIndex = 49;
-            // 
-            // DPEnd
-            // 
-            this.DPEnd.AutoSize = true;
-            this.DPEnd.Location = new System.Drawing.Point(205, 263);
-            this.DPEnd.Name = "DPEnd";
-            this.DPEnd.Size = new System.Drawing.Size(51, 16);
-            this.DPEnd.TabIndex = 50;
-            this.DPEnd.Text = "label16";
-            // 
-            // RespCombo
-            // 
-            this.RespCombo.AutoSize = true;
-            this.RespCombo.Location = new System.Drawing.Point(9, 43);
-            this.RespCombo.Name = "RespCombo";
-            this.RespCombo.Size = new System.Drawing.Size(51, 16);
-            this.RespCombo.TabIndex = 51;
-            this.RespCombo.Text = "label17";
-            // 
             // ShowSecondSingleProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 788);
+            this.ClientSize = new System.Drawing.Size(1349, 677);
             this.Controls.Add(this.mainLable);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

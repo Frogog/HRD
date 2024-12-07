@@ -79,8 +79,6 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.employeeBindingSource;
-            this.comboBox1.DisplayMember = "LName";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(20, 123);
@@ -88,7 +86,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(245, 24);
             this.comboBox1.TabIndex = 41;
-            this.comboBox1.ValueMember = "ID_Emp";
             // 
             // employeeBindingSource
             // 
