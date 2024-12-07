@@ -68,9 +68,6 @@
             this.checkPostB = new System.Windows.Forms.Button();
             this.deleteSkillB = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSkillB = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.QualCombo = new System.Windows.Forms.ComboBox();
@@ -108,6 +105,9 @@
             this.postTableAdapter = new HRD.HRD_DBDataSetTableAdapters.PostTableAdapter();
             this.qualificationTableAdapter = new HRD.HRD_DBDataSetTableAdapters.QualificationTableAdapter();
             this.moreB = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SkillLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showAllEmployeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hRD_DBDataSet)).BeginInit();
@@ -535,30 +535,6 @@
             this.dataGridView2.TabIndex = 16;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
-            // 
-            // SkillName
-            // 
-            this.SkillName.HeaderText = "Наименование";
-            this.SkillName.MinimumWidth = 6;
-            this.SkillName.Name = "SkillName";
-            this.SkillName.ReadOnly = true;
-            this.SkillName.Width = 320;
-            // 
-            // SkillLevel
-            // 
-            this.SkillLevel.HeaderText = "Уровень владения";
-            this.SkillLevel.MinimumWidth = 6;
-            this.SkillLevel.Name = "SkillLevel";
-            this.SkillLevel.ReadOnly = true;
-            this.SkillLevel.Width = 200;
-            // 
             // addSkillB
             // 
             this.addSkillB.Location = new System.Drawing.Point(775, 112);
@@ -911,6 +887,30 @@
             this.moreB.UseVisualStyleBackColor = true;
             this.moreB.Click += new System.EventHandler(this.moreB_Click);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 125;
+            // 
+            // SkillName
+            // 
+            this.SkillName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SkillName.HeaderText = "Наименование";
+            this.SkillName.MinimumWidth = 6;
+            this.SkillName.Name = "SkillName";
+            this.SkillName.ReadOnly = true;
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.HeaderText = "Уровень владения";
+            this.SkillLevel.MinimumWidth = 6;
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.ReadOnly = true;
+            // 
             // ShowAllEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1005,9 +1005,6 @@
         private System.Windows.Forms.Button checkPostB;
         private System.Windows.Forms.Button checkQualificationB;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SkillName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SkillLevel;
         private HRD_DBDataSet hRD_DBDataSet;
         private System.Windows.Forms.BindingSource showAllEmployeeBindingSource;
         private HRD_DBDataSetTableAdapters.ShowAllEmployeeTableAdapter showAllEmployeeTableAdapter;
@@ -1034,6 +1031,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tgDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button moreB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SkillLevel;
     }
 }
 

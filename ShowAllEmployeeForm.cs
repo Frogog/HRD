@@ -583,7 +583,7 @@ namespace HRD
 
         private void moreB_Click(object sender, EventArgs e)
         {
-            ShowSingleEmployee showSingleEmployee = new ShowSingleEmployee(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ShowSecondSingleEmployee showSingleEmployee = new ShowSecondSingleEmployee(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             showSingleEmployee.ShowDialog();
         }
     }

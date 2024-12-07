@@ -200,7 +200,6 @@ namespace HRD
                         var index = employeeTeam.IndexOf(existingEmployee);
                         employeeTeam[index] = updatedEmployee;
                     }
-                    MessageBox.Show(updatedEmployee.ID_Emp+" "+ RespCombo.SelectedValue.ToString());
                 };
                 showAllEmployeeForm.OnEmployeeDeleted += (employeeId) =>
                 {
@@ -448,7 +447,7 @@ namespace HRD
 
         private void moreB_Click(object sender, EventArgs e)
         {
-            ShowSingleProject showSingleProject = new ShowSingleProject(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            ShowSecondSingleProject showSingleProject = new ShowSecondSingleProject(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             showSingleProject.ShowDialog();
         }
     }

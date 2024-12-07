@@ -122,6 +122,18 @@
     <Compile Include="ShowAllSkillForm.Designer.cs">
       <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowSecondSingleEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowSecondSingleEmployee.Designer.cs">
+      <DependentUpon>ShowSecondSingleEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowSecondSingleProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowSecondSingleProject.Designer.cs">
+      <DependentUpon>ShowSecondSingleProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowSingleEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShowAllSkillForm.resx">
       <DependentUpon>ShowAllSkillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowSecondSingleEmployee.resx">
+      <DependentUpon>ShowSecondSingleEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowSecondSingleProject.resx">
+      <DependentUpon>ShowSecondSingleProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowSingleEmployee.resx">
       <DependentUpon>ShowSingleEmployee.cs</DependentUpon>
