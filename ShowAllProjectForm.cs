@@ -43,7 +43,7 @@ namespace HRD
         }
         private void changeB_Click(object sender, EventArgs e)
         {
-            TurnChangeMode();
+            if (dataGridView1.RowCount != 0) TurnChangeMode();
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
@@ -274,76 +274,74 @@ namespace HRD
         }
         private void TurnChangeMode()
         {
-            if (dataGridView1.Rows.Count != 0)
+            showPanel.Visible = false;
+            panel1.Visible = true;
+            addB.Enabled = false;
+            changeB.Enabled = false;
+            moreB.Enabled = false;
+            deleteB.Enabled = false;
+            confirmB.Visible = true;
+            canselB.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            DFEnd.Visible = true;
+            DFStart.Visible = true;
+            addMode = false;
+            NameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            DescriptionTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            DCreate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            DPStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            DPEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "")
             {
-                showPanel.Visible = false;
-                panel1.Visible = true;
-                addB.Enabled = false;
-                changeB.Enabled = false;
-                moreB.Enabled = false;
-                deleteB.Enabled = false;
-                confirmB.Visible = true;
-                canselB.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                DFEnd.Visible = true;
-                DFStart.Visible = true;
-                addMode = false;
-                NameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                DescriptionTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                DCreate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                DPStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-                DPEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "") 
-                {
-                    DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
-                }
-                else DFStart.Value = DPStart.Value.AddMonths(6);
-                if (dataGridView1.CurrentRow.Cells[7].Value.ToString() != "")
-                {
-                    DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
-                }
-                else DFEnd.Value = DPEnd.Value.AddMonths(6);
-                string sql = "SELECT Emp_ID FROM Employee_Project WHERE Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + 
-                    "AND Resp = 1;";
-                connect = new System.Data.SqlClient.SqlConnection(connectionString);
-                connect.Open();
-                SqlCommand command = connect.CreateCommand();
-                command.CommandText = sql;
-                string id_e = command.ExecuteScalar().ToString();
-                RespCombo.SelectedValue = id_e;
-                connect.Close();
-                sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0 AND Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() +"";
-                connect = new System.Data.SqlClient.SqlConnection(connectionString);
-                connect.Open();
-                command = connect.CreateCommand();
-                command.CommandText = sql;
-                SqlDataReader inv = command.ExecuteReader();
-                string[] row = new string[5];
-                while (inv.Read())
-                {
-                    employeeTeam.Add(new EmployeeTeam(
-                        inv["Emp_ID"].ToString(),
-                        inv["LName"].ToString(), 
-                        inv["EmployeeName"].ToString(),
-                        inv["Pat"].ToString(),
-                        inv["PostName"].ToString(),
-                        inv["QualificationName"].ToString()
-                        ));
-                    row[0] = inv["LName"].ToString();
-                    row[1] = inv["EmployeeName"].ToString();
-                    row[2] = inv["Pat"].ToString();
-                    row[3] = inv["PostName"].ToString();
-                    row[4] = inv["QualificationName"].ToString();
-                    dataGridView2.Rows.Add(row);
-                }
-                connect.Close();
+                DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[6].Value.ToString());
             }
+            else DFStart.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            if (dataGridView1.CurrentRow.Cells[7].Value.ToString() != "")
+            {
+                DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+            }
+            else DFEnd.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+            string sql = "SELECT Emp_ID FROM Employee_Project WHERE Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() +
+                "AND Resp = 1;";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            SqlCommand command = connect.CreateCommand();
+            command.CommandText = sql;
+            string id_e = command.ExecuteScalar().ToString();
+            RespCombo.SelectedValue = id_e;
+            connect.Close();
+            sql = "SELECT Emp_ID, LName, Employee.Name AS EmployeeName, Pat, Post.Name AS PostName, Qualification.Name AS QualificationName, Resp FROM Employee INNER JOIN Employee_Project ON Employee.ID_Emp = Employee_Project.Emp_ID INNER JOIN Qualification ON Employee.Qual_ID = Qualification.ID_Qual INNER JOIN Post ON Employee.Po_ID = Post.ID_Po WHERE Resp = 0 AND Pr_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "";
+            connect = new System.Data.SqlClient.SqlConnection(connectionString);
+            connect.Open();
+            command = connect.CreateCommand();
+            command.CommandText = sql;
+            SqlDataReader inv = command.ExecuteReader();
+            string[] row = new string[5];
+            while (inv.Read())
+            {
+                employeeTeam.Add(new EmployeeTeam(
+                    inv["Emp_ID"].ToString(),
+                    inv["LName"].ToString(),
+                    inv["EmployeeName"].ToString(),
+                    inv["Pat"].ToString(),
+                    inv["PostName"].ToString(),
+                    inv["QualificationName"].ToString()
+                    ));
+                row[0] = inv["LName"].ToString();
+                row[1] = inv["EmployeeName"].ToString();
+                row[2] = inv["Pat"].ToString();
+                row[3] = inv["PostName"].ToString();
+                row[4] = inv["QualificationName"].ToString();
+                dataGridView2.Rows.Add(row);
+            }
+            connect.Close();
         }
         private void TurnClearData()
         {
             NameTextBox.Text = string.Empty;
             DescriptionTextBox.Text = string.Empty;
+            DCreate.Value = DateTime.Now;
             DPStart.Value = DateTime.Now.AddDays(7);
             DPEnd.Value = DateTime.Now.AddDays(7).AddMonths(1);
             DFStart.Value = DateTime.Now.AddDays(7);

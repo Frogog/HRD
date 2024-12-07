@@ -62,7 +62,7 @@ namespace HRD
         private void changeB_Click(object sender, EventArgs e)
         {
             
-            TurnChangeMode();
+            if (dataGridView1.RowCount!=0)TurnChangeMode();
         }
         private void deleteB_Click(object sender, EventArgs e)
         {
@@ -309,24 +309,23 @@ namespace HRD
             confirmB.Visible = true;
             canselB.Visible = true;
             addMode = false;
-            if (dataGridView1.Rows.Count != 0)
-            {
-                NameTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                LNameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                PatTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                PSeriesTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                PNumberTextBox.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                WhoTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                RegTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                ResTextBox.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-                BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-                WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
-                EmailTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
-                TgTextBox.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
-                PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[17].Value.ToString();
-            }
+
+            NameTextBox.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            LNameTextBox.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            PatTextBox.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            PSeriesTextBox.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString().Trim();
+            PNumberTextBox.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString().Trim();
+            WhoTextBox.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            RegTextBox.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            ResTextBox.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            PostCombo.SelectedValue = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+            QualCombo.SelectedValue = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            BirthDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            WhenDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+            EmailTextBox.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
+            TgTextBox.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
+            PhoneTextBox.Text = dataGridView1.CurrentRow.Cells[17].Value.ToString();
+
             string sql = "SELECT Skill_ID, Name, Prof FROM Skill INNER JOIN Employee_Skill ON ID_Skill = Skill_ID WHERE Emp_ID=" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + ";";
             connect = new System.Data.SqlClient.SqlConnection(connectionString);
             connect.Open();
@@ -343,6 +342,7 @@ namespace HRD
                 dataGridView2.Rows.Add(row);
             }
             connect.Close();
+
         }
         private void TurnClearData()
         {
@@ -384,10 +384,9 @@ namespace HRD
                 dataGridView2.Rows[n_s].Cells[0].Selected = true;
             }
         }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.Tag != null)
+            if ((this.Tag != null)&& (e.RowIndex >= 0))
             {
                 if (this.Tag.ToString() == "checkTeam")
                 {
